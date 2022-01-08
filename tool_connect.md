@@ -15,6 +15,10 @@ A connection can have option, option define the route. for example, there is one
 - Hold Alt key (MAC: Opt), click on the first half of a connection then pick another node to re-select its' staring node
 - Hold Alt key (MAC: Opt), click on the second half of a connection then pick another node to re-select it's ending node
 
+## Cancel connecting
+
+If you would like to cancel while connecting, double click on blank area of canvas, or press ESC
+
 ## Delete a connection
 
 - Mouse over a connection, then press Backspace or Delete
