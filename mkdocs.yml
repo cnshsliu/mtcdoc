@@ -1,0 +1,47 @@
+site_name: MetatoCome
+site_description: MetatoCome, Workflow, Hyper Automation
+site_author: Lucas Kehong Liu
+copyright: Copyright Lucas-Kehong-Liu, 2003-2022
+theme:
+  name: material
+  shortcuts:
+        help: 191    # ?
+        next: 78     # n
+        previous: 80 # p
+        search: 83  #s
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+nav:
+  - Home: README.md
+  - Account:
+    - Register: 'account/register.md'
+  - Template: 
+    - Concept: "template/concept.md"
+    - Template Browser: "template/explorer.md"
+    - Design Tempalte: "template/design.md"
+    - Designer: "template/designer.md"
+    - Role Definition: "designer/rds.md"
+  - Process: 
+    - Start a process: "process/start.md"
+    - Process explorer: "process/explorer.md"
+    - Process overview: "process/overview.md"
+    - Work log: "process/worklog.md"
+    - Process Monitor: "process/monitor.md"
+  - Work: 
+    - Worklist : "work/worklist.md"
+    - Work Page : "work/workpage.md"
+  - Setting:
+    - Personal: 'about.md'
+    - Org: 'about.md'
+    - Orgchart: 'about.md'
+    - List: 'about.md'
+    - Invitation: 'account/invitation.md'
+    - Join Approval: 'account/join.md'
+  - For Developers:
+    - API: 'about.md'
+  - About: about.md
+
