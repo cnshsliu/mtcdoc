@@ -1,0 +1,1500 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="MetatoCome, Workflow, Hyper Automation">
+      
+      
+        <meta name="author" content="Lucas Kehong Liu">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.4">
+    
+    
+      
+        <title>Designer - MetatoCome</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bb3983ee.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#workflow-designer" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="MetatoCome" class="md-header__button md-logo" aria-label="MetatoCome" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            MetatoCome
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Designer
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="MetatoCome" class="md-nav__button md-logo" aria-label="MetatoCome" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    MetatoCome
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Account
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Account" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Account
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../account/register/" class="md-nav__link">
+        Register
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Template
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Template" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Template
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concept/" class="md-nav__link">
+        Concept
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../explorer/" class="md-nav__link">
+        Template Browser
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design/" class="md-nav__link">
+        Design Tempalte
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Designer
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Designer
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pointer" class="md-nav__link">
+    Pointer 
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#activity" class="md-nav__link">
+    Activity 
+  </a>
+  
+    <nav class="md-nav" aria-label="Activity ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operations" class="md-nav__link">
+    Operations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#participant" class="md-nav__link">
+    Participant
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instruction" class="md-nav__link">
+    Instruction
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    Variables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inform" class="md-nav__link">
+    Inform 
+  </a>
+  
+    <nav class="md-nav" aria-label="Inform ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operations_1" class="md-nav__link">
+    Operations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recipiants" class="md-nav__link">
+    Recipiants:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subject-and-content" class="md-nav__link">
+    Subject and Content:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#script" class="md-nav__link">
+    Script 
+  </a>
+  
+    <nav class="md-nav" aria-label="Script ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operations_2" class="md-nav__link">
+    Operations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sync-mode" class="md-nav__link">
+    Sync Mode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#async-mode" class="md-nav__link">
+    Async Mode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code" class="md-nav__link">
+    Code
+  </a>
+  
+    <nav class="md-nav" aria-label="Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#return-value" class="md-nav__link">
+    Return value
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#insert-any-variable" class="md-nav__link">
+    Insert any variable
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-value-of-variable" class="md-nav__link">
+    Get value of variable.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-inner-team" class="md-nav__link">
+    Set inner Team
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timer" class="md-nav__link">
+    Timer 
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sub-process" class="md-nav__link">
+    Sub Process 
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#and" class="md-nav__link">
+    AND 
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#or" class="md-nav__link">
+    OR 
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ground" class="md-nav__link">
+    Ground 
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connect" class="md-nav__link">
+    Connect 
+  </a>
+  
+    <nav class="md-nav" aria-label="Connect ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build-a-connection" class="md-nav__link">
+    Build a connection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#move-a-connection" class="md-nav__link">
+    Move a connection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cancel-connecting" class="md-nav__link">
+    Cancel connecting
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-a-connection" class="md-nav__link">
+    Delete a connection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#give-connection-a-value" class="md-nav__link">
+    Give connection a value
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../designer/rds/" class="md-nav__link">
+        Role Definition
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Process
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Process" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Process
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../process/start/" class="md-nav__link">
+        Start a process
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../process/explorer/" class="md-nav__link">
+        Process explorer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../process/overview/" class="md-nav__link">
+        Process overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../process/worklog/" class="md-nav__link">
+        Work log
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../process/monitor/" class="md-nav__link">
+        Process Monitor
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Work
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Work" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Work
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../work/worklist/" class="md-nav__link">
+        Worklist
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../work/workpage/" class="md-nav__link">
+        Work Page
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Setting
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Setting" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Setting
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        Personal
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        Org
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        Orgchart
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        List
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../account/invitation.md" class="md-nav__link">
+        Invitation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../account/join.md" class="md-nav__link">
+        Join Approval
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          For Developers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="For Developers" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          For Developers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        API
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pointer" class="md-nav__link">
+    Pointer 
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#activity" class="md-nav__link">
+    Activity 
+  </a>
+  
+    <nav class="md-nav" aria-label="Activity ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operations" class="md-nav__link">
+    Operations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#participant" class="md-nav__link">
+    Participant
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instruction" class="md-nav__link">
+    Instruction
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    Variables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inform" class="md-nav__link">
+    Inform 
+  </a>
+  
+    <nav class="md-nav" aria-label="Inform ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operations_1" class="md-nav__link">
+    Operations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recipiants" class="md-nav__link">
+    Recipiants:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subject-and-content" class="md-nav__link">
+    Subject and Content:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#script" class="md-nav__link">
+    Script 
+  </a>
+  
+    <nav class="md-nav" aria-label="Script ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operations_2" class="md-nav__link">
+    Operations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sync-mode" class="md-nav__link">
+    Sync Mode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#async-mode" class="md-nav__link">
+    Async Mode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code" class="md-nav__link">
+    Code
+  </a>
+  
+    <nav class="md-nav" aria-label="Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#return-value" class="md-nav__link">
+    Return value
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#insert-any-variable" class="md-nav__link">
+    Insert any variable
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-value-of-variable" class="md-nav__link">
+    Get value of variable.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-inner-team" class="md-nav__link">
+    Set inner Team
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timer" class="md-nav__link">
+    Timer 
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sub-process" class="md-nav__link">
+    Sub Process 
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#and" class="md-nav__link">
+    AND 
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#or" class="md-nav__link">
+    OR 
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ground" class="md-nav__link">
+    Ground 
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connect" class="md-nav__link">
+    Connect 
+  </a>
+  
+    <nav class="md-nav" aria-label="Connect ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build-a-connection" class="md-nav__link">
+    Build a connection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#move-a-connection" class="md-nav__link">
+    Move a connection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cancel-connecting" class="md-nav__link">
+    Cancel connecting
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-a-connection" class="md-nav__link">
+    Delete a connection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#give-connection-a-value" class="md-nav__link">
+    Give connection a value
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+<h1 id="workflow-designer">Workflow Designer</h1>
+<p>Workflow Designer provides graphical user interface to design a workflow by dragging and dropping.</p>
+<p><img alt="desginer" src="/img/workflow_designer.png" /></p>
+<p>On the left is the toolbox, click each tool to use it.</p>
+<h2 id="pointer">Pointer <img src="/img/svg/POINTER.svg" width="24px" height="24px"/></h2>
+<p><em>Press ESC anytime to select Pointer.</em></p>
+<p>Under Pointer mode, you are able to:</p>
+<ol>
+<li>select a node or connect by clicking it.</li>
+<li>open property window of node or connect by shift-clicking it</li>
+<li>move a node by dragging it.</li>
+<li>move a connection by clicking it while holding ALT key (Opt key on Mac OsX), release ALT key, then click on another node should be connected.</li>
+<li>pan canvas by clicking on blank area of canvas then dragging it.</li>
+</ol>
+<h2 id="activity">Activity <img src="/img/svg/ACTION.svg" width="24px" height="24px"/></h2>
+<p><em>Press 1 anytime to select Activity</em></p>
+<p>An activity is a task need to be done by human.</p>
+<h3 id="operations">Operations</h3>
+<ul>
+<li>Click on canvas to place an Activity node</li>
+<li>Shift-Click on an Activity to open it's properties</li>
+<li>Drag it to move to another location</li>
+</ul>
+<h3 id="participant">Participant</h3>
+<p>Define task participants with Role Definition String,</p>
+<p>See <a href="/designer/rds">RDS page</a> for details</p>
+<h3 id="instruction">Instruction</h3>
+<p>Give some instructions to people who take part in this task</p>
+<p>Simple html tag is allowed</p>
+<p>Handlbars format is used to include process variables. If a previous node has a variable named "days", then, {{days.value}} can be included in instruction to embed it's value in instruction.</p>
+<h3 id="variables">Variables</h3>
+<p>define variable name, type etc.</p>
+<ul>
+<li><strong>Name</strong>: variable name.</li>
+<li>should be a valid javascript varible name, invalid name will make your workflow fails to run.</li>
+<li>varialbe name prefix determin its input type:<ul>
+<li>"email_" : an email type input.</li>
+<li>"password_" : an password type input.</li>
+<li>"url_" : an url type input.</li>
+<li>"range_" : an range type input.</li>
+<li>"number_" : an number type input.</li>
+<li>"dt_" : an datetime type input.</li>
+<li>"datetime_" : an datetime type input.</li>
+<li>"date_" : an date type input.</li>
+<li>"time_" : an time type input.</li>
+<li>"color_" : an color type input.</li>
+<li>"search_" : an search type input.</li>
+<li>"select_" : an select type input.</li>
+<li>"sl_" : an select type input.</li>
+<li>"sel_" : an select type input.</li>
+<li>"file_" : an file type input.</li>
+<li>"radio_" : a radio type input.</li>
+<li>"textarea_" : a textarea type input.</li>
+<li>"checkbox_": a checkbox type input.</li>
+<li>"cb_": a checkbox type input.</li>
+<li>any other name : a normal input.</li>
+</ul>
+</li>
+<li><strong>Option</strong>: the pickable options for this variable input</li>
+<li>options should be delimited by semicolon (;), for example "option1;option2;option3";</li>
+<li>options can also get from a pre-defined list.<ul>
+<li>A list is defined in a list group.</li>
+<li>A list has it's own key in a list group.</li>
+<li>"R:list_group_name" to get default items from a list group.</li>
+<li>"R:list_group_name:key" to get items from a list group by key.</li>
+<li>list can be cascaded To make cascaded list. you may:</li>
+<li>use T:cascade_list_name, for example, you may have province list "select_A" defined as "R:province_list;T:select_B", then, you may define select_B as "R:city_list", then, once use pick a province from select_A, select_B will get the selected value from select_A, and use it as list key to refresh options for select_B, say, get all cities of the selected city.</li>
+</ul>
+</li>
+<li><strong>Value</strong>: the default value of this input.</li>
+<li>for normal input, the default value will be set in the input box.</li>
+<li>for select/checkbox/radio, the default value will be selected.</li>
+<li><strong>Label</strong>: The label of this vairable.</li>
+<li><strong>Placeholder</strong>: the placeholder for input or textarea</li>
+<li><strong>Break Row</strong>: add a new line after this variable</li>
+<li><strong>ID</strong>: give it an optional ID</li>
+<li><strong>Required</strong>: this variable's value must be provided.</li>
+</ul>
+<h2 id="inform">Inform <img src="/img/svg/INFORM.svg" width="24px" height="24px"/></h2>
+<ul>
+<li>Press 2 at anytime to use Inform
+  An Inform node is used to send message to people.</li>
+</ul>
+<h3 id="operations_1">Operations</h3>
+<ul>
+<li>Click on canvas to place an Inform node</li>
+<li>Shift-Click on an Inform to open it's properties</li>
+<li>Drag it to move to another location</li>
+</ul>
+<h3 id="recipiants">Recipiants:</h3>
+<ul>
+<li>Who will receive emails, define use <a href="/designer/rds">RDS</a></li>
+</ul>
+<h3 id="subject-and-content">Subject and Content:</h3>
+<ul>
+<li>may use simple html or Handlebars to embed process variables</li>
+</ul>
+<h2 id="script">Script <img src="/img/svg/SCRIPT.svg" width="24px" height="24px"/></h2>
+<ul>
+<li>Press 3 at anytime to use Script</li>
+</ul>
+<h3 id="operations_2">Operations</h3>
+<ul>
+<li>Click on canvas to place an Script node</li>
+<li>Shift-Click on an Script to open it's properties</li>
+<li>Drag it to move to another location</li>
+</ul>
+<h3 id="sync-mode">Sync Mode</h3>
+<p>Run script in sync mode</p>
+<h3 id="async-mode">Async Mode</h3>
+<p>Run script in async mode, external program callback to MetatoCome later to make it continue.</p>
+<h3 id="code">Code</h3>
+<p>Embed any javascript code in this node.</p>
+<h4 id="return-value">Return value</h4>
+<pre><code>ret = RET_VALUE;
+</code></pre>
+<p>Return value is used as routing option to decide where to go after this script node.</p>
+<h4 id="insert-any-variable">Insert any variable</h4>
+<pre><code>kvar(var_name, var_value, var_label)
+</code></pre>
+<p>After that, thsi variable named 'var_name' is available for following process.</p>
+<p>** If a varialbe named "var_name" exists, it's value will be overwrite with this one.</p>
+<h4 id="get-value-of-variable">Get value of variable.</h4>
+<pre><code>kvalue(var_name)
+</code></pre>
+<h4 id="set-inner-team">Set inner Team</h4>
+<p>Dynamically set a team for use later.</p>
+<pre><code>setRoles({
+    SGT: &quot;ab@email.com&quot;,
+    DIRECTOR: &quot;cd@email.com&quot;,
+});
+</code></pre>
+<p>For steps after this script, any task assigned to role 'SGT' will go to a person whose email is "ab@email.com", any task assigned to role "DIRECTOR" will go to a person whose email is "cd@email.com"</p>
+<h2 id="timer">Timer <img src="/img/svg/TIMER.svg" width="24px" height="24px"/></h2>
+<p>A TIMER node is used to control process running time, the process only run through this node when</p>
+<ul>
+<li>From Start: how long after the start of the whole process</li>
+<li>From Now: how long after the invoking of this Timer node(end of previous node).</li>
+<li>Fix: Specific date and time</li>
+</ul>
+<h2 id="sub-process">Sub Process <img src="/img/svg/SUB.svg" width="24px" height="24px"/></h2>
+<p>An sub-processs will be invoked to run, and the parent process will continue only when the sub-process has been completed.</p>
+<p>sub-process's last return value will be taken as the return value from sub-process, parent process will use it to determine where to go after it.</p>
+<p>An sub-process can also run in standalone mode, therefore, the parent process will not wait for it's completing.</p>
+<h2 id="and">AND <img src="/img/svg/AND.svg" width="24px" height="24px"/></h2>
+<p>An AND node will make process wait for completion of all it's precedent nodes.</p>
+<h2 id="or">OR <img src="/img/svg/OR.svg" width="24px" height="24px"/></h2>
+<p>Any precedent node is completed, an OR node will be went through, process will navigate to the following nodes of OR.</p>
+<p>An AND node will make process wait for completion of all it's precedent nodes.</p>
+<h2 id="ground">Ground <img src="/img/svg/GROUND.svg" width="24px" height="24px"/></h2>
+<p>A Ground node could have no folloing nodes, means the routing is grounded or sink.</p>
+<h2 id="connect">Connect <img src="/img/svg/CONNECT.svg" width="24px" height="24px"/></h2>
+<p>Connect two nodes to define a route between them.
+Click one node, then click another node, a curved line will be drawn between them.
+Shift-clicking on a connection will bring up the connection property window, simply give the connection a Case Value (a string), the Case Value will be displayed alongside of the connection line.
+this case value will be used to determine whether or not this route will be taken or not after it's FROM node has been completed.</p>
+<p>A connection between two nodes has direction, it always point from one node (A) to another (B), means that the workflow should run from task A to task B.</p>
+<p>A connection can have option, option define the route. for example, there is one connection between A to B, there is another connection between A to C, if we give A to B an option value 1, and give A to C an option value 2, then, if A return 2, the workflow will run to C, B will not be routed to. if A is an activity, the user who do that activity will be presented with option 1 and 2 to decide. if A is a script, you may use "ret=2" to return 2 from node A.</p>
+<h3 id="build-a-connection">Build a connection</h3>
+<ul>
+<li>Select CONNECT tool , or simple press 9, the CONNECT tool will be highlighted</li>
+<li>Click on the first node A,</li>
+<li>Click on the second node B</li>
+</ul>
+<h3 id="move-a-connection">Move a connection</h3>
+<ul>
+<li>Hold Alt key (MAC: Opt), click on the first half of a connection then pick another node to re-select its' staring node</li>
+<li>Hold Alt key (MAC: Opt), click on the second half of a connection then pick another node to re-select it's ending node</li>
+</ul>
+<h3 id="cancel-connecting">Cancel connecting</h3>
+<p>If you would like to cancel while connecting, double click on blank area of canvas, or press ESC</p>
+<h3 id="delete-a-connection">Delete a connection</h3>
+<ul>
+<li>Mouse over a connection, then press Backspace or Delete</li>
+</ul>
+<h3 id="give-connection-a-value">Give connection a value</h3>
+<ul>
+<li>Hold Shift key, click on a connection, input is option value in the pop-up.</li>
+</ul>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../design/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Design Tempalte" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Design Tempalte
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../designer/rds/" class="md-footer__link md-footer__link--next" aria-label="Next: Role Definition" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Role Definition
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright Lucas-Kehong-Liu, 2003-2022
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.361d90f1.min.js"}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.289a2a4b.min.js"></script>
+      
+    
+  </body>
+</html>
