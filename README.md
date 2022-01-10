@@ -1,2 +1,0 @@
-# mtcdoc
-Metatocome documentation
