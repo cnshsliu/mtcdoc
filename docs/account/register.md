@@ -4,7 +4,7 @@ MetatoCome use email as user id, you may register with any email you use with it
 
 ## Normal
 
-<img src="/img/signup.png" width="300"/>
+<img src="../img/signup.png" width="300"/>
 
 Display name should be at least 3 characters, at most 12 characters, English or Chinese.
 

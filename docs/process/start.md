@@ -2,7 +2,7 @@
 
 Once a workflow is started, a new workflow process is initiated, and tasks will be disptached to people or systems.
 
-<img src="/img/start_workflow.png" width="300"/>
+<img src="../img/start_workflow.png" width="300"/>
 
 ## Simply Start
 

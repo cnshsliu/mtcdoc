@@ -1,9 +1,13 @@
 site_name: MetatoCome
 site_description: MetatoCome, Workflow, Hyper Automation
+site_url: https://cnshsliu.github.io/mtcdocs/
 site_author: Lucas Kehong Liu
 copyright: Copyright Lucas-Kehong-Liu, 2003-2022
+use_directory_urls: false
 theme:
   name: material
+  logo: assets/logo.png
+  favicon: 'assets/favicon.ico'
   shortcuts:
         help: 191    # ?
         next: 78     # n

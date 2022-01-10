@@ -4,7 +4,7 @@ Process Explorer shows all processes, allowing management of these processes.
 
 ## User Interface
 
-![Process Explorer](/img/process_explorer.png)
+![Process Explorer](../img/process_explorer.png)
 
 ### Top buttons
 
@@ -16,8 +16,8 @@ Template explorer provides detailed criteria for searching, Reset Query is used 
 
 Tags are used to categorize prococesses, organizaiton level tags are defined by administrators and available for everyone in your organizaiton, while personal tags are available individually.
 
-- organizaitonal tags are displayed in a round corner rectangle, like ![orgtags](/img/template_tag_orglevel.png)
-- personal tags are displayed in a pill, like ![personaltags](/img/template_tag_personal.png)
+- organizaitonal tags are displayed in a round corner rectangle, like ![orgtags](../img/template_tag_orglevel.png)
+- personal tags are displayed in a pill, like ![personaltags](../img/template_tag_personal.png)
 
 Click a tag, explorer will search those processes which template has with the tag and display them in the result table at the lower part of explorer.
 
@@ -41,23 +41,23 @@ Filter processes by starting time.
 
 Within some time:
 
-<img src="/img/filter_process_in_time.png" width="300"/>
+<img src="../img/filter_process_in_time.png" width="300"/>
 
 Between two dates:
 
-<img src="/img/filter_process_two_dates.png"/>
+<img src="../img/filter_process_two_dates.png"/>
 
 ### Result Table
 
 List out any processes meet above requirements: tag, name filter, author， time span etc.
 
-![resulttable](/img/process_result_table.png)
+![resulttable](../img/process_result_table.png)
 
 The first column is Process Title, clicking it will lead to [process overview page](/process/overview.md).
 
 The fourth column is Action menu:
 
-![actions](/img/process_explorer_actions.png){width="200" align=left}
+![actions](../img/process_explorer_actions.png){width="200" align=left}
 
 Those actions are:
 
@@ -99,6 +99,6 @@ Those actions are:
 
 ### Pagination
 
-![pagination](/img/pagination.png)
+![pagination](../img/pagination.png)
 
 Use pagination to browser more results

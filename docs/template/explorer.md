@@ -4,7 +4,7 @@ MetatoCome Workflow Template explorer shows all templates your template library,
 
 ## User Interface
 
-![Template Explorer](/img/template_explorer.png)
+![Template Explorer](../img/template_explorer.png)
 
 ### Top buttons
 
@@ -16,7 +16,7 @@ There are three buttons on the top-right corner of template explorer.
 
 #### Create a template
 
-![Create template form](/img/template_create_form.png)
+![Create template form](../img/template_create_form.png)
 
 _Above: Create template form_
 
@@ -34,8 +34,8 @@ Template explorer provides detailed criteria for searching, Reset Query is used 
 
 Tags are used to categorize templates, organizaiton level tags are defined by administrators and available for everyone in your organizaiton, while personal tags are available individually.
 
-- organizaitonal tags are displayed in a round corner rectangle, like ![orgtags](/img/template_tag_orglevel.png)
-- personal tags are displayed in a pill, like ![personaltags](/img/template_tag_personal.png)
+- organizaitonal tags are displayed in a round corner rectangle, like ![orgtags](../img/template_tag_orglevel.png)
+- personal tags are displayed in a pill, like ![personaltags](../img/template_tag_personal.png)
 
 Click a tag, explorer will search those templates with the tag and display them in the result table at the lower part of explorer.
 
@@ -44,26 +44,26 @@ A template can have more than one tags, hold shift key while clicking a tag will
 ### Recent Templates Area
 
 List out recent viewed/started templates for quick accessing.
-![recentstemplate](/img/template_recents.png)
+![recentstemplate](../img/template_recents.png)
 
 ### Extra Filter Area
 
 Filter results with template name or author, use "Me" and "Any" to quickly toggle author of yourself and others
 
-![extrafilter](/img/template_extra_filter.png)
+![extrafilter](../img/template_extra_filter.png)
 
 ### Result Table
 
 List out any templates meet above requirements: tag, name filter, author etc.
 
-![resulttable](/img/template_result_table.png)
+![resulttable](../img/template_result_table.png)
 
 - The first column is the link to template designer
 - The second column is the author
 - The third column is shortcut to start it
 - The fourth column is a popup menu contains more actions available for the current template
 
-![actions](/img/template_explorer_actions.png)
+![actions](../img/template_explorer_actions.png)
 
 Those actions are:
 
@@ -76,6 +76,6 @@ Those actions are:
 
 ### Pagination
 
-![pagination](/img/pagination.png)
+![pagination](../img/pagination.png)
 
 Use pagination to browser more results

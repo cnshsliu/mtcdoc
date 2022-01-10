@@ -1,6 +1,6 @@
 # Process Monitor
 
-![process monitor](/img/process_monitor.png)
+![process monitor](../img/process_monitor.png)
 
 The display styles are:
 

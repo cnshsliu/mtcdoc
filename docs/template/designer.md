@@ -2,11 +2,11 @@
 
 Workflow Designer provides graphical user interface to design a workflow by dragging and dropping.
 
-![desginer](/img/workflow_designer.png)
+![desginer](../img/workflow_designer.png)
 
 On the left is the toolbox, click each tool to use it.
 
-## Pointer <img src="/img/svg/POINTER.svg" width="24px" height="24px"/>
+## Pointer <img src="../img/svg/POINTER.svg" width="24px" height="24px"/>
 
 _Press ESC anytime to select Pointer._
 
@@ -18,7 +18,7 @@ Under Pointer mode, you are able to:
 4. move a connection by clicking it while holding ALT key (Opt key on Mac OsX), release ALT key, then click on another node should be connected.
 5. pan canvas by clicking on blank area of canvas then dragging it.
 
-## Activity <img src="/img/svg/ACTION.svg" width="24px" height="24px"/>
+## Activity <img src="../img/svg/ACTION.svg" width="24px" height="24px"/>
 
 _Press 1 anytime to select Activity_
 
@@ -89,7 +89,7 @@ define variable name, type etc.
 - **ID**: give it an optional ID
 - **Required**: this variable's value must be provided.
 
-## Inform <img src="/img/svg/INFORM.svg" width="24px" height="24px"/>
+## Inform <img src="../img/svg/INFORM.svg" width="24px" height="24px"/>
 
 - Press 2 at anytime to use Inform
   An Inform node is used to send message to people.
@@ -108,7 +108,7 @@ define variable name, type etc.
 
 - may use simple html or Handlebars to embed process variables
 
-## Script <img src="/img/svg/SCRIPT.svg" width="24px" height="24px"/>
+## Script <img src="../img/svg/SCRIPT.svg" width="24px" height="24px"/>
 
 - Press 3 at anytime to use Script
 
@@ -166,7 +166,7 @@ setRoles({
 
 For steps after this script, any task assigned to role 'SGT' will go to a person whose email is "ab@email.com", any task assigned to role "DIRECTOR" will go to a person whose email is "cd@email.com"
 
-## Timer <img src="/img/svg/TIMER.svg" width="24px" height="24px"/>
+## Timer <img src="../img/svg/TIMER.svg" width="24px" height="24px"/>
 
 A TIMER node is used to control process running time, the process only run through this node when
 
@@ -174,7 +174,7 @@ A TIMER node is used to control process running time, the process only run throu
 - From Now: how long after the invoking of this Timer node(end of previous node).
 - Fix: Specific date and time
 
-## Sub Process <img src="/img/svg/SUB.svg" width="24px" height="24px"/>
+## Sub Process <img src="../img/svg/SUB.svg" width="24px" height="24px"/>
 
 An sub-processs will be invoked to run, and the parent process will continue only when the sub-process has been completed.
 
@@ -182,21 +182,21 @@ sub-process's last return value will be taken as the return value from sub-proce
 
 An sub-process can also run in standalone mode, therefore, the parent process will not wait for it's completing.
 
-## AND <img src="/img/svg/AND.svg" width="24px" height="24px"/>
+## AND <img src="../img/svg/AND.svg" width="24px" height="24px"/>
 
 An AND node will make process wait for completion of all it's precedent nodes.
 
-## OR <img src="/img/svg/OR.svg" width="24px" height="24px"/>
+## OR <img src="../img/svg/OR.svg" width="24px" height="24px"/>
 
 Any precedent node is completed, an OR node will be went through, process will navigate to the following nodes of OR.
 
 An AND node will make process wait for completion of all it's precedent nodes.
 
-## Ground <img src="/img/svg/GROUND.svg" width="24px" height="24px"/>
+## Ground <img src="../img/svg/GROUND.svg" width="24px" height="24px"/>
 
 A Ground node could have no folloing nodes, means the routing is grounded or sink.
 
-## Connect <img src="/img/svg/CONNECT.svg" width="24px" height="24px"/>
+## Connect <img src="../img/svg/CONNECT.svg" width="24px" height="24px"/>
 
 Connect two nodes to define a route between them.
 Click one node, then click another node, a curved line will be drawn between them.
