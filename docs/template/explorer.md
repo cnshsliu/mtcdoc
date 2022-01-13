@@ -70,9 +70,16 @@ Those actions are:
     - Start it: start this workflow
     - See Workflows: list out workflow processes of this template
     - See Worklist: list out work items belong to this template
+    - Set Visibility: Set the visibility of this template, see details below.
     - Add Description: show description form to add or modify template description.
     - Set TAGS: show tag editting form to add, modify or delete tags of this template
     - Delete This Template: as it says
+
+### Set Visibility
+
+Only the author and the people who are the member of the resolved group of visibility setting will be able to see this template and use it.
+
+If a user previous was in the visibility group and was removed from this group later, he/she will immediately dismiss the right to use this template, he/she will not see tasks related to this template as well immediately as well.
 
 ### Pagination
 

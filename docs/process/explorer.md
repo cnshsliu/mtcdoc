@@ -97,6 +97,17 @@ Those actions are:
 
 : Delete this workflow process
 
+### Visibility
+
+Normal users can see processes only when:
+
+- The template of process is visible for he/her, and
+- he/she started or be involved into,.
+
+see template visiblity.
+
+Administrators can see all processes.
+
 ### Pagination
 
 ![pagination](../img/pagination.png)

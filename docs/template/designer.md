@@ -229,3 +229,35 @@ If you would like to cancel while connecting, double click on blank area of canv
 ### Give connection a value
 
 - Hold Shift key, click on a connection, input is option value in the pop-up.
+
+## Editing
+
+Desginer support copy,paste, cut etc., as well as shortcut keys to ease your opertions..
+
+### Nodes Copy and Paste
+
+While mouse is hovering a node , press Ctrl-C (Win) / Cmd-C (Mac) to copy it, move mouse to any position on the canvas, proess Ctrl-V (Win) / Cmd-C (Mac) to paste it.
+
+While mouse is hovering a node, press Ctrl-X (Win) /Cmd-X (Mac) to cut it, later, you may paste the cutted node at another location wil Ctrol-V (Win) /Cmd-V (Mac)
+
+### Connext Routing Text
+
+While mouse is hovering a connection , press Ctrl-C (Win) / Cmd-C (Mac) to copy it's routing label, move mouse to hover another connection, proess Ctrl-V (Win) / Cmd-C (Mac) to paste it.
+
+### Keyboard shortcut
+
+### d
+
+Mouse over a node or a connection, press d to delete it.
+
+### gb
+
+Mouse over a connection, press "gb" to move it's starting point
+
+### ge
+
+Mouse over a connection, press "ge" to move it's ending point
+
+### gt
+
+Mouse over a node, press "gt" to link it to another node

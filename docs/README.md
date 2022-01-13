@@ -2,7 +2,14 @@
 
 MetatoCome is a Hyper Automation Platform as a Service.
 
-Metatocome disptachs tasks to human and computer systems, you may use it in a tranditional workflow system way, it provides full-fledged workflow system functionalities. It is actually a modern Hyper-automation platform, it can be used to automate everything in an organizaiton that can be auomated.
+Hypeautomation is one top trend on the Gartner Top Strategic Technology Trends for 2022.
+
+> Hyperautomation
+> Hyperautomation is a business-driven, disciplined approach that organizations use to rapidly identify, vet and automate as many business and IT processes as possible.
+>
+> https://www.gartner.com/en/information-technology/glossary/hyperautomation
+
+Metatocome disptachs tasks to human and computer systems, you may use it in a tranditional workflow system way, it provides full-fledged workflow system functionalities. It is actually a modern Hyper-automation platform, it can be used to automate everything in an organizaiton that can be automated.
 
 ## Basic Concept
 
