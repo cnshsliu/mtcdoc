@@ -90,7 +90,7 @@ define variable name, type etc.
 - **Required**: this variable's value must be provided.
 - **Visible**: use RDS to define whom this var should be visiable to
 
-### About Visible
+## About Visible
 
 Sometime, some sensitive data might should be kept secret from some participants even they have been involved in the process. For instance, in a interview process, the offered salary may not be able to seen by interviewer, only HR and manager could see it, thus, we may use RDS to make this happend.
 
