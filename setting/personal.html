@@ -19,7 +19,7 @@
     
     
       
-        <title>RDS: Role Definition String - MetatoCome Documentation</title>
+        <title>PDS: Role Definition String - MetatoCome Documentation</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#rds-role-definition-string" class="md-skip">
+        <a href="#pds-role-definition-string" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              RDS: Role Definition String
+              PDS: Role Definition String
             
           </span>
         </div>
@@ -320,22 +320,23 @@
 
             
           
-            
-              
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
   
   
   
     <li class="md-nav__item">
-      <a href="../designer/rds.html" class="md-nav__link">
+      <a href="../designer/pds.html" class="md-nav__link">
         Role Definition
       </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
     </li>
   
 
@@ -351,18 +352,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_4">
+        <label class="md-nav__link" for="__nav_5">
           Process
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Process" data-md-level="1">
-        <label class="md-nav__title" for="__nav_4">
+        <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
           Process
         </label>
@@ -455,18 +456,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_5">
+        <label class="md-nav__link" for="__nav_6">
           Work
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Work" data-md-level="1">
-        <label class="md-nav__title" for="__nav_5">
+        <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
           Work
         </label>
@@ -517,18 +518,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_6">
+        <label class="md-nav__link" for="__nav_7">
           Setting
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Setting" data-md-level="1">
-        <label class="md-nav__title" for="__nav_6">
+        <label class="md-nav__title" for="__nav_7">
           <span class="md-nav__icon md-icon"></span>
           Setting
         </label>
@@ -635,18 +636,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_7">
+        <label class="md-nav__link" for="__nav_8">
           For Developers
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="For Developers" data-md-level="1">
-        <label class="md-nav__title" for="__nav_7">
+        <label class="md-nav__title" for="__nav_8">
           <span class="md-nav__icon md-icon"></span>
           For Developers
         </label>
@@ -733,24 +734,24 @@
               
                 
 
-<h1 id="rds-role-definition-string">RDS: Role Definition String</h1>
-<p>A RDS(Role Definition String) is used to resolve who will participate a task.</p>
-<p>A RDS is composed of one to many RDSP(RDS Parts) delimited with empty characters, a semicolon or a comma.</p>
-<p>Task always go to workflow process starter if RDS is absent or blank.</p>
-<p>RDSPs are strings represent a User ID, a Team Role, a Team, a Peer Query, a Leader Query or a Staff Query.</p>
-<p>a User ID RDSP starts with "@", like "@steve" where steve should have an MTC account as steve@emailDomain, the emailDomain of steve is the same as emailDomain of the current user.</p>
-<p>A Team Role RDSP is specified as "role_name", a role named "role_name" will be used to resolve participants, the role-participants relations are defined in the process-level team specified at current workflow process starting, or in the RDS-level team specified in the current RDS. RDS-level team is used when it exits. last RDS-level team is used when multiple RDS-level teams exist.</p>
-<p>A Team RDSP is specified as "T:team_name".</p>
-<p>A Peer Query RDSP starts with "P:" followed by one or many positions separated by colon. positions are searched at the current org level of the user. We can say they are positions in the current deparments.</p>
-<p>A Leader Query RDSP starts with "L:" followed by one or many positions separated with colon, positions are searched upwards starting from the current org level all the way to the root level. Dor example, let's say the orgchart is "Root-BU1-Department1", and people are: "Root-Lucas-CEO", "BU1-Steve-VP:CFO", "Department1-John-Director", and the current user is "Department1-Lisa", then, a "P:Director" will be resolved as John, a "P:Director:VP" wil be resolved to John and Steve. a "P:CFO" will be
+<h1 id="pds-role-definition-string">PDS: Role Definition String</h1>
+<p>A PDS(Role Definition String) is used to resolve who will participate a task.</p>
+<p>A PDS is composed of one to many PDSP(PDS Parts) delimited with empty characters, a semicolon or a comma.</p>
+<p>Task always go to workflow process starter if PDS is absent or blank.</p>
+<p>PDSPs are strings represent a User ID, a Team Role, a Team, a Peer Query, a Leader Query or a Staff Query.</p>
+<p>a User ID PDSP starts with "@", like "@steve" where steve should have an MTC account as steve@emailDomain, the emailDomain of steve is the same as emailDomain of the current user.</p>
+<p>A Team Role PDSP is specified as "role_name", a role named "role_name" will be used to resolve participants, the role-participants relations are defined in the process-level team specified at current workflow process starting, or in the PDS-level team specified in the current PDS. PDS-level team is used when it exits. last PDS-level team is used when multiple PDS-level teams exist.</p>
+<p>A Team PDSP is specified as "T:team_name".</p>
+<p>A Peer Query PDSP starts with "P:" followed by one or many positions separated by colon. positions are searched at the current org level of the user. We can say they are positions in the current deparments.</p>
+<p>A Leader Query PDSP starts with "L:" followed by one or many positions separated with colon, positions are searched upwards starting from the current org level all the way to the root level. Dor example, let's say the orgchart is "Root-BU1-Department1", and people are: "Root-Lucas-CEO", "BU1-Steve-VP:CFO", "Department1-John-Director", and the current user is "Department1-Lisa", then, a "P:Director" will be resolved as John, a "P:Director:VP" wil be resolved to John and Steve. a "P:CFO" will be
 resolved to Steve. A Postion Query is useful in the approval liking scenarios where some specific positions are normally required to approve something.</p>
-<p>An Staff Query RDSP starts with "Q:", which is the most flexible RDSP which can replace Peer or Leader RDSP. A Staff RDSP is defined as '&amp;' separated query parameters, a query parameter is defined as: "OU_regexp/positions_separated_by_colon", like</p>
+<p>An Staff Query PDSP starts with "Q:", which is the most flexible PDSP which can replace Peer or Leader PDSP. A Staff PDSP is defined as '&amp;' separated query parameters, a query parameter is defined as: "OU_regexp/positions_separated_by_colon", like</p>
 <pre><code>   ouReg1/pos1:pos2&amp;ouReg2/pos3:pos4
 </code></pre>
 <p>which means, find people who hold position of pos1 in ouReg1, who hold position of pos2 in ouReg1, who hold position of pos3 in ouReg2, and who hold position of pos4 in ouReg2.</p>
 <p>ouReg1 and ouReg2 are Regexp.</p>
-<p>if "ouReg" is ommitted in a query parameter, for exmaple: "/pos1:pos2", people who in the same department of the current user and hold positions of pos1 and pos2 will be resolved to. The same as what a Peer Query RDSP does.</p>
-<p>if "ouReg/" is ommitted in a query parameter, for example, "pos1:pos2", people who in the same department or the upper level orgchart of the current user and hold positions of pos1 and pos2 will be resolved to. The same as what a Leader Query RDSP does. So, 'Q:CEO:CTO' and 'L:CEO:CTO' will be resolved to the same people.</p>
+<p>if "ouReg" is ommitted in a query parameter, for exmaple: "/pos1:pos2", people who in the same department of the current user and hold positions of pos1 and pos2 will be resolved to. The same as what a Peer Query PDSP does.</p>
+<p>if "ouReg/" is ommitted in a query parameter, for example, "pos1:pos2", people who in the same department or the upper level orgchart of the current user and hold positions of pos1 and pos2 will be resolved to. The same as what a Leader Query PDSP does. So, 'Q:CEO:CTO' and 'L:CEO:CTO' will be resolved to the same people.</p>
 <h2 id="exaples">Exaples:</h2>
 <pre><code>director
 </code></pre>
@@ -762,7 +763,7 @@ resolved to Steve. A Postion Query is useful in the approval liking scenarios wh
 </code></pre>
 <p>Resolve to:</p>
 <ul>
-<li>people who take the role of director in the team of TeamB. (director, T:TeamB. TeamA is ignored since TeamB is the last RDS-level team)</li>
+<li>people who take the role of director in the team of TeamB. (director, T:TeamB. TeamA is ignored since TeamB is the last PDS-level team)</li>
 <li>people who take the role of facilitator in the team of TeamB. (director, T:TeamB)</li>
 <li>people who take the role of teacher in the team of TeamB. (director, T:TeamB)</li>
 </ul>
