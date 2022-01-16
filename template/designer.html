@@ -396,6 +396,89 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#variables_1" class="md-nav__link">
+    Variables
+  </a>
+  
+    <nav class="md-nav" aria-label="Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#name" class="md-nav__link">
+    Name:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option" class="md-nav__link">
+    Option
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ou-selector" class="md-nav__link">
+    OU selector
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#value" class="md-nav__link">
+    Value
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#label" class="md-nav__link">
+    Label
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#placeholder" class="md-nav__link">
+    Placeholder
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#break-row" class="md-nav__link">
+    Break Row
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#id" class="md-nav__link">
+    ID
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#required" class="md-nav__link">
+    Required
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visible" class="md-nav__link">
+    Visible
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#about-visible" class="md-nav__link">
     About Visible
   </a>
@@ -1108,6 +1191,89 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#variables_1" class="md-nav__link">
+    Variables
+  </a>
+  
+    <nav class="md-nav" aria-label="Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#name" class="md-nav__link">
+    Name:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option" class="md-nav__link">
+    Option
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ou-selector" class="md-nav__link">
+    OU selector
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#value" class="md-nav__link">
+    Value
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#label" class="md-nav__link">
+    Label
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#placeholder" class="md-nav__link">
+    Placeholder
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#break-row" class="md-nav__link">
+    Break Row
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#id" class="md-nav__link">
+    ID
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#required" class="md-nav__link">
+    Required
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visible" class="md-nav__link">
+    Visible
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#about-visible" class="md-nav__link">
     About Visible
   </a>
@@ -1412,11 +1578,14 @@
 <p>Simple html tag is allowed</p>
 <p>Handlbars format is used to include process variables. If a previous node has a variable named "days", then, {{days.value}} can be included in instruction to embed it's value in instruction.</p>
 <h3 id="variables">Variables</h3>
+<p>See below</p>
+<h2 id="variables_1">Variables</h2>
 <p>define variable name, type etc.</p>
+<h3 id="name"><strong>Name</strong>:</h3>
+<p>variable name.</p>
 <ul>
-<li><strong>Name</strong>: variable name.</li>
 <li>should be a valid javascript varible name, invalid name will make your workflow fails to run.</li>
-<li>varialbe name prefix determin its input type:<ul>
+<li>varialbe name prefix determin its input type:</li>
 <li>"email_" : an email type input.</li>
 <li>"password_" : an password type input.</li>
 <li>"url_" : an url type input.</li>
@@ -1436,30 +1605,44 @@
 <li>"textarea_" : a textarea type input.</li>
 <li>"checkbox_": a checkbox type input.</li>
 <li>"cb_": a checkbox type input.</li>
+<li>"ou_": Organization Unit Selector</li>
 <li>any other name : a normal input.</li>
 </ul>
-</li>
-<li><strong>Option</strong>: the pickable options for this variable input</li>
+<h3 id="option"><strong>Option</strong></h3>
+<p>the pickable options for this variable input</p>
+<ul>
 <li>options should be delimited by semicolon (;), for example "option1;option2;option3";</li>
-<li>options can also get from a pre-defined list.<ul>
+<li>For "ou_" variable, the first option will be used as the top OU id, the second is "yes" or "not", whether to include the top itself.</li>
+<li>options can also get from a pre-defined list.</li>
 <li>A list is defined in a list group.</li>
 <li>A list has it's own key in a list group.</li>
 <li>"R:list_group_name" to get default items from a list group.</li>
 <li>"R:list_group_name:key" to get items from a list group by key.</li>
-<li>list can be cascaded To make cascaded list. you may:</li>
+<li>list can be cascaded To make cascaded list. you may:<ul>
 <li>use T:cascade_list_name, for example, you may have province list "select_A" defined as "R:province_list;T:select_B", then, you may define select_B as "R:city_list", then, once use pick a province from select_A, select_B will get the selected value from select_A, and use it as list key to refresh options for select_B, say, get all cities of the selected city.</li>
 </ul>
 </li>
-<li><strong>Value</strong>: the default value of this input.</li>
+</ul>
+<h3 id="ou-selector">OU selector</h3>
+<p>An OU selector variable named as "ou_varname", it can have opitons like "top_ou_id;[yes|no]", the string before ';' is the ouid of the first organizaitonal unit, the string after ';' is used to indicate whether the selection list should include the top item or not.</p>
+<h3 id="value"><strong>Value</strong></h3>
+<p>the default value of this input.</p>
+<ul>
 <li>for normal input, the default value will be set in the input box.</li>
 <li>for select/checkbox/radio, the default value will be selected.</li>
-<li><strong>Label</strong>: The label of this vairable.</li>
-<li><strong>Placeholder</strong>: the placeholder for input or textarea</li>
-<li><strong>Break Row</strong>: add a new line after this variable</li>
-<li><strong>ID</strong>: give it an optional ID</li>
-<li><strong>Required</strong>: this variable's value must be provided.</li>
-<li><strong>Visible</strong>: use PDS to define whom this var should be visiable to</li>
 </ul>
+<h3 id="label"><strong>Label</strong></h3>
+<p>The label of this vairable.</p>
+<h3 id="placeholder"><strong>Placeholder</strong></h3>
+<p>the placeholder for input or textarea</p>
+<h3 id="break-row"><strong>Break Row</strong></h3>
+<p>add a new line after this variable</p>
+<h3 id="id"><strong>ID</strong></h3>
+<p>give it an optional ID</p>
+<h3 id="required"><strong>Required</strong></h3>
+<p>this variable's value must be provided.</p>
+<h3 id="visible"><strong>Visible</strong></h3>
+<p>use PDS to define whom this var should be visiable to</p>
 <h2 id="about-visible">About Visible</h2>
 <p>Sometime, some sensitive data might should be kept secret from some participants even they have been involved in the process. For instance, in a interview process, the offered salary may not be able to seen by interviewer, only HR and manager could see it, thus, we may use PDS to make this happend.</p>
 <h2 id="inform">Inform <img src="../img/svg/INFORM.svg" width="24px" height="24px"/></h2>
