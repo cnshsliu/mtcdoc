@@ -368,6 +368,89 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#specific-user" class="md-nav__link">
+    Specific User
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flexible-team" class="md-nav__link">
+    Flexible Team
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#peer" class="md-nav__link">
+    Peer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#leader" class="md-nav__link">
+    Leader
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#query" class="md-nav__link">
+    Query
+  </a>
+  
+    <nav class="md-nav" aria-label="Query">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#same-ou-matching" class="md-nav__link">
+    Same OU Matching
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upwards-one-matching" class="md-nav__link">
+    Upwards One Matching
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upwards-all-matching" class="md-nav__link">
+    Upwards All Matching
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#all-matching" class="md-nav__link">
+    All Matching
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#staff" class="md-nav__link">
+    'staff'
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#all" class="md-nav__link">
+    'all'
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exaples" class="md-nav__link">
     Exaples:
   </a>
@@ -756,6 +839,89 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#specific-user" class="md-nav__link">
+    Specific User
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flexible-team" class="md-nav__link">
+    Flexible Team
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#peer" class="md-nav__link">
+    Peer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#leader" class="md-nav__link">
+    Leader
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#query" class="md-nav__link">
+    Query
+  </a>
+  
+    <nav class="md-nav" aria-label="Query">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#same-ou-matching" class="md-nav__link">
+    Same OU Matching
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upwards-one-matching" class="md-nav__link">
+    Upwards One Matching
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upwards-all-matching" class="md-nav__link">
+    Upwards All Matching
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#all-matching" class="md-nav__link">
+    All Matching
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#staff" class="md-nav__link">
+    'staff'
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#all" class="md-nav__link">
+    'all'
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exaples" class="md-nav__link">
     Exaples:
   </a>
@@ -780,20 +946,34 @@
 <p>A PDS is composed of one to many PDSP(PDS Parts) delimited with empty characters, a semicolon or a comma.</p>
 <p>Task always go to workflow process starter if PDS is absent or blank.</p>
 <p>PDSPs are strings represent a User ID, a Team Participant, a Team, a Peer Query, a Leader Query or a Staff Query.</p>
+<h2 id="specific-user">Specific User</h2>
 <p>a User ID PDSP starts with "@", like "@steve" where steve should have an MTC account as steve@emailDomain, the emailDomain of steve is the same as emailDomain of the current user.</p>
+<h2 id="flexible-team">Flexible Team</h2>
 <p>A Team Participant PDSP is specified as "role_name", a role named "role_name" will be used to resolve participants, the role-participants relations are defined in the process-level team specified at current workflow process starting, or in the PDS-level team specified in the current PDS. PDS-level team is used when it exits. last PDS-level team is used when multiple PDS-level teams exist.</p>
 <p>A Team PDSP is specified as "T:team_name".</p>
+<h2 id="peer">Peer</h2>
 <p>A Peer Query PDSP starts with "P:" followed by one or many positions separated by colon. positions are searched at the current org level of the user. We can say they are positions in the current deparments.</p>
+<h2 id="leader">Leader</h2>
 <p>A Leader Query PDSP starts with "L:" followed by one or many positions separated with colon, positions are searched upwards starting from the current org level all the way to the root level. Dor example, let's say the orgchart is "Root-BU1-Department1", and people are: "Root-Lucas-CEO", "BU1-Steve-VP:CFO", "Department1-John-Director", and the current user is "Department1-Lisa", then, a "P:Director" will be resolved as John, a "P:Director:VP" wil be resolved to John and Steve. a "P:CFO" will be
 resolved to Steve. A Postion Query is useful in the approval liking scenarios where some specific positions are normally required to approve something.</p>
+<h2 id="query">Query</h2>
 <p>An Staff Query PDSP starts with "Q:", which is the most flexible PDSP which can replace Peer or Leader PDSP. A Staff PDSP is defined as '&amp;' separated query parameters, a query parameter is defined as: "OU_regexp/positions_separated_by_colon", like</p>
 <pre><code>   ouReg1/pos1:pos2&amp;ouReg2/pos3:pos4
 </code></pre>
 <p>which means, find people who hold position of pos1 in ouReg1, who hold position of pos2 in ouReg1, who hold position of pos3 in ouReg2, and who hold position of pos4 in ouReg2.</p>
 <p>ouReg1 and ouReg2 are Regexp.</p>
+<h3 id="same-ou-matching">Same OU Matching</h3>
 <p>if "ouReg" is ommitted in a query parameter, for exmaple: "/pos1:pos2", people who in the same department of the current user and hold positions of pos1 and pos2 will be resolved to. The same as what a Peer Query PDSP does.</p>
-<p>if "ouReg/" is ommitted in a query parameter, for example, "pos1:pos2", people who in the same department or the upper level orgchart of the current user and hold positions of pos1 and pos2 will be resolved to. The same as what a Leader Query PDSP does. So, 'Q:CEO:CTO' and 'L:CEO:CTO' will be resolved to the same people.</p>
-<p>if ouReg is "<em>", for example, "</em>/pos1:pos2", people who hold pos1 or pos2 position in any department will be resolved to;</p>
+<h3 id="upwards-one-matching">Upwards One Matching</h3>
+<p>To get the first matching people of the specified position searching upwards, use double slash: '//', for example, "Q:000010000200003//pos", if there is 'pos' in department '000010000200003', use it, or else, seach 'pos' in department '0000100002', if exist, use it, if not, continually search 'pos' in department '00001', exist? use it, no? search 'root' for 'pos', exist? use it, no? use the process starter as 'pos' participants.</p>
+<h3 id="upwards-all-matching">Upwards All Matching</h3>
+<p>To get all matching people of the specified position searching upward, use three slash: '///', for example, 'Q:000010000200003///pos', if Sam is 'pos' in '00001000200003' , Steve and Angela are 'pos' in '0000100002', Paul is 'pos' in '00001', Jenny is 'pos' in 'root', then 'Q:000010000200003///pos' will resolve to all of them: Sam, Steve, Angela, Paul and Jenny.</p>
+<h3 id="all-matching">All Matching</h3>
+<p>if "ouReg/" is ommitted in a query parameter, for example, "pos1:pos2", or use "*" as ouReg, for example, "*/pos1:pos2", people who hold positions of pos1 and pos2 in the whole organization will be resolved to.</p>
+<h3 id="staff">'staff'</h3>
+<p>use 'staff' position to query all staff who have no specified positional role.</p>
+<h3 id="all">'all'</h3>
+<p>use 'all' to get all people of an OU, for example, "Q:DEP2/all" will get all people in DEP2 and its lower level department</p>
 <h2 id="exaples">Exaples:</h2>
 <pre><code>director
 </code></pre>
@@ -940,6 +1120,18 @@ director;T:TeamA
 <p>Resolve to:</p>
 <ul>
 <li>all people of your organizaiton</li>
+</ul>
+<pre><code>Q:DEP1//AA
+</code></pre>
+<p>Resolve to:</p>
+<ul>
+<li>first matched AA in DEP1 and all upper level OU</li>
+</ul>
+<pre><code>Q:DEP1///AA
+</code></pre>
+<p>Resolve to:</p>
+<ul>
+<li>all matched AA in DEP1 and all upper level OU</li>
 </ul>
 
               
