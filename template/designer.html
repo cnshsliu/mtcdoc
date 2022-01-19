@@ -370,6 +370,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#title" class="md-nav__link">
+    Title
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#participant" class="md-nav__link">
     Participant
   </a>
@@ -383,20 +390,13 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#variables" class="md-nav__link">
-    Variables
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#variables_1" class="md-nav__link">
+  <a href="#variables" class="md-nav__link">
     Variables
   </a>
   
@@ -406,6 +406,13 @@
           <li class="md-nav__item">
   <a href="#name" class="md-nav__link">
     Name:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internal-variables" class="md-nav__link">
+    Internal Variables
   </a>
   
 </li>
@@ -730,6 +737,20 @@
           <li class="md-nav__item">
   <a href="#gt" class="md-nav__link">
     gt
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ct" class="md-nav__link">
+    ct
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy-cut-paste" class="md-nav__link">
+    Copy / Cut / Paste
   </a>
   
 </li>
@@ -1165,6 +1186,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#title" class="md-nav__link">
+    Title
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#participant" class="md-nav__link">
     Participant
   </a>
@@ -1178,20 +1206,13 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#variables" class="md-nav__link">
-    Variables
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#variables_1" class="md-nav__link">
+  <a href="#variables" class="md-nav__link">
     Variables
   </a>
   
@@ -1201,6 +1222,13 @@
           <li class="md-nav__item">
   <a href="#name" class="md-nav__link">
     Name:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#internal-variables" class="md-nav__link">
+    Internal Variables
   </a>
   
 </li>
@@ -1529,6 +1557,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#ct" class="md-nav__link">
+    ct
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy-cut-paste" class="md-nav__link">
+    Copy / Cut / Paste
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1570,6 +1612,9 @@
 <li>Shift-Click on an Activity to open it's properties</li>
 <li>Drag it to move to another location</li>
 </ul>
+<h3 id="title">Title</h3>
+<p>Activity (Task) title can include process level variables value with [var_name], [var_name] will be replace with the value of var_name.</p>
+<p>For example: If you have a variable name 'Interviewee_name", and the interviewee is "John", then the work title with a name of "Please approve offer letter of [Interviewee_name]" will be "Please approve offer letter of John", Simple.</p>
 <h3 id="participant">Participant</h3>
 <p>Define task participants with Role Definition String,</p>
 <p>See <a href="/designer/pds">PDS page</a> for details</p>
@@ -1577,9 +1622,8 @@
 <p>Give some instructions to people who take part in this task</p>
 <p>Simple html tag is allowed</p>
 <p>Handlbars format is used to include process variables. If a previous node has a variable named "days", then, {{days.value}} can be included in instruction to embed it's value in instruction.</p>
-<h3 id="variables">Variables</h3>
-<p>See below</p>
-<h2 id="variables_1">Variables</h2>
+<p>You may also have {{days.title}} {{days.type}} etc. included if required.</p>
+<h2 id="variables">Variables</h2>
 <p>define variable name, type etc.</p>
 <h3 id="name"><strong>Name</strong>:</h3>
 <p>variable name.</p>
@@ -1607,6 +1651,19 @@
 <li>"cb_": a checkbox type input.</li>
 <li>"ou_": Organization Unit Selector</li>
 <li>any other name : a normal input.</li>
+</ul>
+<h3 id="internal-variables">Internal Variables</h3>
+<p>Following variables you may use directly without being explicitly defined.</p>
+<ul>
+<li>starter: the uid of the process starter,</li>
+<li>starterCN: the Name of the process starter.</li>
+<li>ou_SOU: the OU code of the process starter,</li>
+</ul>
+<p>These internal varaibles are aslo available for:</p>
+<ul>
+<li>Workflow Context variables display,</li>
+<li>Handlebars in comments input, for example: "{{starterCN.value}}"</li>
+<li>Activity title, for example: "Activity started by [starterCN]"</li>
 </ul>
 <h3 id="option"><strong>Option</strong></h3>
 <p>the pickable options for this variable input</p>
@@ -1736,6 +1793,11 @@ this case value will be used to determine whether or not this route will be take
 <li>Hold Alt key (MAC: Opt), click on the first half of a connection then pick another node to re-select its' staring node</li>
 <li>Hold Alt key (MAC: Opt), click on the second half of a connection then pick another node to re-select it's ending node</li>
 </ul>
+<p>or:</p>
+<ul>
+<li>Mouse over a connection, press "gb" to move it's starting point;</li>
+<li>Mouse over a connection, press "ge" to move it's ending point;</li>
+</ul>
 <h3 id="cancel-connecting">Cancel connecting</h3>
 <p>If you would like to cancel while connecting, double click on blank area of canvas, or press ESC</p>
 <h3 id="delete-a-connection">Delete a connection</h3>
@@ -1745,6 +1807,8 @@ this case value will be used to determine whether or not this route will be take
 <h3 id="give-connection-a-value">Give connection a value</h3>
 <ul>
 <li>Hold Shift key, click on a connection, input is option value in the pop-up.</li>
+<li>While pointing at a connection, press 'ct' to clear it's value</li>
+<li>While pointing at a connection, press Ctrl-V to paste a value, after press Ctrl-C on an existing connection.</li>
 </ul>
 <h2 id="editing">Editing</h2>
 <p>Desginer support copy,paste, cut etc., as well as shortcut keys to ease your opertions..</p>
@@ -1762,6 +1826,12 @@ this case value will be used to determine whether or not this route will be take
 <p>Mouse over a connection, press "ge" to move it's ending point</p>
 <h3 id="gt">gt</h3>
 <p>Mouse over a node, press "gt" to link it to another node</p>
+<h3 id="ct">ct</h3>
+<p>Mouse over a connection, press "ct" to clear its text</p>
+<h3 id="copy-cut-paste">Copy / Cut / Paste</h3>
+<p>Ctrl-C / Cmd-C to copy mouse overing node or connect
+Ctrl-X / Cmd-X to cut node or connect
+Ctrl-V / Cmd-V to paste nord or connect text</p>
 
               
             </article>
