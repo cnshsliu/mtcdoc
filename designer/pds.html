@@ -452,14 +452,21 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    Variables
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#exaples" class="md-nav__link">
-    Exaples:
+  <a href="#examples" class="md-nav__link">
+    Examples:
   </a>
   
 </li>
@@ -930,14 +937,21 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    Variables
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#exaples" class="md-nav__link">
-    Exaples:
+  <a href="#examples" class="md-nav__link">
+    Examples:
   </a>
   
 </li>
@@ -999,7 +1013,19 @@ resolved to Steve. A Postion Query is useful in the approval liking scenarios wh
 <p>use 'staff' position to query all staff who have no specified positional role.</p>
 <h3 id="all">'all'</h3>
 <p>use 'all' to get all people of an OU, for example, "Q:DEP2/all" will get all people in DEP2 and its lower level department</p>
-<h2 id="exaples">Exaples:</h2>
+<h3 id="variables">Variables</h3>
+<p>You may include variable values in PDS. the format is "[var_name]", the [var_name] will be repalced with the value of var_name. For example, if there is a var named "dep" which has a value of "finance", then PDS "Q:[dep]/director" will be replace with "Q:finance/director".
+There are several internal variables are always available, they are:</p>
+<ul>
+<li>starter:
+  the email of the starter</li>
+<li>starterCN
+  the name of the starter</li>
+<li>ou_SOU
+  the OU code of the starter</li>
+</ul>
+<p>So, "Q:[ou_SOU]/director" will always point to "director" in starter's own department.</p>
+<h2 id="examples">Examples:</h2>
 <pre><code>director
 </code></pre>
 <p>Resolve to:</p>
@@ -1157,6 +1183,18 @@ director;T:TeamA
 <p>Resolve to:</p>
 <ul>
 <li>all matched AA in DEP1 and all upper level OU</li>
+</ul>
+<pre><code>Q:[ou_SOU]/director
+</code></pre>
+<p>Revoled to:</p>
+<ul>
+<li>The 'director' in starter's department</li>
+</ul>
+<pre><code>Q:[ou_SOU]/[position]
+</code></pre>
+<p>Resolved to:</p>
+<ul>
+<li>[position] will be replaced to the value of 'position' var, if the value if 'leader', will be the leader of starter's department</li>
 </ul>
 
               
