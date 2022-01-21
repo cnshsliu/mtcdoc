@@ -382,6 +382,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#internal-role" class="md-nav__link">
+    Internal Role
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#peer" class="md-nav__link">
     Peer
   </a>
@@ -853,6 +860,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#internal-role" class="md-nav__link">
+    Internal Role
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#peer" class="md-nav__link">
     Peer
   </a>
@@ -951,6 +965,17 @@
 <h2 id="flexible-team">Flexible Team</h2>
 <p>A Team Participant PDSP is specified as "role_name", a role named "role_name" will be used to resolve participants, the role-participants relations are defined in the process-level team specified at current workflow process starting, or in the PDS-level team specified in the current PDS. PDS-level team is used when it exits. last PDS-level team is used when multiple PDS-level teams exist.</p>
 <p>A Team PDSP is specified as "T:team_name".</p>
+<h2 id="internal-role">Internal Role</h2>
+<p>Please a script node in the template, write code to specify following role participant, the following works will use these dynamic definition. For example,</p>
+<pre><code>// read Hyperflow Developer's Guide for details
+setRoles({
+SGT: &quot;userA@company.com&quot;,
+DIRECTOR: &quot;userB@company.com&quot;,
+});
+ret='DEFAULT';
+</code></pre>
+<p>If one following work's PDS is "SGT", then this work will be delivered to "userA@company.com".
+If another following work's PDS contains "DIRECTOR", then "DIRECTOR" will be inteperated to "userB@company.com".</p>
 <h2 id="peer">Peer</h2>
 <p>A Peer Query PDSP starts with "P:" followed by one or many positions separated by colon. positions are searched at the current org level of the user. We can say they are positions in the current deparments.</p>
 <h2 id="leader">Leader</h2>
