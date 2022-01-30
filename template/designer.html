@@ -487,6 +487,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#formula" class="md-nav__link">
+    Formula
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#label" class="md-nav__link">
     Label
   </a>
@@ -1316,6 +1323,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#formula" class="md-nav__link">
+    Formula
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#label" class="md-nav__link">
     Label
   </a>
@@ -1732,6 +1746,17 @@
 <li>for normal input, the default value will be set in the input box.</li>
 <li>for select/checkbox/radio, the default value will be selected.</li>
 </ul>
+<h3 id="formula"><strong>Formula</strong></h3>
+<p>You may use formula for a variable which we have a value the same as the the result of its formula.</p>
+<p>Formula is defined in the variable's value field, starts with an "=".</p>
+<p>Formula is Javascript expression. try simple expression is strongly recommanded.</p>
+<p>Examples:</p>
+<pre><code>=first_name + &quot; &quot; + last_name
+</code></pre>
+<p>If first_name varialbe has a value of "John", last_name is "Smith", then the result should be "John Smith".</p>
+<pre><code>=first_name.substring(1)
+</code></pre>
+<p>If first_name is "John", the result will be "ohn";</p>
 <h3 id="label"><strong>Label</strong></h3>
 <p>The label of this vairable.</p>
 <h3 id="placeholder"><strong>Placeholder</strong></h3>
@@ -1782,23 +1807,31 @@
 <h3 id="code">Code</h3>
 <p>Embed any javascript code in this node.</p>
 <h4 id="return-value">Return value</h4>
-<pre><code>ret = RET_VALUE;
+<pre><code>
+ret = RET_VALUE;
+
 </code></pre>
 <p>Return value is used as routing option to decide where to go after this script node.</p>
 <h4 id="insert-any-variable">Insert any variable</h4>
-<pre><code>kvar(var_name, var_value, var_label)
+<pre><code>
+kvar(var_name, var_value, var_label)
+
 </code></pre>
 <p>After that, thsi variable named 'var_name' is available for following process.</p>
 <p>** If a varialbe named "var_name" exists, it's value will be overwrite with this one.</p>
 <h4 id="get-value-of-variable">Get value of variable.</h4>
-<pre><code>kvalue(var_name)
+<pre><code>
+kvalue(var_name)
+
 </code></pre>
 <h4 id="set-inner-team">Set inner Team</h4>
 <p>Dynamically set a team for use later.</p>
-<pre><code>setRoles({
-    SGT: &quot;ab@email.com&quot;,
-    DIRECTOR: &quot;cd@email.com&quot;,
+<pre><code>
+setRoles({
+SGT: &quot;ab@email.com&quot;,
+DIRECTOR: &quot;cd@email.com&quot;,
 });
+
 </code></pre>
 <p>For steps after this script, any task assigned to role 'SGT' will go to a person whose email is "ab@email.com", any task assigned to role "DIRECTOR" will go to a person whose email is "cd@email.com"</p>
 <h2 id="timer">Timer <img src="../img/svg/TIMER.svg" width="24px" height="24px"/></h2>
@@ -1873,6 +1906,8 @@ this case value will be used to determine whether or not this route will be take
 <p>Ctrl-C / Cmd-C to copy mouse overing node or connect
 Ctrl-X / Cmd-X to cut node or connect
 Ctrl-V / Cmd-V to paste nord or connect text</p>
+<pre><code>
+</code></pre>
 
               
             </article>
