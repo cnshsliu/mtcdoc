@@ -438,6 +438,14 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#variable-type" class="md-nav__link">
+    Variable Type:
+  </a>
+  
+    <nav class="md-nav" aria-label="Variable Type:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#ou-selector" class="md-nav__link">
     OU selector
   </a>
@@ -473,9 +481,27 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#ou-selector_1" class="md-nav__link">
-    OU selector
+  <a href="#table" class="md-nav__link">
+    Table
   </a>
+  
+    <nav class="md-nav" aria-label="Table">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1274,6 +1300,14 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#variable-type" class="md-nav__link">
+    Variable Type:
+  </a>
+  
+    <nav class="md-nav" aria-label="Variable Type:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#ou-selector" class="md-nav__link">
     OU selector
   </a>
@@ -1309,9 +1343,27 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#ou-selector_1" class="md-nav__link">
-    OU selector
+  <a href="#table" class="md-nav__link">
+    Table
   </a>
+  
+    <nav class="md-nav" aria-label="Table">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1672,10 +1724,12 @@
 <h2 id="variables">Variables</h2>
 <p>define variable name, type etc.</p>
 <h3 id="name"><strong>Name</strong>:</h3>
-<p>variable name.</p>
+<p>Variable name should be a valid javascript varialbe name,
+that means, a variable name should start with an alphabetic, or underscore, followed by one to many alphabetic or underscore or numbers.
+invalid name will make your workflow fails to run.</p>
+<h3 id="variable-type"><strong>Variable Type</strong>:</h3>
+<p>Variable name with specific prefix also indicates variable types, determing how Metatocome SaaS show it to end-users.</p>
 <ul>
-<li>should be a valid javascript varible name, invalid name will make your workflow fails to run.</li>
-<li>varialbe name prefix determin its input type:</li>
 <li>"email_" : an email type input.</li>
 <li>"password_" : an password type input.</li>
 <li>"url_" : an url type input.</li>
@@ -1699,25 +1753,25 @@
 <li>"ou_": an Organization Unit Selector</li>
 <li>"usr_": an user ID type input</li>
 <li>"user_": an user ID type input</li>
+<li>"tbl_": an table type input.</li>
 <li>any other name : a normal input.</li>
 </ul>
-<h3 id="ou-selector">OU selector</h3>
+<h4 id="ou-selector">OU selector</h4>
 <p>A variable starts with "ou_" will provide user a selection box of the current orgchart. The orgchart is configurable by people who have the correspoinding access right, normally, the MTC admin of your organizaiton.</p>
-<h3 id="user-selector">User selector</h3>
+<p>An OU selector variable named as "ou_varname", it can have opitons like "top_ou_id;[yes|no]", the string before ';' is the ouid of the first organizaitonal unit, the string after ';' is used to indicate whether the selection list should include the top item or not.</p>
+<h4 id="user-selector">User selector</h4>
 <p>A variable starts with "usr_" or "user_" provides user with a input box for input and validate user id, MTC keep validating while you are inputting, and give you feedback of the result.</p>
-<h3 id="file-uploader">File uploader</h3>
+<h4 id="file-uploader">File uploader</h4>
 <p>A variable starts with "file_" will show the user a file drop area, use can drag a file and drop it onto the drop area to upload a local file to MTC. Later, other users could view it, or download it.</p>
-<h3 id="internal-variables">Internal Variables</h3>
+<h4 id="internal-variables">Internal Variables</h4>
 <p>Following variables you may use directly without being explicitly defined.</p>
 <ul>
 <li>starter: the uid of the process starter,</li>
 <li>starterCN: the Name of the process starter.</li>
-<li>
-<p>ou_SOU: the OU code of the process starter,</p>
-</li>
-<li>
-<p>ou_user_XYZ, the OU code of a user_XYZ variable</p>
-</li>
+<li>ou_SOU: the OU code of the process starter,</li>
+</ul>
+<ul>
+<li>ou_user_XYZ, the OU code of a user_XYZ variable</li>
 </ul>
 <p>These internal varaibles are aslo available for:</p>
 <ul>
@@ -1725,21 +1779,102 @@
 <li>Handlebars in comments input, for example: "{{starterCN.value}}"</li>
 <li>Activity title, for example: "Activity started by [starterCN]"</li>
 </ul>
-<h3 id="selection-option"><strong>Selection Option</strong></h3>
+<h4 id="selection-option"><strong>Selection Option</strong></h4>
 <p>For a variable named like "select_", "sel_", "sl_", or "ou_",</p>
 <ul>
 <li>options should be delimited by semicolon (;), for example "option1;option2;option3";</li>
 <li>For "ou_" variable, the first option will be used as the top OU id, the second is "yes" or "not", whether to include the top itself.</li>
-<li>options can also get from a pre-defined list.</li>
+<li>options can also get from a pre-defined list.<ul>
 <li>A list is defined in a list group.</li>
 <li>A list has it's own key in a list group.</li>
 <li>"R:list_group_name" to get default items from a list group.</li>
 <li>"R:list_group_name:key" to get items from a list group by key.</li>
-<li>list can be cascaded To make cascaded list. you may:</li>
+</ul>
+</li>
+<li>list can be cascaded To make cascaded list. you may:<ul>
 <li>use T:cascade_list_name, for example, you may have province list "select_A" defined as "R:province_list;T:select_B", then, you may define select_B as "R:city_list", then, once use pick a province from select_A, select_B will get the selected value from select_A, and use it as list key to refresh options for select_B, say, get all cities of the selected city.</li>
 </ul>
-<h3 id="ou-selector_1">OU selector</h3>
-<p>An OU selector variable named as "ou_varname", it can have opitons like "top_ou_id;[yes|no]", the string before ';' is the ouid of the first organizaitonal unit, the string after ';' is used to indicate whether the selection list should include the top item or not.</p>
+</li>
+</ul>
+<h4 id="table"><strong>Table</strong></h4>
+<p>A table allow users to input values with a table row by row, column by column.
+Table variable name starts with tbl_</p>
+<p>Table columns are defined with a string delimited by |,</p>
+<ul>
+<li>individual column can have prefix to define its type:<ul>
+<li>"date_" (for date input),</li>
+<li>"dt_" (for date time input).</li>
+<li>"sel_" (for selection)<ul>
+<li>Options for this selection are given as (OPT1:OPT2:OPT3)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>column's title can be defined with [title=TITLE], or the variable name without prefix. for example, variable dt_THIS with have a title THIS automatically.</li>
+<li>default value can be defined with [default=DEFAULT_VALUE],</li>
+<li>if average value of the column is required, mark it with [avg]</li>
+<li>if sum value of the column is required, mark it with [sum]</li>
+<li>get how many days between two date type column, define it with =datediff function.</li>
+<li>get how many days lasting between two datetime, define it with =lastingdays function.</li>
+</ul>
+<h5 id="example">Example:</h5>
+<pre><code>date\_开始时间[title=开始日期]|date\_结束时间|从哪里[default=机场]|到哪里[default=公司]|sel\_出行方式(飞机:高铁:长途汽车:出租车)[default=高铁]|=datediff(date\_开始时间,date\_结束时间)+1[title=出差天数(天)][default=0][avg]|dt\_开始时点|dt\_结束时点|=lastingdays(dt\_开始时点,dt\_结束时点,0.5)[title=请假天数][default=0][sum]|number\_报销金额[sum][avg]
+</code></pre>
+<p>The table above has following columns:</p>
+<ul>
+<li>开始时间：<ul>
+<li>类型：日期</li>
+<li>Title: 开始日期</li>
+</ul>
+</li>
+<li>结束时间<ul>
+<li>类型：日期</li>
+<li>Title: 结束时间</li>
+</ul>
+</li>
+<li>从哪里<ul>
+<li>缺省值：机场</li>
+</ul>
+</li>
+<li>到哪里<ul>
+<li>缺省值：公司</li>
+</ul>
+</li>
+<li>出行方式<ul>
+<li>类型：选择列表</li>
+<li>可选项：飞机，高铁，长途汽车，出租车</li>
+<li>缺省值：高铁</li>
+</ul>
+</li>
+<li>出差天数（天）<ul>
+<li>类型：公式</li>
+<li>值：开始日期，与结束日期的天数差别+1，如为同一天，则值为 1.</li>
+<li>缺省值：0</li>
+<li>计算平均值</li>
+</ul>
+</li>
+<li>开始时点<ul>
+<li>类型：datetime</li>
+</ul>
+</li>
+<li>结束时点<ul>
+<li>类型：datetime</li>
+</ul>
+</li>
+<li>请假天数<ul>
+<li>类型：公式</li>
+<li>值：开始时点，与结束时点的差别，规整到 0.5 天</li>
+<li>缺省值：0</li>
+<li>计算总和</li>
+</ul>
+</li>
+<li>报销金额<ul>
+<li>类型：数字</li>
+<li>求总</li>
+<li>求平均</li>
+</ul>
+</li>
+</ul>
 <h3 id="value"><strong>Value</strong></h3>
 <p>the default value of this input.</p>
 <ul>
