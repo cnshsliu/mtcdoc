@@ -30,69 +30,240 @@ An activity is a task need to be done by human.
 - Shift-Click on an Activity to open it's properties
 - Drag it to move to another location
 
+### Title
+
+Activity (Task) title can include process level variables value by placing variable name in square brackets, like [var_name], [var_name] will be replace with the value of var_name.
+
+For example: If you have a variable name 'Interviewee_name", and the interviewee is "John", then the work title with a name of "Please approve offer letter of [Interviewee_name]" will be "Please approve offer letter of John", Simple.
+
 ### Participant
 
 Define task participants with Role Definition String,
 
-See [RDS page](/designer/rds) for details
+See [PDS page](/designer/pds) for details
 
 ### Instruction
 
 Give some instructions to people who take part in this task
 
-Simple html tag is allowed
+You may include HTML tags/Handlebars tempalate or varName in brackets in instruction test.
 
-Handlbars format is used to include process variables. If a previous node has a variable named "days", then, {{days.value}} can be included in instruction to embed it's value in instruction.
+####Supported HTML Tags
 
-### Variables
+Only following HTML tags are supported:
+
+"b", "i", "em", "strong", "a", "blockquote", "li", "ol", "ul", "br", "code", "span", "sub", "sup", "table", "thead", "th", "tbody", "tr", "td", "div", "p", "h1", "h2", "h3", "h4"
+
+#### Handlebars
+
+Handlebars format is used to include process variables. If a previous node has a variable named "days", then, {{days.value}} can be included in instruction to embed it's value in instruction.
+
+#### Var in square brackets
+
+[var_name] will be replaced with var value.
+
+You may also have {{days.title}} {{days.type}} etc. included if required.
+
+## Variables
 
 define variable name, type etc.
 
-- **Name**: variable name.
-  - should be a valid javascript varible name, invalid name will make your workflow fails to run.
-  - varialbe name prefix determin its input type:
-    - "email\_" : an email type input.
-    - "password\_" : an password type input.
-    - "url\_" : an url type input.
-    - "range\_" : an range type input.
-    - "number\_" : an number type input.
-    - "dt\_" : an datetime type input.
-    - "datetime\_" : an datetime type input.
-    - "date\_" : an date type input.
-    - "time\_" : an time type input.
-    - "color\_" : an color type input.
-    - "search\_" : an search type input.
-    - "select\_" : an select type input.
-    - "sl\_" : an select type input.
-    - "sel\_" : an select type input.
-    - "file\_" : an file type input.
-    - "radio\_" : a radio type input.
-    - "textarea\_" : a textarea type input.
-    - "checkbox\_": a checkbox type input.
-    - "cb\_": a checkbox type input.
-    - any other name : a normal input.
-- **Option**: the pickable options for this variable input
-  - options should be delimited by semicolon (;), for example "option1;option2;option3";
-  - options can also get from a pre-defined list.
-    - A list is defined in a list group.
-    - A list has it's own key in a list group.
-    - "R:list_group_name" to get default items from a list group.
-    - "R:list_group_name:key" to get items from a list group by key.
-    - list can be cascaded To make cascaded list. you may:
-      - use T:cascade_list_name, for example, you may have province list "select_A" defined as "R:province_list;T:select_B", then, you may define select_B as "R:city_list", then, once use pick a province from select_A, select_B will get the selected value from select_A, and use it as list key to refresh options for select_B, say, get all cities of the selected city.
-- **Value**: the default value of this input.
-  - for normal input, the default value will be set in the input box.
-  - for select/checkbox/radio, the default value will be selected.
-- **Label**: The label of this vairable.
-- **Placeholder**: the placeholder for input or textarea
-- **Break Row**: add a new line after this variable
-- **ID**: give it an optional ID
-- **Required**: this variable's value must be provided.
-- **Visible**: use RDS to define whom this var should be visiable to
+### **Name**:
+
+Variable name should be a valid javascript varialbe name,
+that means, a variable name should start with an alphabetic, or underscore, followed by one to many alphabetic or underscore or numbers.
+invalid name will make your workflow fails to run.
+
+### **Variable Type**:
+
+Variable name with specific prefix also indicates variable types, determing how Metatocome SaaS show it to end-users.
+
+- "email\_" : an email type input.
+- "password\_" : an password type input.
+- "url\_" : an url type input.
+- "range\_" : an range type input.
+- "number\_" : an number type input.
+- "dt\_" : an datetime type input.
+- "datetime\_" : an datetime type input.
+- "date\_" : an date type input.
+- "time\_" : an time type input.
+- "color\_" : an color type input.
+- "search\_" : an search type input.
+- "select\_" : a select type input.
+- "sl\_" : a select type input.
+- "sel\_" : a select type input.
+- "file\_" : an file type input.
+- "radio\_" : a radio type input.
+- "textarea\_" : a textarea type input.
+- "ta\_" : a textarea type input.
+- "checkbox\_": a checkbox type input.
+- "cb\_": a checkbox type input.
+- "ou\_": an Organization Unit Selector
+- "usr\_": an user ID type input
+- "user\_": an user ID type input
+- "tbl\_": an table type input.
+- any other name : a normal input.
+
+#### OU selector
+
+A variable starts with "ou\_" will provide user a selection box of the current orgchart. The orgchart is configurable by people who have the correspoinding access right, normally, the MTC admin of your organizaiton.
+
+An OU selector variable named as "ou_varname", it can have opitons like "top_ou_id;[yes|no]", the string before ';' is the ouid of the first organizaitonal unit, the string after ';' is used to indicate whether the selection list should include the top item or not.
+
+#### User selector
+
+A variable starts with "usr\_" or "user\_" provides user with a input box for input and validate user id, MTC keep validating while you are inputting, and give you feedback of the result.
+
+#### File uploader
+
+A variable starts with "file\_" will show the user a file drop area, use can drag a file and drop it onto the drop area to upload a local file to MTC. Later, other users could view it, or download it.
+
+#### Internal Variables
+
+Following variables you may use directly without being explicitly defined.
+
+- starter: the uid of the process starter,
+- starterCN: the Name of the process starter.
+- ou_SOU: the OU code of the process starter,
+
+- ou_user_XYZ, the OU code of a user_XYZ variable
+
+These internal varaibles are aslo available for:
+
+- Workflow Context variables display,
+- Handlebars in comments input, for example: "{{starterCN.value}}"
+- Activity title, for example: "Activity started by [starterCN]"
+
+#### **Selection Option**
+
+For a variable named like "select\_", "sel\_", "sl\_", or "ou\_",
+
+- options should be delimited by semicolon (;), for example "option1;option2;option3";
+- For "ou\_" variable, the first option will be used as the top OU id, the second is "yes" or "not", whether to include the top itself.
+- options can also get from a pre-defined list.
+  - A list is defined in a list group.
+  - A list has it's own key in a list group.
+  - "R:list_group_name" to get default items from a list group.
+  - "R:list_group_name:key" to get items from a list group by key.
+- list can be cascaded To make cascaded list. you may:
+  - use T:cascade_list_name, for example, you may have province list "select_A" defined as "R:province_list;T:select_B", then, you may define select_B as "R:city_list", then, once use pick a province from select_A, select_B will get the selected value from select_A, and use it as list key to refresh options for select_B, say, get all cities of the selected city.
+
+#### **Table**
+
+A table allow users to input values with a table row by row, column by column.
+Table variable name starts with tbl\_
+
+Table columns are defined with a string delimited by |,
+
+- individual column can have prefix to define its type:
+  - "date\_" (for date input),
+  - "dt\_" (for date time input).
+  - "sel\_" (for selection)
+    - Options for this selection are given as (OPT1:OPT2:OPT3)
+- column's title can be defined with [title=TITLE], or the variable name without prefix. for example, variable dt_THIS with have a title THIS automatically.
+- default value can be defined with [default=DEFAULT_VALUE],
+- if average value of the column is required, mark it with [avg]
+- if sum value of the column is required, mark it with [sum]
+- get how many days between two date type column, define it with =datediff function.
+- get how many days lasting between two datetime, define it with =lastingdays function.
+
+##### Example:
+
+```
+date\_开始时间[title=开始日期]|date\_结束时间|从哪里[default=机场]|到哪里[default=公司]|sel\_出行方式(飞机:高铁:长途汽车:出租车)[default=高铁]|=datediff(date\_开始时间,date\_结束时间)+1[title=出差天数(天)][default=0][avg]|dt\_开始时点|dt\_结束时点|=lastingdays(dt\_开始时点,dt\_结束时点,0.5)[title=请假天数][default=0][sum]|number\_报销金额[sum][avg]
+```
+
+The table above has following columns:
+
+- 开始时间：
+  - 类型：日期
+  - Title: 开始日期
+- 结束时间
+  - 类型：日期
+  - Title: 结束时间
+- 从哪里
+  - 缺省值：机场
+- 到哪里
+  - 缺省值：公司
+- 出行方式
+  - 类型：选择列表
+  - 可选项：飞机，高铁，长途汽车，出租车
+  - 缺省值：高铁
+- 出差天数（天）
+  - 类型：公式
+  - 值：开始日期，与结束日期的天数差别+1，如为同一天，则值为 1.
+  - 缺省值：0
+  - 计算平均值
+- 开始时点
+  - 类型：datetime
+- 结束时点
+  - 类型：datetime
+- 请假天数
+  - 类型：公式
+  - 值：开始时点，与结束时点的差别，规整到 0.5 天
+  - 缺省值：0
+  - 计算总和
+- 报销金额
+  - 类型：数字
+  - 求总
+  - 求平均
+
+### **Value**
+
+the default value of this input.
+
+- for normal input, the default value will be set in the input box.
+- for select/checkbox/radio, the default value will be selected.
+
+### **Formula**
+
+You may use formula for a variable which we have a value the same as the the result of its formula.
+
+Formula is defined in the variable's value field, starts with an "=".
+
+Formula is Javascript expression. try simple expression is strongly recommanded.
+
+Examples:
+
+```
+=first_name + " " + last_name
+```
+
+If first_name varialbe has a value of "John", last_name is "Smith", then the result should be "John Smith".
+
+```
+=first_name.substring(1)
+```
+
+If first_name is "John", the result will be "ohn";
+
+### **Label**
+
+The label of this vairable.
+
+### **Placeholder**
+
+the placeholder for input or textarea
+
+### **Break Row**
+
+add a new line after this variable
+
+### **ID**
+
+give it an optional ID
+
+### **Required**
+
+this variable's value must be provided.
+
+### **Visible**
+
+use PDS to define whom this var should be visiable to
 
 ## About Visible
 
-Sometime, some sensitive data might should be kept secret from some participants even they have been involved in the process. For instance, in a interview process, the offered salary may not be able to seen by interviewer, only HR and manager could see it, thus, we may use RDS to make this happend.
+Sometime, some sensitive data might should be kept secret from some participants even they have been involved in the process. For instance, in a interview process, the offered salary may not be able to seen by interviewer, only HR and manager could see it, thus, we may use PDS to make this happend.
 
 ## Inform <img src="../img/svg/INFORM.svg" width="24px" height="24px"/>
 
@@ -107,7 +278,7 @@ Sometime, some sensitive data might should be kept secret from some participants
 
 ### Recipiants:
 
-- Who will receive emails, define use [RDS](/designer/rds)
+- Who will receive emails, define use [PDS](/designer/pds)
 
 ### Subject and Content:
 
@@ -138,7 +309,9 @@ Embed any javascript code in this node.
 #### Return value
 
 ```
+
 ret = RET_VALUE;
+
 ```
 
 Return value is used as routing option to decide where to go after this script node.
@@ -146,7 +319,9 @@ Return value is used as routing option to decide where to go after this script n
 #### Insert any variable
 
 ```
+
 kvar(var_name, var_value, var_label)
+
 ```
 
 After that, thsi variable named 'var_name' is available for following process.
@@ -156,17 +331,21 @@ After that, thsi variable named 'var_name' is available for following process.
 #### Get value of variable.
 
 ```
+
 kvalue(var_name)
+
 ```
 
 ####Set inner Team
 Dynamically set a team for use later.
 
 ```
+
 setRoles({
-    SGT: "ab@email.com",
-    DIRECTOR: "cd@email.com",
+SGT: "ab@email.com",
+DIRECTOR: "cd@email.com",
 });
+
 ```
 
 For steps after this script, any task assigned to role 'SGT' will go to a person whose email is "ab@email.com", any task assigned to role "DIRECTOR" will go to a person whose email is "cd@email.com"
@@ -223,6 +402,11 @@ A connection can have option, option define the route. for example, there is one
 - Hold Alt key (MAC: Opt), click on the first half of a connection then pick another node to re-select its' staring node
 - Hold Alt key (MAC: Opt), click on the second half of a connection then pick another node to re-select it's ending node
 
+or:
+
+- Mouse over a connection, press "gb" to move it's starting point;
+- Mouse over a connection, press "ge" to move it's ending point;
+
 ### Cancel connecting
 
 If you would like to cancel while connecting, double click on blank area of canvas, or press ESC
@@ -234,6 +418,8 @@ If you would like to cancel while connecting, double click on blank area of canv
 ### Give connection a value
 
 - Hold Shift key, click on a connection, input is option value in the pop-up.
+- While pointing at a connection, press 'ct' to clear it's value
+- While pointing at a connection, press Ctrl-V to paste a value, after press Ctrl-C on an existing connection.
 
 ## Editing
 
@@ -251,18 +437,18 @@ While mouse is hovering a connection , press Ctrl-C (Win) / Cmd-C (Mac) to copy 
 
 ### Keyboard shortcut
 
-### d
+- d: Mouse over a node or a connection, press d to delete it.
+- gb: Mouse over a connection, press "gb" to move it's starting point
+- ge: Mouse over a connection, press "ge" to move it's ending point
+- gt: Mouse over a node, press "gt" to link it to another node
+- ct: Mouse over a connection, press "ct" to clear its text
 
-Mouse over a node or a connection, press d to delete it.
+### Copy / Cut / Paste
 
-### gb
+Ctrl-C / Cmd-C to copy mouse overing node or connect
+Ctrl-X / Cmd-X to cut node or connect
+Ctrl-V / Cmd-V to paste nord or connect text
 
-Mouse over a connection, press "gb" to move it's starting point
+```
 
-### ge
-
-Mouse over a connection, press "ge" to move it's ending point
-
-### gt
-
-Mouse over a node, press "gt" to link it to another node
+```

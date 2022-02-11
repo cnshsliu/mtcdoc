@@ -16,6 +16,7 @@ theme:
 markdown_extensions:
   - attr_list
   - md_in_html
+  - mdx_truly_sane_lists
   - def_list
   - pymdownx.tasklist:
       custom_checkbox: true
@@ -28,7 +29,7 @@ nav:
     - Template Browser: "template/explorer.md"
     - Design Tempalte: "template/design.md"
     - Designer: "template/designer.md"
-    - Role Definition: "designer/rds.md"
+  - Role Definition: "designer/pds.md"
   - Process: 
     - Start a process: "process/start.md"
     - Process explorer: "process/explorer.md"

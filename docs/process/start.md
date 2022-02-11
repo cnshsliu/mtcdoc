@@ -34,6 +34,18 @@ If you use MetatoCome in a Internet environment (MetatoCome can be deployed as a
 
 Give it meaningful process title, will make life easier later.
 
+### Start with PBO
+
+PBO means Primary Business Object. could be any plain text, an URL, or a file.
+On the workflow start page, a file drop area is provided.
+Use may drop file to it, or click it to bring up a file browser, select file to be uploaded.
+
+Later, the uploaded file-type PBO will be displayed at the top of work page.
+
+<img src="../img/filepond.png" width="300"/>
+
+You have chance to delete the PBO at this point, after starting, you can not delete a PBO file anymore.
+
 ### Start with team
 
 If you'd like to assign task to people flexibly, you may use teaming machenism. MetatoCome will inteperate assignee from role mapping of a flexible team.

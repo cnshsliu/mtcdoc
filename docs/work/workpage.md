@@ -53,7 +53,7 @@ While you are on the work page, you may realize that you need to ask someone els
 
 ![createadhoc](../img/createadhoc.png)
 
-You could specify Adhoc task's participants with [RDS](/designer/rds.md). However, you may send to wrong people accidentally or imprudentyly, to prevent it's happening, we have a Check button to show who are the right people, and give you two buttons to select.
+You could specify Adhoc task's participants with [PDS](/designer/pds.md). However, you may send to wrong people accidentally or imprudentyly, to prevent it's happening, we have a Check button to show who are the right people, and give you two buttons to select.
 
 ## Transfer Work
 
