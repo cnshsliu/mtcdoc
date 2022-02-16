@@ -404,8 +404,8 @@ A connection can have option, option define the route. for example, there is one
 
 or:
 
-- Mouse over a connection, press "gb" to move it's starting point;
-- Mouse over a connection, press "ge" to move it's ending point;
+- Mouse over a connection, press "cb" to move it's starting point;
+- Mouse over a connection, press "ce" to move it's ending point;
 
 ### Cancel connecting
 
@@ -438,17 +438,45 @@ While mouse is hovering a connection , press Ctrl-C (Win) / Cmd-C (Mac) to copy 
 ### Keyboard shortcut
 
 - d: Mouse over a node or a connection, press d to delete it.
-- gb: Mouse over a connection, press "gb" to move it's starting point
-- ge: Mouse over a connection, press "ge" to move it's ending point
+- cb: Mouse over a connection, press "cb" to move it's starting point
+- ce: Mouse over a connection, press "ce" to move it's ending point
 - gt: Mouse over a node, press "gt" to link it to another node
 - ct: Mouse over a connection, press "ct" to clear its text
 
 ### Copy / Cut / Paste
 
-Ctrl-C / Cmd-C to copy mouse overing node or connect
-Ctrl-X / Cmd-X to cut node or connect
-Ctrl-V / Cmd-V to paste nord or connect text
+- Ctrl-C / Cmd-C to copy mouse overing node or connect
+- Ctrl-X / Cmd-X to cut node or connect
+- Ctrl-V / Cmd-V to paste nord or connect text
 
-```
+- To make a new copy of an exiting node
+  - Move mouse to source node
+  - press Ctrl-C on Windows or Cmd-C on Mac
+  - Move mouse to blank area of the canvas
+  - Press Ctrl-V on Windows or Cmd-V on Mac
+- To make a node (destination node) the same as another (source node)
+  - Move mouse to source node
+  - press Ctrl-C on Windows or Cmd-C on Mac
+  - Move mouse to the destination node
+  - Press Ctrl-V on Windows or Cmd-V on Mac
+- To make a connection (destionation) text the same as another (source connection)
+  - Move mouse to source connection
+  - press Ctrl-C on Windows or Cmd-C on Mac
+  - Move mouse to the destination connection
+  - Press Ctrl-V on Windows or Cmd-V on Mac
 
-```
+## Select
+
+Select one: click the node to selecte it.
+
+Select many: click the nodes while holding Win key or Command key
+
+Select all: Ctrl-A or Command-A.
+
+## Move
+
+To move one signle node, click on it, move mouse while holding.
+
+To move many nodes, click on them while holding Win key on Windows or Command key on Mac, while those nodes are in "selected" status, drop any of them to antoher location, other selected will move simultaneously.
+
+To move all nodes, press Ctrl-A or Command-A to select all nodes, then click on one selected node to move them all together.
