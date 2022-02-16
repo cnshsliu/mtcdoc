@@ -473,6 +473,8 @@ Select many: click the nodes while holding Win key or Command key
 
 Select all: Ctrl-A or Command-A.
 
+Select with mouse: hold down Shift-key, click and move mouse to select one to many nodes. Shift-Meta to add more to selected.
+
 ## Move
 
 To move one signle node, click on it, move mouse while holding.

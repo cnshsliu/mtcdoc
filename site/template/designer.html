@@ -806,6 +806,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#select" class="md-nav__link">
+    Select
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#move" class="md-nav__link">
+    Move
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1668,6 +1682,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#select" class="md-nav__link">
+    Select
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#move" class="md-nav__link">
+    Move
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2007,8 +2035,8 @@ this case value will be used to determine whether or not this route will be take
 </ul>
 <p>or:</p>
 <ul>
-<li>Mouse over a connection, press "gb" to move it's starting point;</li>
-<li>Mouse over a connection, press "ge" to move it's ending point;</li>
+<li>Mouse over a connection, press "cb" to move it's starting point;</li>
+<li>Mouse over a connection, press "ce" to move it's ending point;</li>
 </ul>
 <h3 id="cancel-connecting">Cancel connecting</h3>
 <p>If you would like to cancel while connecting, double click on blank area of canvas, or press ESC</p>
@@ -2032,17 +2060,48 @@ this case value will be used to determine whether or not this route will be take
 <h3 id="keyboard-shortcut">Keyboard shortcut</h3>
 <ul>
 <li>d: Mouse over a node or a connection, press d to delete it.</li>
-<li>gb: Mouse over a connection, press "gb" to move it's starting point</li>
-<li>ge: Mouse over a connection, press "ge" to move it's ending point</li>
+<li>cb: Mouse over a connection, press "cb" to move it's starting point</li>
+<li>ce: Mouse over a connection, press "ce" to move it's ending point</li>
 <li>gt: Mouse over a node, press "gt" to link it to another node</li>
 <li>ct: Mouse over a connection, press "ct" to clear its text</li>
 </ul>
 <h3 id="copy-cut-paste">Copy / Cut / Paste</h3>
-<p>Ctrl-C / Cmd-C to copy mouse overing node or connect
-Ctrl-X / Cmd-X to cut node or connect
-Ctrl-V / Cmd-V to paste nord or connect text</p>
-<pre><code>
-</code></pre>
+<ul>
+<li>Ctrl-C / Cmd-C to copy mouse overing node or connect</li>
+<li>Ctrl-X / Cmd-X to cut node or connect</li>
+<li>Ctrl-V / Cmd-V to paste nord or connect text</li>
+</ul>
+<ul>
+<li>To make a new copy of an exiting node<ul>
+<li>Move mouse to source node</li>
+<li>press Ctrl-C on Windows or Cmd-C on Mac</li>
+<li>Move mouse to blank area of the canvas</li>
+<li>Press Ctrl-V on Windows or Cmd-V on Mac</li>
+</ul>
+</li>
+<li>To make a node (destination node) the same as another (source node)<ul>
+<li>Move mouse to source node</li>
+<li>press Ctrl-C on Windows or Cmd-C on Mac</li>
+<li>Move mouse to the destination node</li>
+<li>Press Ctrl-V on Windows or Cmd-V on Mac</li>
+</ul>
+</li>
+<li>To make a connection (destionation) text the same as another (source connection)<ul>
+<li>Move mouse to source connection</li>
+<li>press Ctrl-C on Windows or Cmd-C on Mac</li>
+<li>Move mouse to the destination connection</li>
+<li>Press Ctrl-V on Windows or Cmd-V on Mac</li>
+</ul>
+</li>
+</ul>
+<h2 id="select">Select</h2>
+<p>Select one: click the node to selecte it.</p>
+<p>Select many: click the nodes while holding Win key or Command key</p>
+<p>Select all: Ctrl-A or Command-A.</p>
+<h2 id="move">Move</h2>
+<p>To move one signle node, click on it, move mouse while holding.</p>
+<p>To move many nodes, click on them while holding Win key on Windows or Command key on Mac, while those nodes are in "selected" status, drop any of them to antoher location, other selected will move simultaneously.</p>
+<p>To move all nodes, press Ctrl-A or Command-A to select all nodes, then click on one selected node to move them all together.</p>
 
               
             </article>
