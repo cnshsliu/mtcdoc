@@ -51,53 +51,53 @@ If there are more than one participants, you may choose how to decide the final 
 
 Vote models includes:
 
-The last one
+依最后一人的选择:
 
-> the decision of the last vote.
+> 总是使用最后一个人的选择为投票结果
 
-The most
+依最多人的选择
 
-> The decision that is made of the most people.
+> 用最多人的选择作为投票结果
 
-The least
+依最少人的选择
 
-> The decision that is made of the least people.
+> 用最少人的选择作为投票结果
 
-All the same or fail to
+选择全部一样，否则
 
-> The same decision ( one and the only one) of all people,
-> if there are more than one decisions, the final decision will be what option specified as "failto".
+> 如果所有人选择都一样，则这个唯一选择作为投票结果
+> 否则，使用“否则”设置为投票结果
 
-More than %, or fail to
+某一选择超过比例，否则
 
-> The decison which has percentage bigger than or equal to certain number.
-> If there is no decision earn that percentage value, the final decision will be what option specified as "failto".
+> 使用比例超过所设置数值的选项为投票结果
+> 否则，使用“否则”设置为投票结果
 
-If any match
+只要有选，否则依最后
 
-> If any one's decision match the specified option, take it as final decision and finish vote.
-> If no one choose that option, use the decision of the last person as final decision.
+> 只要有人选择某个选项，则投票结束，投票结果为这个值
+> 否则，依最后一个人的选择为投票结果
 
-If any, or else the most
+只要有选，否则依最多
 
-> If any one's decision match the specified option, take it as final decision and finish vote.
-> If no one choose that option, use the decision the most people chosed.
+> 只要有人选择某个选项，则投票结束，投票结果为这个值
+> 否则，依最多人的选择为投票结果
 
-If any, or else the least
+只要有选，否则依最少
 
-> If any one's decision match the specified option, take it as final decision and finish vote.
-> If no one choose that option, use the decision the least people chosed.
+> 只要有人选择某个选项，则投票结束，投票结果为这个值
+> 否则，依最少人的选择为投票结果
 
-If any, then all the same , then the most
+只要有选，否则依统一选择 或最多
 
-> If any one's decision match the specified option, take it as final decision and finish vote.
-> If no one choose that option, use the decision all people chosed (the one and the only one).
-> If more than one decisions are made by all participant, use the most chosed.
+> 只要有人选择某个选项，则投票结束，投票结果为这个值
+> 否则，依全体人的选择为投票结果
+> 如果，全体人员选择不统一， 则使用最多人的选择为投票结果
 
-If any, or fail to
+只要有选，否则
 
-> If any one's decision match the specified option, take it as final decision and finish vote.
-> else, use the "faileto" option.
+> 只要有人选择某个选项，则投票结束，投票结果为这个值
+> 否则，使用“否则”设置为投票结果
 
 ### Instruction
 

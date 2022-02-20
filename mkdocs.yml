@@ -1,8 +1,8 @@
-site_name: MetatoCome Documentation
-site_description: MetatoCome, Workflow, Hyper Automation
-site_url: https://cnshsliu.github.io/mtcdocs/
-site_author: Lucas Kehong Liu
-copyright: Copyright Lucas-Kehong-Liu, 2003-2022
+site_name: "MetatoCome Documentation"
+site_description: "MetatoCome, Workflow, Hyper Automation"
+site_url: "https://cnshsliu.github.io/mtcdocs/"
+site_author: "Lucas Kehong Liu"
+copyright: "Copyright Lucas-Kehong-Liu, 2003-2022"
 use_directory_urls: false
 theme:
   name: material
@@ -13,6 +13,7 @@ theme:
         next: 78     # n
         previous: 80 # p
         search: 83  #s
+        extra:
 markdown_extensions:
   - attr_list
   - md_in_html
@@ -20,6 +21,27 @@ markdown_extensions:
   - def_list
   - pymdownx.tasklist:
       custom_checkbox: true
+plugins:
+  - search
+  - i18n:
+      default_language: !ENV [DEFAULT_LANGUAGE, "en"]
+      default_language_only: !ENV [DEFAULT_LANGUAGE_ONLY, false]
+      languages:
+        default:
+          name: Default (en)
+          build: true
+        en:
+          name: English
+          build: true
+          site_name: "MetatoCome Documentation"
+        zh_CN:
+          name: 中文 
+          build: true
+          site_name: "MetatoCome 用户文档"
+      nav_translations:
+        fr:
+          Topic1: Sujet1
+          Topic2: Sujet2
 nav:
   - Home: README.md
   - Account:
