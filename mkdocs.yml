@@ -1,8 +1,8 @@
-site_name: "MetatoCome Documentation"
-site_description: "MetatoCome, Workflow, Hyper Automation"
-site_url: "https://cnshsliu.github.io/mtcdocs/"
-site_author: "Lucas Kehong Liu"
-copyright: "Copyright Lucas-Kehong-Liu, 2003-2022"
+site_name: MetatoCome Documentation
+site_description: MetatoCome, Workflow, Hyper Automation
+site_url: https://cnshsliu.github.io/mtcdocs/
+site_author: Lucas Kehong Liu
+copyright: Copyright Lucas-Kehong-Liu, 2003-2022
 use_directory_urls: false
 theme:
   name: material
@@ -13,7 +13,6 @@ theme:
         next: 78     # n
         previous: 80 # p
         search: 83  #s
-        extra:
 markdown_extensions:
   - attr_list
   - md_in_html
@@ -21,6 +20,19 @@ markdown_extensions:
   - def_list
   - pymdownx.tasklist:
       custom_checkbox: true
+plugins:
+  - search
+  - i18n:
+      default_language: en
+      languages:
+        en:
+          name: English
+        zh_CN:
+          name: 中文
+      nav_translations:
+        zh_CN:
+          Topic1: Sujet1
+          Topic2: Sujet2
 plugins:
   - search
   - i18n:
@@ -35,13 +47,23 @@ plugins:
           build: true
           site_name: "MetatoCome Documentation"
         zh_CN:
-          name: 中文 
+          name: 中文
           build: true
-          site_name: "MetatoCome 用户文档"
+          site_name: "MetatoCome文档"
       nav_translations:
-        fr:
-          Topic1: Sujet1
-          Topic2: Sujet2
+        zh_CN:
+          Template: 模板规划
+          Concept: 基本概念
+          "Template Browser": 模板浏览
+          "Design Template": 设计模板
+          Designer: 设计器
+          "Role Definition": 角色定义
+          Process: 进程
+          "Start a process": "启动一个进程"
+          "Process explorer": "进程浏览器"
+          "Process overview": "进程总览"
+          "Work log": "工作记录"
+          "Process Monitor": "进程监控器"
 nav:
   - Home: README.md
   - Account:
@@ -49,7 +71,7 @@ nav:
   - Template: 
     - Concept: "template/concept.md"
     - Template Browser: "template/explorer.md"
-    - Design Tempalte: "template/design.md"
+    - Design Template: "template/design.md"
     - Designer: "template/designer.md"
   - Role Definition: "designer/pds.md"
   - Process: 
