@@ -99,6 +99,17 @@ If any, or fail to
 > If any one's decision match the specified option, take it as final decision and finish vote.
 > else, use the "faileto" option.
 
+### Transferable
+
+Check transferable to make this work to allow task owner to transfer the task to another user.
+
+### Keep single task in loop
+
+When you design a workflow running some loop, for example, we have 7 actions named A,B,C,D,E,F,G respectively, and the routing relationship among them are: A->B->(C,D->E->B), means: A goto B, B goto C and D, D goto E, E goto B.
+So, the workflow process may run like A->B->C and D, then, while C is running, user pick up D task, the process runs continually to D->E->B->C, you see, there are another C when the previous C is still running.
+If you check the checkbox of Keep single task in loop, the running previous C will be kept, no new C will be disptachted.
+IF you uncheck the checkbox, while the running previous C is kept, another new C task will be dispatched.
+
 ### Instruction
 
 Give some instructions to people who take part in this task
@@ -454,6 +465,8 @@ A connection can have option, option define the route. for example, there is one
 - Click on the first node A,
 - Click on the second node B
 
+To connect multiple nodes in chain, click on them while holding Alt key.
+
 ### Move a connection
 
 - Hold Alt key (MAC: Opt), click on the first half of a connection then pick another node to re-select its' staring node
@@ -477,6 +490,18 @@ If you would like to cancel while connecting, double click on blank area of canv
 - Hold Shift key, click on a connection, input is option value in the pop-up.
 - While pointing at a connection, press 'ct' to clear it's value
 - While pointing at a connection, press Ctrl-V to paste a value, after press Ctrl-C on an existing connection.
+
+The connection values will be prompted as Buttons to users who are doing the work the connection linked from.
+User click the button to make his/her decision, the workflow engine use user's decision to determine what's the next step.
+
+These buttons are displayed sorted by their labels' alphabetic order, Thus, "A Choice" is always displayed before "B Choice", and "1. A Choice" is always displayed before "2. A Choice".
+
+### Set processs contextual variable on connection
+
+You may let variables be set when process run through a connecton.
+let's say, we have a connnection between A and B, and we have variables defined on it. when user complete A, the Engine will embed those variables to process context before dispatch task B.
+
+![connect set vars](https://cdn.jsdelivr.net/gh/cnshsliu/static.xhw.mtc/img/doc/connect_setvar.png "Set variables on connection")
 
 ## Editing
 
