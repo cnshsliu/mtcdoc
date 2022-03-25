@@ -13,6 +13,13 @@ theme:
         next: 78     # n
         previous: 80 # p
         search: 83  #s
+  features:
+    - toc.integrate
+    - navigation.top
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
 markdown_extensions:
   - attr_list
   - md_in_html
@@ -34,7 +41,7 @@ plugins:
           Topic1: Sujet1
           Topic2: Sujet2
 plugins:
-  - search
+  - search:
   - i18n:
       default_language: !ENV [DEFAULT_LANGUAGE, "en"]
       default_language_only: !ENV [DEFAULT_LANGUAGE_ONLY, false]
@@ -72,7 +79,7 @@ nav:
     - Concept: "template/concept.md"
     - Template Browser: "template/explorer.md"
     - Design Template: "template/design.md"
-    - Designer: "template/designer.md"
+  - Designer: "template/designer.md"
   - Role Definition: "designer/pds.md"
   - Process: 
     - Start a process: "process/start.md"

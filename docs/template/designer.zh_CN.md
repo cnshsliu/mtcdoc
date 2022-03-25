@@ -9,7 +9,6 @@ On the left is the toolbox, click each tool to use it.
 ## Pointer <img src="../img/svg/POINTER.svg" width="24px" height="24px"/>
 
 _Press ESC anytime to select Pointer._
-
 Under Pointer mode, you are able to:
 
 1. select a node or connect by clicking it.
