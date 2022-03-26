@@ -29,3 +29,12 @@ Shift-click on nodes or connections will bring up its property window
 - Pause/Resume: Pause/Resume the current process
 - Stop: Stop (cancel) the current process
 - Restart: cancel then restart
+
+## Change user
+
+If you are a member of "Admin" group, and current task is still running, you have a chance to change the participant to other people:
+
+![change_running_task_participant.png](https://cdn.jsdelivr.net/gh/cnshsliu/static.xhw.mtc/img/doc/change_running_task_participant.png)
+
+"For this": change user only for this task
+"For all": change all occurance of exiting participants to new one

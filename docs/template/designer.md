@@ -461,6 +461,68 @@ Run script in sync mode
 
 Run script in async mode, external program callback to MetatoCome later to make it continue.
 
+##### Callback Point
+
+in async mode, you need to let the CBPid (Callback Point ID) for later calling back. you may post this CBPid to your server like this:
+
+```
+MtcSendCallbackPointId=function(url, extraPayload);
+```
+
+For example:
+
+```
+MtcSendCallbackPointId("http://demo.mycompany.com/remembercbpid", {"foo":"bar"});
+```
+
+that will call your own API endpoint at "http://demo.mycompany.com/remembercbpid",
+This API endpoint will receive payload:
+
+```
+{
+  "cbpid": "A RANDOM Callback Point ID",
+  "foo": "bar"
+}
+```
+
+Your program need to record the value of "cbpid" somewhere.
+
+The workflow process will standby from now on until someday/sometime you callback MetaoTocome.
+
+##### Callback to MTC
+
+MetatoCome's callback poit is:
+
+```
+http://MTC_HOST/workflow/docallback
+```
+
+You should callback with payload:
+
+```
+{
+  cbpid: "the cbpid",
+  decision: "Your decision on this point",
+  kvars: {"foo","bar"}
+}
+```
+
+"cbpid" is what you saved in last step, "decision" will be used to determine where to go afterwards, while "kvars" is a JSON which content will be embeded into process context. Following steps could read data defined in "kvars".
+
+**Note**, your code must login to MTC first, get session key, and invoke callback point with your sessionkey.
+
+**Note**, use MTC SDK is much easier with
+
+```
+ SDK.callback(
+  {
+    cbpid: "the cbpid",
+    decision: "Your decision on this point",
+    kvars: {"foo","bar"}
+  }
+ );
+```
+
 #### Code
 
 Embed any javascript code in this node.
@@ -542,6 +604,10 @@ DIRECTOR: "cd@email.com",
 
 For steps after this script, any task assigned to role 'SGT' will go to a person whose email is "ab@email.com", any task assigned to role "DIRECTOR" will go to a person whose email is "cd@email.com"
 
+#### Script logging
+
+You may use normal javascript "console.log" to log debug messages in your script code. to view the log, click on 'Show log' on a process details page.
+
 ### Timer <img src="../img/svg/TIMER.svg" width="24px" height="24px"/>
 
 A TIMER node is used to control process running time, the process only run through this node when
@@ -557,6 +623,12 @@ An sub-processs will be invoked to run, and the parent process will continue onl
 sub-process's last return value will be taken as the return value from sub-process, parent process will use it to determine where to go after it.
 
 An sub-process can also run in standalone mode, therefore, the parent process will not wait for it's completing.
+
+**Note:** sub-process running in standalong mode always return "DEFAULT" immediately to it's parent, thus, there must be at least one following connection with 'DEFAULT' option to have parent process running as expected, or else, the parent process will stop at invoking this sub-process.
+
+Here is an exmaple,
+![process-stall-after-sub-without-default-route.png](https://cdn.jsdelivr.net/gh/cnshsliu/static.xhw.mtc/img/doc/process-stall-after-sub-without-default-route.png)
+take a look at the following process monitoring capture, you could notice the process did not continue after "Sub". the reason is that "Sub" had been set to "standalone" mode and would return "Default" always and immediately but there is no "Default" route after it.
 
 ### AND <img src="../img/svg/AND.svg" width="24px" height="24px"/>
 
