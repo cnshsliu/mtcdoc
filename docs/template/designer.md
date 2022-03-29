@@ -234,9 +234,11 @@ Variable name should be a valid javascript varialbe name,
 that means, a variable name should start with an alphabetic, or underscore, followed by one to many alphabetic or underscore or numbers.
 invalid name will make your workflow fails to run.
 
-##### **Variable Type**:
+##### **Type**:
 
 Variable name with specific prefix also indicates variable types, determing how Metatocome SaaS show it to end-users.
+
+###### Prefix
 
 - "email\_" : an email type input.
 - "password\_" : an password type input.
@@ -423,6 +425,32 @@ use PDS to define whom this var should be visiable to
 
 **Note:**
 Sometime, some sensitive data might should be kept secret from some participants even they have been involved in the process. For instance, in a interview process, the offered salary may not be able to seen by interviewer, only HR and manager could see it, thus, we may use PDS to make this happend.
+
+##### **When**
+
+use "when expression" to control when a variable is availabe for inputting.
+When expression is a logical expression to compare values of a RV(reference variable) and a GV(given value), it's grammer is:
+
+```
+RV[=|==|===|>|>=|<|<=|!=]GV
+```
+
+let's say we have:
+
+- A checkbox named "checkbox_req". We want inputbox of "reason" to appear only when "checkbox_req" is checked. then we could define "when expression" for "reason" as:
+  ```
+  checkbox_req=true
+  ```
+- A kvar named "number_amount", and we want another kvar named "upper_price" to appear only when "number_amount" has a value bigger than 100, then we could define "when expression" for "upper_price" as:
+  ```
+  number_amount>100
+  ```
+
+GV is automatically converted to the type of RV, at this momnent, only string, number, boolean is supported. it's unnecessary to quote with '"' if it's a string unless it's an empty value, for example, it we need to check whether another kvar has value, we should use
+
+```
+kvar!=''
+```
 
 ### Inform <img src="../img/svg/INFORM.svg" width="24px" height="24px"/>
 

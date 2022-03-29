@@ -737,12 +737,19 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#variable-type" class="md-nav__link">
-    Variable Type:
+  <a href="#type" class="md-nav__link">
+    Type:
   </a>
   
-    <nav class="md-nav" aria-label="Variable Type:">
+    <nav class="md-nav" aria-label="Type:">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prefix" class="md-nav__link">
+    Prefix
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#ou-selector" class="md-nav__link">
@@ -854,6 +861,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#when" class="md-nav__link">
+    When
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -925,6 +939,26 @@
     Async Mode
   </a>
   
+    <nav class="md-nav" aria-label="Async Mode">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#callback-point" class="md-nav__link">
+    Callback Point
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#callback-to-mtc" class="md-nav__link">
+    Callback to MTC
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -979,6 +1013,13 @@
         
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#script-logging" class="md-nav__link">
+    Script logging
+  </a>
   
 </li>
         
@@ -1646,8 +1687,9 @@ IF you uncheck the checkbox, while the running previous C is kept, another new C
 <p>Variable name should be a valid javascript varialbe name,
 that means, a variable name should start with an alphabetic, or underscore, followed by one to many alphabetic or underscore or numbers.
 invalid name will make your workflow fails to run.</p>
-<h5 id="variable-type"><strong>Variable Type</strong>:</h5>
+<h5 id="type"><strong>Type</strong>:</h5>
 <p>Variable name with specific prefix also indicates variable types, determing how Metatocome SaaS show it to end-users.</p>
+<h6 id="prefix">Prefix</h6>
 <ul>
 <li>"email_" : an email type input.</li>
 <li>"password_" : an password type input.</li>
@@ -1825,6 +1867,21 @@ Table variable name starts with tbl_</p>
 <p>use PDS to define whom this var should be visiable to</p>
 <p><strong>Note:</strong>
 Sometime, some sensitive data might should be kept secret from some participants even they have been involved in the process. For instance, in a interview process, the offered salary may not be able to seen by interviewer, only HR and manager could see it, thus, we may use PDS to make this happend.</p>
+<h5 id="when"><strong>When</strong></h5>
+<p>use "when expression" to control when a variable is availabe for inputting.
+When expression is a logical expression to compare values of a RV(reference variable) and a GV(given value), it's grammer is:</p>
+<pre><code>RV[=|==|===|&gt;|&gt;=|&lt;|&lt;=|!=]GV
+</code></pre>
+<p>let's say we have:</p>
+<ul>
+<li>A checkbox named "checkbox_req". We want inputbox of "reason" to appear only when "checkbox_req" is checked. then we could define "when expression" for "reason" as:
+  <code>checkbox_req=true</code></li>
+<li>A kvar named "number_amount", and we want another kvar named "upper_price" to appear only when "number_amount" has a value bigger than 100, then we could define "when expression" for "upper_price" as:
+  <code>number_amount&gt;100</code></li>
+</ul>
+<p>GV is automatically converted to the type of RV, at this momnent, only string, number, boolean is supported. it's unnecessary to quote with '"' if it's a string unless it's an empty value, for example, it we need to check whether another kvar has value, we should use</p>
+<pre><code>kvar!=''
+</code></pre>
 <h3 id="inform">Inform <img src="../img/svg/INFORM.svg" width="24px" height="24px"/></h3>
 <ul>
 <li>Press 2 at anytime to use Inform
@@ -1858,6 +1915,44 @@ Sometime, some sensitive data might should be kept secret from some participants
 <p>Run script in sync mode</p>
 <h4 id="async-mode">Async Mode</h4>
 <p>Run script in async mode, external program callback to MetatoCome later to make it continue.</p>
+<h5 id="callback-point">Callback Point</h5>
+<p>in async mode, you need to let the CBPid (Callback Point ID) for later calling back. you may post this CBPid to your server like this:</p>
+<pre><code>MtcSendCallbackPointId=function(url, extraPayload);
+</code></pre>
+<p>For example:</p>
+<pre><code>MtcSendCallbackPointId(&quot;http://demo.mycompany.com/remembercbpid&quot;, {&quot;foo&quot;:&quot;bar&quot;});
+</code></pre>
+<p>that will call your own API endpoint at "http://demo.mycompany.com/remembercbpid",
+This API endpoint will receive payload:</p>
+<pre><code>{
+  &quot;cbpid&quot;: &quot;A RANDOM Callback Point ID&quot;,
+  &quot;foo&quot;: &quot;bar&quot;
+}
+</code></pre>
+<p>Your program need to record the value of "cbpid" somewhere.</p>
+<p>The workflow process will standby from now on until someday/sometime you callback MetaoTocome.</p>
+<h5 id="callback-to-mtc">Callback to MTC</h5>
+<p>MetatoCome's callback poit is:</p>
+<pre><code>http://MTC_HOST/workflow/docallback
+</code></pre>
+<p>You should callback with payload:</p>
+<pre><code>{
+  cbpid: &quot;the cbpid&quot;,
+  decision: &quot;Your decision on this point&quot;,
+  kvars: {&quot;foo&quot;,&quot;bar&quot;}
+}
+</code></pre>
+<p>"cbpid" is what you saved in last step, "decision" will be used to determine where to go afterwards, while "kvars" is a JSON which content will be embeded into process context. Following steps could read data defined in "kvars".</p>
+<p><strong>Note</strong>, your code must login to MTC first, get session key, and invoke callback point with your sessionkey.</p>
+<p><strong>Note</strong>, use MTC SDK is much easier with</p>
+<pre><code> SDK.callback(
+  {
+    cbpid: &quot;the cbpid&quot;,
+    decision: &quot;Your decision on this point&quot;,
+    kvars: {&quot;foo&quot;,&quot;bar&quot;}
+  }
+ );
+</code></pre>
 <h4 id="code">Code</h4>
 <p>Embed any javascript code in this node.</p>
 <h5 id="return-value">Return value</h5>
@@ -1905,6 +2000,8 @@ DIRECTOR: &quot;cd@email.com&quot;,
 
 </code></pre>
 <p>For steps after this script, any task assigned to role 'SGT' will go to a person whose email is "ab@email.com", any task assigned to role "DIRECTOR" will go to a person whose email is "cd@email.com"</p>
+<h4 id="script-logging">Script logging</h4>
+<p>You may use normal javascript "console.log" to log debug messages in your script code. to view the log, click on 'Show log' on a process details page.</p>
 <h3 id="timer">Timer <img src="../img/svg/TIMER.svg" width="24px" height="24px"/></h3>
 <p>A TIMER node is used to control process running time, the process only run through this node when</p>
 <ul>
@@ -1916,6 +2013,10 @@ DIRECTOR: &quot;cd@email.com&quot;,
 <p>An sub-processs will be invoked to run, and the parent process will continue only when the sub-process has been completed.</p>
 <p>sub-process's last return value will be taken as the return value from sub-process, parent process will use it to determine where to go after it.</p>
 <p>An sub-process can also run in standalone mode, therefore, the parent process will not wait for it's completing.</p>
+<p><strong>Note:</strong> sub-process running in standalong mode always return "DEFAULT" immediately to it's parent, thus, there must be at least one following connection with 'DEFAULT' option to have parent process running as expected, or else, the parent process will stop at invoking this sub-process.</p>
+<p>Here is an exmaple,
+<img alt="process-stall-after-sub-without-default-route.png" src="https://cdn.jsdelivr.net/gh/cnshsliu/static.xhw.mtc/img/doc/process-stall-after-sub-without-default-route.png" />
+take a look at the following process monitoring capture, you could notice the process did not continue after "Sub". the reason is that "Sub" had been set to "standalone" mode and would return "Default" always and immediately but there is no "Default" route after it.</p>
 <h3 id="and">AND <img src="../img/svg/AND.svg" width="24px" height="24px"/></h3>
 <p>An AND node will make process wait for completion of all it's precedent nodes.</p>
 <h3 id="or">OR <img src="../img/svg/OR.svg" width="24px" height="24px"/></h3>
