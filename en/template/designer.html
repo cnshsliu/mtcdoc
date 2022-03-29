@@ -991,6 +991,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#get-value-of-table" class="md-nav__link">
+    Get value of table.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#get-node-decision" class="md-nav__link">
     Get node decision
   </a>
@@ -1979,6 +1986,20 @@ MtcSet(var_name, var_value, var_label)
 <h5 id="get-value-of-variable">Get value of variable.</h5>
 <pre><code>
 MtcGet(var_name)
+
+</code></pre>
+<h5 id="get-value-of-table">Get value of table.</h5>
+<pre><code>
+// get table object first
+let table = MtcGet(&quot;table_name&quot;)
+// get table rows,
+let rows = table.rows
+// rows is an Javascript Array object, which will contain all rows value of the table
+// we may then interate rows with normal Javascript operations on an array
+// columns are also addressable:
+let v = rows[0][0];  // the 1st column of the 1st row
+v = rows[0][1];  // the 2nd column of the 1st row
+v = rows[1][1];  // the 2nd column of the 2nd row
 
 </code></pre>
 <h5 id="get-node-decision">Get node decision</h5>
