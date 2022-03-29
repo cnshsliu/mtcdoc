@@ -601,6 +601,23 @@ MtcGet(var_name)
 
 ```
 
+##### Get value of table.
+
+```
+
+// get table object first
+let table = MtcGet("table_name")
+// get table rows,
+let rows = table.rows
+// rows is an Javascript Array object, which will contain all rows value of the table
+// we may then interate rows with normal Javascript operations on an array
+// columns are also addressable:
+let v = rows[0][0];  // the 1st column of the 1st row
+v = rows[0][1];  // the 2nd column of the 1st row
+v = rows[1][1];  // the 2nd column of the 2nd row
+
+```
+
 ##### Get node decision
 
 ```
