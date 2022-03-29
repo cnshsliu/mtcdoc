@@ -446,7 +446,15 @@ let's say we have:
   number_amount>100
   ```
 
-GV is automatically converted to the type of RV, at this momnent, only string, number, boolean is supported. it's unnecessary to quote with '"' if it's a string unless it's an empty value, for example, it we need to check whether another kvar has value, we should use
+GV is automatically converted to the type of RV, at this momnent, only string, number, boolean is supported. it's unnecessary to quote with '"' if it's a string unless it's an empty value.
+
+for example, to compare a value is equal to string "string", we simple define
+
+```
+kvar=string
+```
+
+if we need to check whether another kvar has value instead of being blank (user does not key in anything in it's input box), we should use
 
 ```
 kvar!=''
