@@ -1879,7 +1879,11 @@ When expression is a logical expression to compare values of a RV(reference vari
 <li>A kvar named "number_amount", and we want another kvar named "upper_price" to appear only when "number_amount" has a value bigger than 100, then we could define "when expression" for "upper_price" as:
   <code>number_amount&gt;100</code></li>
 </ul>
-<p>GV is automatically converted to the type of RV, at this momnent, only string, number, boolean is supported. it's unnecessary to quote with '"' if it's a string unless it's an empty value, for example, it we need to check whether another kvar has value, we should use</p>
+<p>GV is automatically converted to the type of RV, at this momnent, only string, number, boolean is supported. it's unnecessary to quote with '"' if it's a string unless it's an empty value.</p>
+<p>for example, to compare a value is equal to string "string", we simple define</p>
+<pre><code>kvar=string
+</code></pre>
+<p>if we need to check whether another kvar has value instead of being blank (user does not key in anything in it's input box), we should use</p>
 <pre><code>kvar!=''
 </code></pre>
 <h3 id="inform">Inform <img src="../img/svg/INFORM.svg" width="24px" height="24px"/></h3>
