@@ -737,12 +737,19 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#variable-type" class="md-nav__link">
-    Variable Type:
+  <a href="#type" class="md-nav__link">
+    Type:
   </a>
   
-    <nav class="md-nav" aria-label="Variable Type:">
+    <nav class="md-nav" aria-label="Type:">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prefix" class="md-nav__link">
+    Prefix
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#ou-selector" class="md-nav__link">
@@ -850,6 +857,13 @@
           <li class="md-nav__item">
   <a href="#visible" class="md-nav__link">
     Visible
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when" class="md-nav__link">
+    When
   </a>
   
 </li>
@@ -1673,8 +1687,9 @@ IF you uncheck the checkbox, while the running previous C is kept, another new C
 <p>Variable name should be a valid javascript varialbe name,
 that means, a variable name should start with an alphabetic, or underscore, followed by one to many alphabetic or underscore or numbers.
 invalid name will make your workflow fails to run.</p>
-<h5 id="variable-type"><strong>Variable Type</strong>:</h5>
+<h5 id="type"><strong>Type</strong>:</h5>
 <p>Variable name with specific prefix also indicates variable types, determing how Metatocome SaaS show it to end-users.</p>
+<h6 id="prefix">Prefix</h6>
 <ul>
 <li>"email_" : an email type input.</li>
 <li>"password_" : an password type input.</li>
@@ -1852,6 +1867,21 @@ Table variable name starts with tbl_</p>
 <p>use PDS to define whom this var should be visiable to</p>
 <p><strong>Note:</strong>
 Sometime, some sensitive data might should be kept secret from some participants even they have been involved in the process. For instance, in a interview process, the offered salary may not be able to seen by interviewer, only HR and manager could see it, thus, we may use PDS to make this happend.</p>
+<h5 id="when"><strong>When</strong></h5>
+<p>use "when expression" to control when a variable is availabe for inputting.
+When expression is a logical expression to compare values of a RV(reference variable) and a GV(given value), it's grammer is:</p>
+<pre><code>RV[=|==|===|&gt;|&gt;=|&lt;|&lt;=|!=]GV
+</code></pre>
+<p>let's say we have:</p>
+<ul>
+<li>A checkbox named "checkbox_req". We want inputbox of "reason" to appear only when "checkbox_req" is checked. then we could define "when expression" for "reason" as:
+  <code>checkbox_req=true</code></li>
+<li>A kvar named "number_amount", and we want another kvar named "upper_price" to appear only when "number_amount" has a value bigger than 100, then we could define "when expression" for "upper_price" as:
+  <code>number_amount&gt;100</code></li>
+</ul>
+<p>GV is automatically converted to the type of RV, at this momnent, only string, number, boolean is supported. it's unnecessary to quote with '"' if it's a string unless it's an empty value, for example, it we need to check whether another kvar has value, we should use</p>
+<pre><code>kvar!=''
+</code></pre>
 <h3 id="inform">Inform <img src="../img/svg/INFORM.svg" width="24px" height="24px"/></h3>
 <ul>
 <li>Press 2 at anytime to use Inform
