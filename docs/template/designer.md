@@ -460,6 +460,8 @@ if we need to check whether another kvar has value instead of being blank (user 
 kvar!=''
 ```
 
+**Note:** On client side, "when expression" is only triggered after the focus leave the correspoinding input of RV.
+
 ### Inform <img src="../img/svg/INFORM.svg" width="24px" height="24px"/>
 
 - Press 2 at anytime to use Inform

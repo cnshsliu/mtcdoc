@@ -100,4 +100,5 @@ nav:
   - For Developers:
     - API: 'about.md'
   - About: about.md
+  - How to: "howto.md"
 
