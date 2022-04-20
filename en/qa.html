@@ -1160,6 +1160,9 @@
 <h2 id="_13">如何在用户完成工作项时发送上下文信息到另一个系统</h2>
 <p>MetatoCome 通过调用 WebAPI 方式的 endpoint 向另一个系统提供数据。
 因 MetatoCome 运行在 https 安全协议下，第三方应用的 endpoint 也必须用 https 方式提供访问接口。</p>
+<p>MetatoCome 同时支持以客户端和服务端两种模式向 endpoint 传递参数
+客户端模式在浏览器种发起，因此，同时支持内网 endpoint 和外网 endpoint
+服务端模式下，如内网 endpoint 无法从外网访问到，则无法传递参数</p>
 <h3 id="endpoint">设定 endpoint</h3>
 <p>需要在工作流模版设计器中，点击设计器顶部菜单栏的“属性”，在 Callback 中输入 endpoint 地址，如
 https://mysever/mtc_callback_endpoint</p>
