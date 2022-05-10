@@ -145,6 +145,69 @@ findOne(条件, 返回哪些文档属性，其它参数）
     }
 ```
 
+```
+    let ret = await Todo.aggregate([
+      { $match: filter },
+      {
+        //lastdays， 当前活动已经持续了多少天，如果是ST_RUN或者ST_PAUSE，跟当前时间相比；
+        //否则，用updatedAt - createdAt
+        $addFields: {
+          lastdays: {
+            $cond: {
+              if: {
+                $or: [{ $eq: ["$status", "ST_RUN"] }, { $eq: ["$status", "ST_PAUSE"] }],
+              },
+              then: {
+                $dateDiff: { startDate: "$createdAt", endDate: "$$NOW", unit: "day" },
+              },
+              else: {
+                $dateDiff: { startDate: "$createdAt", endDate: "$updatedAt", unit: "day" },
+              },
+            },
+          },
+        },
+      },
+      { $sort: sortByJson },
+      { $skip: skip },
+      { $limit: limit },
+    ]);
+```
+
+```
+  let blkops = await BlockOp.aggregate([
+    {
+      $match: {doc: {$eq: Mongoose.Types.ObjectId(doc_id)}},
+    },
+    {
+      $group: {
+        _id: "$userid",
+        logs: {$addToSet: "$nodeid"},
+      },
+    },
+    {
+      $lookup: {
+        from: "users",
+        localField: "_id",
+        foreignField: "userid",
+        as: "fromItems",
+      },
+    },
+    {
+      $replaceRoot: {
+        newRoot: {
+          $mergeObjects: [{$arrayElemAt: ["$fromItems", 0]}, "$$ROOT"],
+        },
+      },
+    },
+    {
+      $project: {
+        fromItems: 0,
+        pwd: 0,
+      },
+    },
+  ]).allowDiskUse(true);
+```
+
 ## Populate
 
 ```
