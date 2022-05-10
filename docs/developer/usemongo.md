@@ -110,6 +110,7 @@ export default Mongoose.model("Comment", schema);
 ```
 
 - findOneAndUpdate
+  [findOneAndUpdate](https://mongoosejs.com/docs/api.html#model_Model.findOneAndUpdate)
 
 ```
   let comment = await Comment.findOneAndUpdate({tenant:tenant, _id: "1234"},
@@ -121,7 +122,7 @@ export default Mongoose.model("Comment", schema);
 
 findOne, findMany
 基本结构：
-findOne(条件, 返回哪些文档属性，其它参数）
+findOne(文档条件, 返回哪些文档属性，其它参数）
 
 ## Aggrgateion
 
