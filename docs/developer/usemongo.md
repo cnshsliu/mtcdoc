@@ -134,6 +134,7 @@ findOne(文档条件, 返回哪些文档属性，其它参数）
 
 ## Using Lean
 
+By default, Mongoose queries return an instance of the Mongoose Document class. Documents are much heavier than vanilla JavaScript objects, because they have a lot of internal state for change tracking. Enabling the lean option tells Mongoose to skip instantiating a full Mongoose document and just give you the POJO.
 [Lean](https://mongoosejs.com/docs/tutorials/lean.html#using-lean)
 
 ## Aggrgateion
