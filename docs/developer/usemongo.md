@@ -126,11 +126,11 @@ findOne(条件, 返回哪些文档属性，其它参数）
 ## Aggrgateion
 
 ```
-      let tmpGroup = await Todo.aggregate([
+      let todoGroup = await Todo.aggregate([
         { $match: todoFilter },
-        { $group: { _id: "$objid", count: { $sum: 1 } } },
+        { $group: { _id: "$wfid", count: { $sum: 1 } } },
       ]);
-      let ObjsIamIn = tmpGroup.map((x) => x._id);
+      let WfsIamIn = todoGroup.map((x) => x._id);
 ```
 
 ```
