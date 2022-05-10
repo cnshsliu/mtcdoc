@@ -1052,8 +1052,12 @@ export default Mongoose.model(&quot;Comment&quot;, schema);
     });
     comment = await comment.save();
     // _id
-    // _v
+    // _v:1
     //createAt, updatedAt
+    //....
+    comment.towhom = &quot;another people&quot;;
+    await comment.save(); //upate
+    // _v:2
 </code></pre>
 <ul>
 <li>findOneAndUpdate
@@ -1063,9 +1067,10 @@ export default Mongoose.model(&quot;Comment&quot;, schema);
     {$set: {towhom: 'zhangsan', ...}},
     {upsert: true, new:true});
 </code></pre>
+<p>cRud</p>
 <h2 id="find">Find 查询</h2>
-<p>findOne, findMany
-基本结构：
+<p>findOne: null, Object, findMany: [], [object]</p>
+<p>基本结构：
 findOne(文档条件, 返回哪些文档属性，其它参数）
 <a href="https://mongoosejs.com/docs/queries.html">Mongoose Query</a></p>
 <h2 id="all-quries">All Quries</h2>
