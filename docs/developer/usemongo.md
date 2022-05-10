@@ -76,7 +76,6 @@ const schema = new Mongoose.Schema(
       todoid: String,
     },
     // 定类型的 子文档数组
-    // 定类型的 子文档数组
     //attachments: { type: [ fileId: string, fileName: string }], default: [] },
     //attachments: { type: [ fileId: string, fileName: string }], default: [] },
     // 不定类型的 子文档数组
@@ -92,7 +91,7 @@ export default Mongoose.model("Comment", schema);
 
 ## INSERT 添加
 
-new 一个
+- new 一个对象然后 save
 
 ```
     let comment = new Comment({
@@ -109,6 +108,44 @@ new 一个
     });
     comment = await comment.save();
 ```
+
+- findOneAndUpdate
+
+```
+  let comment = await Comment.findOneAndUpdate({tenant:tenant, _id: "1234"},
+    {$set: {towhom: 'zhangsan', ...}},
+    {upsert: true, new:true});
+```
+
+## Find 查询
+
+findOne, findMany
+基本结构：
+findOne(条件, 返回哪些文档属性，其它参数）
+
+## Aggrgateion
+
+```
+      let tmpGroup = await Todo.aggregate([
+        { $match: todoFilter },
+        { $group: { _id: "$objid", count: { $sum: 1 } } },
+      ]);
+      let ObjsIamIn = tmpGroup.map((x) => x._id);
+```
+
+```
+    let wf = await Workflow.aggregate([
+      { $match: { tenant: new Mongoose.Types.ObjectId(tenant), "attachments.serverId": serverId } },
+      { $project: { _id: 0, doc: 0 } },
+      { $unwind: "$attachments" },
+      { $match: { "attachments.serverId": serverId } },
+    ]);
+    if (wf[0]) {
+      throw new EmpError("CANNOT_DELETE", "File is used in workflow");
+    }
+```
+
+## Populate
 
 ```
     let result = await GoodsBuy.find(filter).populate("doc", {
