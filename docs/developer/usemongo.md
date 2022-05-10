@@ -132,6 +132,32 @@ findOne, findMany
 findOne(文档条件, 返回哪些文档属性，其它参数）
 [Mongoose Query](https://mongoosejs.com/docs/queries.html)
 
+## All Quries
+
+[Quries](https://mongoosejs.com/docs/api.html#Query)
+
+exmaples: exists:
+
+[Exists](https://mongoosejs.com/docs/api.html#query_Query-exists)
+
+find:
+[Find](https://mongoosejs.com/docs/api.html#query_Query-find)
+[Find one](https://mongoosejs.com/docs/api.html#query_Query-findOne)
+
+## 使用 WHERE
+
+[Use Where](https://mongoosejs.com/docs/api.html#model_Model.where)
+
+## Count and count the number of documents
+
+[Count Documents](https://mongoosejs.com/docs/api.html#query_Query-count)
+
+## Update
+
+- 方法一： 查询得出文档，修改文档属性，调用 save()
+- 方法二： 使用 updated
+-
+
 ## Using Lean
 
 By default, Mongoose queries return an instance of the Mongoose Document class. Documents are much heavier than vanilla JavaScript objects, because they have a lot of internal state for change tracking. Enabling the lean option tells Mongoose to skip instantiating a full Mongoose document and just give you the POJO.
@@ -268,32 +294,6 @@ Population is the process of automatically replacing the specified paths in the 
       desc: 1,
     });
 ```
-
-## 使用 WHERE
-
-[Use Where](https://mongoosejs.com/docs/api.html#model_Model.where)
-
-## Count and count the number of documents
-
-[Count Documents](https://mongoosejs.com/docs/api.html#query_Query-count)
-
-## All Quries
-
-[Quries](https://mongoosejs.com/docs/api.html#Query)
-
-exmaples: exists:
-
-[Exists](https://mongoosejs.com/docs/api.html#query_Query-exists)
-
-find:
-[Find](https://mongoosejs.com/docs/api.html#query_Query-find)
-[Find one](https://mongoosejs.com/docs/api.html#query_Query-findOne)
-
-## Update
-
-- 方法一： 查询得出文档，修改文档属性，调用 save()
-- 方法二： 使用 updated
--
 
 ## Transaction
 
