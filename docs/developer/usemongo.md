@@ -156,7 +156,7 @@ find:
 
 - 方法一： 查询得出文档，修改文档属性，调用 save()
 - 方法二： 使用 updated
--
+- let retObjs = await Workflow.find(filter, fields).sort(sortBy).skip(skip).limit(limit).lean();
 
 ## Using Lean
 
