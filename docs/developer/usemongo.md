@@ -415,12 +415,16 @@ MyDocument Schema
 }
 ```
 
+Result without populate:
+
 ```
 {
   goods_name: "goods_name_value",
   doc: doc_id;
 }
 ```
+
+Result with populate:
 
 ```
 {
