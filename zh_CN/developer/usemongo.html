@@ -1057,11 +1057,11 @@ export default Mongoose.model(&quot;Comment&quot;, schema);
 基本结构：
 findOne(条件, 返回哪些文档属性，其它参数）</p>
 <h2 id="aggrgateion">Aggrgateion</h2>
-<pre><code>      let tmpGroup = await Todo.aggregate([
+<pre><code>      let todoGroup = await Todo.aggregate([
         { $match: todoFilter },
-        { $group: { _id: &quot;$objid&quot;, count: { $sum: 1 } } },
+        { $group: { _id: &quot;$wfid&quot;, count: { $sum: 1 } } },
       ]);
-      let ObjsIamIn = tmpGroup.map((x) =&gt; x._id);
+      let WfsIamIn = todoGroup.map((x) =&gt; x._id);
 </code></pre>
 <pre><code>    let wf = await Workflow.aggregate([
       { $match: { tenant: new Mongoose.Types.ObjectId(tenant), &quot;attachments.serverId&quot;: serverId } },
