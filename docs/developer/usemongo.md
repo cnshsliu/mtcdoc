@@ -16,6 +16,8 @@
 
 # Schema Definition with Mongoose
 
+[Schema Types](https://mongoosejs.com/docs/schematypes.html)
+
 Example:
 
 ```
@@ -210,6 +212,8 @@ findOne(文档条件, 返回哪些文档属性，其它参数）
 ```
 
 ## Populate
+
+[Populate](https://mongoosejs.com/docs/populate.html)
 
 ```
     let result = await GoodsBuy.find(filter).populate("doc", {
