@@ -440,21 +440,21 @@ Result with populate:
 [Transaction](https://mongoosejs.com/docs/transactions.html#transactions-in-mongoose)
 Transactions are new in MongoDB 4.0 and Mongoose 5.2.0. Transactions let you execute multiple operations in isolation and potentially undo all the operations if one of them fails. This guide will get you started using transactions with Mongoose.
 
-Node.js
-npm install
-TypeScript
-package.json dev.tsc
-npm run dev.tsc .TS -> build/...js
-Hapi -> Raindrop 脚手架
-Mongoose (MongoDB)
-CRUD
-PM2
-pm2.json
-build/....js
+- Node.js
+  npm install
+- TypeScript
+  package.json dev.tsc
+  npm run dev.tsc .TS -> build/...js
+- Hapi -> Raindrop 脚手架
+- Mongoose (MongoDB)
+  CRUD
+- PM2
+  pm2.json
+  build/....js
 
-Raindrop
-endpoint (url route) -> handlers (method)
-POST: req.payload
-GET: req.params
-...... Mongoose...
-return h.response(string|number|JSON);
+- Raindrop
+  endpoint (url route) -> handlers (method)
+  POST: req.payload
+  GET: req.params
+  ...... Mongoose...
+  return h.response(string|number|JSON);
