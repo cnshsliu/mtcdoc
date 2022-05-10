@@ -139,6 +139,37 @@ By default, Mongoose queries return an instance of the Mongoose Document class. 
 
 ## Aggrgateion
 
+Aggregation can do many of the same things that queries can. For example, below is how you can use aggregate() to find docs where name.last = 'Ghost':
+
+```
+const docs = await Person.aggregate([{ $match: { 'name.last': 'Ghost' } }]);
+```
+
+However, just because you can use aggregate() doesn't mean you should. In general, you should use queries where possible, and only use aggregate() when you absolutely need to.
+
+Unlike query results, Mongoose does not hydrate() aggregation results. Aggregation results are always POJOs, not Mongoose documents.
+
+```
+const docs = await Person.aggregate([{ $match: { 'name.last': 'Ghost' } }]);
+
+docs[0] instanceof mongoose.Document; // false
+```
+
+Also, unlike query filters, Mongoose also doesn't cast aggregation pipelines. That means you're responsible for ensuring the values you pass in to an aggregation pipeline have the correct type.
+
+```
+const doc = await Person.findOne();
+
+const idString = doc._id.toString();
+
+// Finds the `Person`, because Mongoose casts `idString` to an ObjectId
+const queryRes = await Person.findOne({ _id: idString });
+
+// Does **not** find the `Person`, because Mongoose doesn't cast aggregation
+// pipelines.
+const aggRes = await Person.aggregate([{ $match: { _id: idString } }])
+```
+
 ```
       let todoGroup = await Todo.aggregate([
         { $match: todoFilter },
