@@ -28,18 +28,23 @@ var BlockSchema = new Schema(
   {
     //一个对象参考
     doc: { type: Mongoose.Schema.Types.ObjectId, ref: "Document" },
+    //是否必须
     etype: { type: String, required: [true, "不能为空"] },
+    //单属性索引
     nodeid: { type: String, required: [true, "不能为空"], index:true },
     lastupdate: { type: Number },
+    //缺省值
     lock: { type: Boolean, default: false },
     content: { type: Buffer },
     mdnote: { type: Buffer },
   },
+  //自动添加时间戳  createdAt, updatedAt
   { timestamps: true }
 );
 //组合索引
 BlockSchema.index({ doc: 1, nodeid: 1 }, { unique: true });
 
+//mongodb中的collection名称, Block小写加s， db.blocks.find()
 var block = Mongoose.model("Block", BlockSchema);
 
 module.exports = block;
