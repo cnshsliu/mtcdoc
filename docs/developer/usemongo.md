@@ -161,6 +161,14 @@ find:
 
 [Count Documents](https://mongoosejs.com/docs/api.html#query_Query-count)
 
+```
+let number = await Comment.countDocuments({author: "chengaoyang@xihuanwu.com"});
+
+let cmts = await Comment.find({{author: "chengaoyang@xihuanwu.com"}).lean();
+nubmer = cmts.length;
+
+```
+
 ## Using Lean
 
 By default, Mongoose queries return an instance of the Mongoose Document class. Documents are much heavier than vanilla JavaScript objects, because they have a lot of internal state for change tracking. Enabling the lean option tells Mongoose to skip instantiating a full Mongoose document and just give you the POJO.
@@ -173,19 +181,51 @@ let retObjs = await Workflow.find(filter, fields).sort(sortBy).skip(skip).limit(
 ## Update
 
 - 方法一： 查询得出文档，修改文档属性，调用 save()
-- 方法二： 使用 updated
+- 方法二： 使用 updated:updateOne, updateMany
 
-## Aggrgateion
+```
+  // Get lastName from http post
+    let lastName=req.payload.lastName;
+    //Build regexp: 如lastName="chen", 则 chenABC 可以， chenABCD不可以，  achenABC不可以
+    let regex = new RegExp(`^${lastName}.{3}$`);
+  let updatedComment = await Comment.updateMany({author: regex}, {$set:{content: "byChen", num:1, author: "liu"} }, {new:true}).lean();
+```
+
+## Aggrgateion mongodb Powerful
 
 Aggregation can do many of the same things that queries can. For example, below is how you can use aggregate() to find docs where name.last = 'Ghost':
 
 ```
-const docs = await Person.aggregate([{ $match: { 'name.last': 'Ghost' } }]);
+//Query: await Person.find({'name.last': 'Ghost'});
+// aggregate([])
+const docs = await Person.aggregate(
+[
+    { $match: { 'name.last': 'Ghost' } }
+]
+);
 ```
 
 However, just because you can use aggregate() doesn't mean you should. In general, you should use queries where possible, and only use aggregate() when you absolutely need to.
 
 Unlike query results, Mongoose does not hydrate() aggregation results. Aggregation results are always POJOs, not Mongoose documents.
+
+hydate() or not example:
+
+```
+// 取一个Tenant
+tenant = await Tenant.findOne({name: 'xihuanwu'});
+let tntId = tenant._id;
+//用tentId 做查询， 使用Query
+ await Comment.findMany({tenant: tntId});
+ or
+ await Comment.findMany({tenant: new ObjectId(tntId)});
+//用tentId 做查询， 使用Aggreate
+ await Comment.aggregate([
+  {$match:
+    {'tenant': new ObjectId(tenant._id)}
+  }
+ ])
+```
 
 ```
 const docs = await Person.aggregate([{ $match: { 'name.last': 'Ghost' } }]);
@@ -201,7 +241,8 @@ const doc = await Person.findOne();
 const idString = doc._id.toString();
 
 // Finds the `Person`, because Mongoose casts `idString` to an ObjectId
-const queryRes = await Person.findOne({ _id: idString });
+const queryRes = await Person.findOne({ _id: idString }, {"_id":0, "name":0});
+
 
 // Does **not** find the `Person`, because Mongoose doesn't cast aggregation
 // pipelines.
@@ -209,19 +250,61 @@ const aggRes = await Person.aggregate([{ $match: { _id: idString } }])
 ```
 
 ```
+      let todoFilter = {status: 'ST_RUN'};
       let todoGroup = await Todo.aggregate([
         { $match: todoFilter },
         { $group: { _id: "$wfid", count: { $sum: 1 } } },
       ]);
+
+      //
+      [
+        { _id: "wfid_1", count: 100},
+        { _id: "wfid_2", count: 150},
+      ]
       let WfsIamIn = todoGroup.map((x) => x._id);
 ```
 
 ```
+Workflow:
+{
+_id: ObjectId,
+  wfid:String,
+  doc: String,
+  attachments: [
+    {
+      serverId: String,
+      realName: String
+    }
+  ]
+}
+
+{wfid: "wfid_1", attachments: [ { serverId: '1-1', realName: 'name-1-1'}, { serverId: '1-2', realName: 'name-1-2'}]}
+
+{wfid: "wfid_2", attachments: [ { serverId: '2-1', realName: 'name-2-1'}, { serverId: '2-2', realName: 'name-2-2'}]}
+
+
+
+找出 包含serverID= 1-2的workflow，并且，返回值中只包含1-2
+
     let wf = await Workflow.aggregate([
       { $match: { tenant: new Mongoose.Types.ObjectId(tenant), "attachments.serverId": serverId } },
       { $project: { _id: 0, doc: 0 } },
+
+       // {wfid: "wfid_1", attachments: [ { serverId: '1-1', realName: 'name-1-1'}, { serverId: '1-2', realName: 'name-1-2'}]}
+
       { $unwind: "$attachments" },
+      /*
+        [
+        {wfid: "wfid_1", attachments: { serverId: '1-1', realName: 'name-1-1'}},
+        {wfid: "wfid_1", attachments: { serverId: '1-2', realName: 'name-1-2'}}
+        ]
+        */
       { $match: { "attachments.serverId": serverId } },
+      /*
+      [
+        {wfid: "wfid_1", attachments: { serverId: '1-2', realName: 'name-1-2'}}
+      ]
+      */
     ]);
     if (wf[0]) {
       throw new EmpError("CANNOT_DELETE", "File is used in workflow");
