@@ -114,8 +114,12 @@ export default Mongoose.model("Comment", schema);
     });
     comment = await comment.save();
     // _id
-    // _v
+    // _v:1
     //createAt, updatedAt
+    //....
+    comment.towhom = "another people";
+    await comment.save(); //upate
+    // _v:2
 ```
 
 - findOneAndUpdate
@@ -127,9 +131,12 @@ export default Mongoose.model("Comment", schema);
     {upsert: true, new:true});
 ```
 
+cRud
+
 ## Find 查询
 
-findOne, findMany
+findOne: null, Object, findMany: [], [object]
+
 基本结构：
 findOne(文档条件, 返回哪些文档属性，其它参数）
 [Mongoose Query](https://mongoosejs.com/docs/queries.html)
