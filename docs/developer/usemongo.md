@@ -24,9 +24,10 @@ var Mongoose = require("mongoose"),
 //Same fields as Parse.com
 var BlockSchema = new Schema(
   {
+    //一个对象参考
     doc: { type: Mongoose.Schema.Types.ObjectId, ref: "Document" },
     etype: { type: String, required: [true, "不能为空"] },
-    nodeid: { type: String, required: [true, "不能为空"] },
+    nodeid: { type: String, required: [true, "不能为空"], index:true },
     lastupdate: { type: Number },
     lock: { type: Boolean, default: false },
     content: { type: Buffer },
@@ -39,4 +40,13 @@ BlockSchema.index({ doc: 1, nodeid: 1 }, { unique: true });
 var block = Mongoose.model("Block", BlockSchema);
 
 module.exports = block;
+```
+
+```
+    let result = await GoodsBuy.find(filter).populate("doc", {
+      _id: 1,
+      name: 1,
+      pub: 1,
+      desc: 1,
+    });
 ```
