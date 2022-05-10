@@ -1057,7 +1057,8 @@ export default Mongoose.model(&quot;Comment&quot;, schema);
 <h2 id="find">Find 查询</h2>
 <p>findOne, findMany
 基本结构：
-findOne(文档条件, 返回哪些文档属性，其它参数）</p>
+findOne(文档条件, 返回哪些文档属性，其它参数）
+<a href="https://mongoosejs.com/docs/queries.html">Mongoose Query</a></p>
 <h2 id="aggrgateion">Aggrgateion</h2>
 <pre><code>      let todoGroup = await Todo.aggregate([
         { $match: todoFilter },
