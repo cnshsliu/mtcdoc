@@ -960,6 +960,7 @@
 <li>操作文档对象，而不是操作记录</li>
 </ul>
 <h1 id="schema-definition-with-mongoose">Schema Definition with Mongoose</h1>
+<p><a href="https://mongoosejs.com/docs/schematypes.html">Schema Types</a></p>
 <p>Example:</p>
 <pre><code>var Mongoose = require(&quot;mongoose&quot;),
   //The document structure definition
@@ -1134,6 +1135,7 @@ findOne(文档条件, 返回哪些文档属性，其它参数）</p>
   ]).allowDiskUse(true);
 </code></pre>
 <h2 id="populate">Populate</h2>
+<p><a href="https://mongoosejs.com/docs/populate.html">Populate</a></p>
 <pre><code>    let result = await GoodsBuy.find(filter).populate(&quot;doc&quot;, {
       _id: 1,
       name: 1,
