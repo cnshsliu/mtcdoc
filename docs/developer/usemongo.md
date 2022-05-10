@@ -49,7 +49,7 @@ var BlockSchema = new Schema(
 //组合索引
 BlockSchema.index({ doc: 1, nodeid: 1 }, { unique: true });
 
-//mongodb中的collection名称, Block小写加s， db.blocks.find()
+//mongodb中的collection(sql:table)名称, Block小写加s， db.blocks.find()
 var block = Mongoose.model("Block", BlockSchema);
 
 module.exports = block;
@@ -84,7 +84,6 @@ const schema = new Mongoose.Schema(
     },
     // 定类型的 子文档数组
     //attachments: { type: [ fileId: string, fileName: string }], default: [] },
-    //attachments: { type: [ fileId: string, fileName: string }], default: [] },
     // 不定类型的 子文档数组
     //attachments: { type: [Mongoose.Schema.Types.Mixed], default: [] },
   },
@@ -114,6 +113,9 @@ export default Mongoose.model("Comment", schema);
       threadid: threadid ? threadid : "",
     });
     comment = await comment.save();
+    // _id
+    // _v
+    //createAt, updatedAt
 ```
 
 - findOneAndUpdate
