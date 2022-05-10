@@ -277,6 +277,10 @@ Population is the process of automatically replacing the specified paths in the 
 
 [Count Documents](https://mongoosejs.com/docs/api.html#query_Query-count)
 
+## All Quries
+
+[Quries](https://mongoosejs.com/docs/api.html#Query)
+
 ## Update
 
 - 方法一： 查询得出文档，修改文档属性，调用 save()
