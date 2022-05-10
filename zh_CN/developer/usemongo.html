@@ -1295,11 +1295,13 @@ MongoDB has the join-like $lookup aggregation operator in versions &gt;= 3.2. Mo
       ....
 }
 </code></pre>
+<p>Result without populate:</p>
 <pre><code>{
   goods_name: &quot;goods_name_value&quot;,
   doc: doc_id;
 }
 </code></pre>
+<p>Result with populate:</p>
 <pre><code>{
   goods_name: &quot;goods_name_value&quot;,
   doc:{
