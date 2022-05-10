@@ -1137,6 +1137,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    设置回调接口
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-designer" class="md-nav__link">
+    Table Designer
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1804,6 +1818,7 @@ invalid name will make your workflow fails to run.</p>
 <li>use T:cascade_list_name, for example, you may have province list "select_A" defined as "R:province_list;T:select_B", then, you may define select_B as "R:city_list", then, once use pick a province from select_A, select_B will get the selected value from select_A, and use it as list key to refresh options for select_B, say, get all cities of the selected city.</li>
 </ul>
 <h6 id="table"><strong>Table</strong></h6>
+<p>表格栏位支持使用表格设计器来创建，详见<a href="#table-designer">表格设计器</a></p>
 <p>A table allow users to input values with a table row by row, column by column.
 Table variable name starts with tbl_</p>
 <p>Table columns are defined with a string delimited by |,</p>
@@ -2127,8 +2142,41 @@ User click the button to make his/her decision, the workflow engine use user's d
 <p>You may let variables be set when process run through a connecton.
 let's say, we have a connnection between A and B, and we have variables defined on it. when user complete A, the Engine will embed those variables to process context before dispatch task B.</p>
 <p><img alt="connect set vars" src="https://cdn.jsdelivr.net/gh/cnshsliu/static.xhw.mtc/img/doc/connect_setvar.png" title="Set variables on connection" /></p>
-<p>$$
-$$</p>
+<h2 id="_1">设置回调接口</h2>
+<p>MTC 支持对每个流程设定回调接口，在流程的每个节点完成时，会通过调用接口将流程当前运行数据发送到回调接口
+<img alt="set callback" src="https://cdn.jsdelivr.net/gh/cnshsliu/static.xhw.mtc/img/doc/template_set_callback.png" title="Set callback" /></p>
+<p>回调接口支持三种回调方式：</p>
+<ol>
+<li>用户端
+   在用户完成一个工作项时，发送当前工作节点的数据到回调接口</li>
+<li>服务器端
+   在任何一个工作流节点完成后，发送当前工作节点的数据到回调接口。
+   即包括用户工作项，也包括 AND，OR，Script 脚本等节点
+   发送整个工作流的上下文数据</li>
+<li>用户端和服务端
+   包括前两项， 即从用户端发起，也从服务端发起</li>
+</ol>
+<p>回调接口必须使用 https 访问协议</p>
+<h2 id="table-designer">Table Designer</h2>
+<p>表格设计器用于方便的设置一个表格录入参数。</p>
+<p>表格设计器与表格栏位定义字符串双向保持同步，如下图所示</p>
+<p><img alt="Table Designer" src="https://cdn.jsdelivr.net/gh/cnshsliu/static.xhw.mtc/img/doc/table_designer_zh-CN.png" title="Table Designer" /></p>
+<p>表格栏区从左到右依次显示每个栏位的名称，点击一个栏位后，在栏位名称下会显示栏位排序操作按钮， 在下方会显示栏位内容定义区，如下图所示</p>
+<p><img alt="Col Designer" src="https://cdn.jsdelivr.net/gh/cnshsliu/static.xhw.mtc/img/doc/table_designer_col_editor_zh-CN.png" title="Col Designer" /></p>
+<p>点击四个栏位排序按钮，可分别将栏位移动到最前、前一个、后一个、最后一个</p>
+<p>如选择 IsSelect，则表示该栏位可下拉选择，即可在 options 输入框中输入多个可选项，输入时用空格，分号来分割</p>
+<p>一个栏位可以用于计算平均值和总值，在输入时，在表格的最后一行下方显示</p>
+<p>栏位可以定义为 Formula 公式，可以对表格内各栏位根据其名称进行结果计算，按照标准 Javascript 语句计算即可。</p>
+<p><img alt="Formula Designer" src="https://cdn.jsdelivr.net/gh/cnshsliu/static.xhw.mtc/img/doc/table_designer_formula_editor_zh-CN.png" title="Formula Designer" /></p>
+<p>另外，Formula 支持两个特别函数 datediff 和 lastingdays:</p>
+<p>datediff 用于计算两个日期之间的差别，如果两个日期为同一天
+如：
+=datediff(date<em>开始时间,date</em>结束时间)+1</p>
+<p>lastingdays 用于计算两个时间点（大特 time）的持续时间，第三个参数为精度控制
+如
+=lastingdays(dt<em>开始时点,dt</em>结束时点,0.5)
+返回至少半天，如 0.5， 1， 1.5， 2， 2.5 等</p>
+<p>缺省为 1， 至少返回整天</p>
 
               
             </article>
