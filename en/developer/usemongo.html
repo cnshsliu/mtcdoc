@@ -1248,7 +1248,7 @@ _id: ObjectId,
       $lookup: {
         from: &quot;users&quot;,
         localField: &quot;_id&quot;,
-        foreignField: &quot;userid&quot;,
+        foreignField: &quot;userid&quot;, //blockops.userid
         as: &quot;fromItems&quot;,
       },
     },
@@ -1267,7 +1267,9 @@ _id: ObjectId,
     },
   ]).allowDiskUse(true);
 </code></pre>
+<p>select block.name, user.name from block, user where block.user_id = user._id;</p>
 <h2 id="populate">Populate</h2>
+<p>Is not mongodb, but mongoose</p>
 <p><a href="https://mongoosejs.com/docs/populate.html">Populate</a>
 MongoDB has the join-like $lookup aggregation operator in versions &gt;= 3.2. Mongoose has a more powerful alternative called populate(), which lets you reference documents in other collections.</p>
 <p>Population is the process of automatically replacing the specified paths in the document with document(s) from other collection(s). We may populate a single document, multiple documents, a plain object, multiple plain objects, or all objects returned from a query.</p>
@@ -1277,6 +1279,33 @@ MongoDB has the join-like $lookup aggregation operator in versions &gt;= 3.2. Mo
       pub: 1,
       desc: 1,
     });
+</code></pre>
+<p>GoodsBuy Scheam</p>
+<pre><code>{
+  &quot;goods_name&quot; String,
+  &quot;doc&quot; : { type: Mongoose.Schema.Types.ObjectId, ref: &quot;MyDocument&quot; },
+}
+</code></pre>
+<p>MyDocument Schema</p>
+<pre><code>{
+      name: String,
+      pub: String,
+      desc: String,
+      url:String
+      ....
+}
+</code></pre>
+<pre><code>{
+  goods_name: &quot;goods_name_value&quot;,
+  doc: doc_id;
+}
+</code></pre>
+<pre><code>{
+  goods_name: &quot;goods_name_value&quot;,
+  doc:{
+    _id: &quot;..&quot;, anme: &quot;...&quot;, pub:&quot;&quot;, desc:''
+  }
+}
 </code></pre>
 <h2 id="transaction">Transaction</h2>
 <p><a href="https://mongoosejs.com/docs/transactions.html#transactions-in-mongoose">Transaction</a>
