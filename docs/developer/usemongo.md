@@ -4,4 +4,6 @@
 
 # About Mongoose
 
+[Mongoose Manual](https://mongoosejs.com/docs/)
+
 # Schema Definition with Mongoose
