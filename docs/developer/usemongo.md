@@ -1,6 +1,6 @@
 # About MongoDB
 
-(Manual)[https://www.mongodb.com/docs/manual/core/document/]
+[Manual](https://www.mongodb.com/docs/manual/core/document/)
 
 # About Mongoose
 
