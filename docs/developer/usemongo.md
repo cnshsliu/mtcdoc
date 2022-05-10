@@ -75,10 +75,12 @@ const schema = new Mongoose.Schema(
       workid: String,
       todoid: String,
     },
-    // 不定类型的 子文档数组
-    //attachments: { type: [Mongoose.Schema.Types.Mixed], default: [] },
+    // 定类型的 子文档数组
     // 定类型的 子文档数组
     //attachments: { type: [ fileId: string, fileName: string }], default: [] },
+    //attachments: { type: [ fileId: string, fileName: string }], default: [] },
+    // 不定类型的 子文档数组
+    //attachments: { type: [Mongoose.Schema.Types.Mixed], default: [] },
   },
   { timestamps: true }
 );
