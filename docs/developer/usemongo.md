@@ -51,6 +51,64 @@ module.exports = block;
 ```
 
 ```
+import Mongoose from "mongoose";
+const schema = new Mongoose.Schema(
+  {
+    tenant: { type: Mongoose.Schema.Types.ObjectId, ref: "Tenant" },
+    rehearsal: { type: Boolean, default: false },
+    who: { type: String, required: true },
+    towhom: { type: String, required: true },
+    //限定值的范围
+    objtype: {
+      type: String,
+      enum: ["SITE", "TENANT", "TEMPLATE", "WORKFLOW", "WORK", "TODO", "COMMENT"],
+      default: "TENANT",
+    },
+    objid: { type: String },
+    threadid: { type: String },
+    //数组类型，及缺省值
+    people: { type: [String], default: [] },
+    content: { type: String, default: "" },
+    //子文档
+    context: {
+      wfid: String,
+      workid: String,
+      todoid: String,
+    },
+    // 不定类型的 子文档数组
+    //attachments: { type: [Mongoose.Schema.Types.Mixed], default: [] },
+    // 定类型的 子文档数组
+    //attachments: { type: [ fileId: string, fileName: string }], default: [] },
+  },
+  { timestamps: true }
+);
+
+export default Mongoose.model("Comment", schema);
+```
+
+# 数据操作
+
+## INSERT 添加
+
+new 一个
+
+```
+    let comment = new Comment({
+      tenant: tenant,
+      rehearsal: rehearsal,
+      who: doer,
+      towhom: toWhom,
+      objtype: objtype,
+      objid: objid,
+      people: thePeople,
+      content: content,
+      context: context,
+      threadid: threadid ? threadid : "",
+    });
+    comment = await comment.save();
+```
+
+```
     let result = await GoodsBuy.find(filter).populate("doc", {
       _id: 1,
       name: 1,
