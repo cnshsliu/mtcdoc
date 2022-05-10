@@ -21,6 +21,8 @@
 
 Example:
 
+- 例一
+
 ```
 var Mongoose = require("mongoose"),
   //The document structure definition
@@ -52,6 +54,8 @@ var block = Mongoose.model("Block", BlockSchema);
 
 module.exports = block;
 ```
+
+- 例二
 
 ```
 import Mongoose from "mongoose";
@@ -127,6 +131,10 @@ findOne, findMany
 基本结构：
 findOne(文档条件, 返回哪些文档属性，其它参数）
 [Mongoose Query](https://mongoosejs.com/docs/queries.html)
+
+## Using Lean
+
+[Lean](https://mongoosejs.com/docs/tutorials/lean.html#using-lean)
 
 ## Aggrgateion
 
