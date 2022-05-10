@@ -963,6 +963,9 @@
 <h1 id="schema-definition-with-mongoose">Schema Definition with Mongoose</h1>
 <p><a href="https://mongoosejs.com/docs/schematypes.html">Schema Types</a></p>
 <p>Example:</p>
+<ul>
+<li>例一</li>
+</ul>
 <pre><code>var Mongoose = require(&quot;mongoose&quot;),
   //The document structure definition
   Schema = Mongoose.Schema;
@@ -993,6 +996,9 @@ var block = Mongoose.model(&quot;Block&quot;, BlockSchema);
 
 module.exports = block;
 </code></pre>
+<ul>
+<li>例二</li>
+</ul>
 <pre><code>import Mongoose from &quot;mongoose&quot;;
 const schema = new Mongoose.Schema(
   {
@@ -1060,6 +1066,9 @@ export default Mongoose.model(&quot;Comment&quot;, schema);
 基本结构：
 findOne(文档条件, 返回哪些文档属性，其它参数）
 <a href="https://mongoosejs.com/docs/queries.html">Mongoose Query</a></p>
+<h2 id="using-lean">Using Lean</h2>
+<p>By default, Mongoose queries return an instance of the Mongoose Document class. Documents are much heavier than vanilla JavaScript objects, because they have a lot of internal state for change tracking. Enabling the lean option tells Mongoose to skip instantiating a full Mongoose document and just give you the POJO.
+<a href="https://mongoosejs.com/docs/tutorials/lean.html#using-lean">Lean</a></p>
 <h2 id="aggrgateion">Aggrgateion</h2>
 <pre><code>      let todoGroup = await Todo.aggregate([
         { $match: todoFilter },
