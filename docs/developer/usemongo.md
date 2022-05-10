@@ -16,6 +16,8 @@
 
 # Schema Definition with Mongoose
 
+Example:
+
 ```
 var Mongoose = require("mongoose"),
   //The document structure definition
@@ -35,6 +37,7 @@ var BlockSchema = new Schema(
   },
   { timestamps: true }
 );
+//组合索引
 BlockSchema.index({ doc: 1, nodeid: 1 }, { unique: true });
 
 var block = Mongoose.model("Block", BlockSchema);
