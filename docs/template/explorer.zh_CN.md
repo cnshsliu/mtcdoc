@@ -75,10 +75,36 @@ Those actions are:
     - Set TAGS: show tag editting form to add, modify or delete tags of this template
     - Delete This Template: as it says
 
-### 流程定期执行
+### 流程设置
 
-在流程下拉菜单中，选择“执行计划”，指定流程启动者，并输入自动启动流程的 CronTab 格式时间定义字符串。
-在 Crontab 会自动运行，并在所设置的时间，自动为所指定的启动者启动流程
+流程设置如下图所示
+
+[Template Setting](https://cdn.jsdelivr.net/gh/cnshsliu/static.xhw.mtc/img/doc/template_setting.zh-CN.png)
+其中，
+
+#### 描述信息
+
+给流程添加描述说明，以便他人了解这个流程的设计目的，适用场景等
+
+#### 标签设置
+
+给流程添加标签，用于归类查询，用户点击流程浏览器上部的标签时，按照标签对流程进行过滤
+
+添加标签后，所有个人标签会显示在组织标签下方
+
+#### 指定作者
+
+将流程作者指定为另一个人，直接输入该人的邮箱地址前缀即可
+
+#### 对谁可见
+
+设定流程对哪些人可见。
+
+如果不设置，则自动对组织内全体用户可见
+
+新建流程时，流程自动只对作者本人可见，以防止在流程模版定稿之前他人直接适用。
+
+abcd
 
 ### Set Visibility
 

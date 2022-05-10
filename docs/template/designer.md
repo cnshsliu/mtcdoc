@@ -77,8 +77,9 @@ Under Pointer mode, you are able to:
 1. select a node or connect by clicking it.
 2. open property window of node or connect by shift-clicking it
 3. move a node by dragging it.
-4. move a connection by clicking it while holding ALT key (Opt key on Mac OsX), release ALT key, then click on another node should be connected.
-5. pan canvas by clicking on blank area of canvas then dragging it.
+4. pan canvas by clicking on blank area of canvas then dragging it.
+
+Other tools refer to a type of workflow node.
 
 ## Node Type
 
@@ -116,25 +117,23 @@ _Press 1 anytime to select Activity_
 
 An activity is a task need to be done by human.
 
-#### Operations
-
 - Click on canvas to place an Activity node
 - Shift-Click on an Activity to open it's properties
 - Drag it to move to another location
 
-#### Title
+**Title**
 
 Activity (Task) title can include process level variables value by placing variable name in square brackets, like [var_name], [var_name] will be replace with the value of var_name.
 
-For example: If you have a variable name 'Interviewee_name", and the interviewee is "John", then the work title with a name of "Please approve offer letter of [Interviewee_name]" will be "Please approve offer letter of John", Simple.
+For example: If you have a variable name "Interviewee_name", and the interviewee is "John", then the work title with a name of "Please approve offer letter of [Interviewee_name]" will be "Please approve offer letter of John", Simple.
 
-#### Participant
+** Participant**
 
 Define task participants with Role Definition String,
 
 See [PDS page](/designer/pds) for details
 
-#### Vote
+** Vote **
 
 If there are more than one participants, you may choose how to decide the final decision among many decisions by selcting VOTE modal.
 
@@ -284,17 +283,28 @@ A variable starts with "file\_" will show the user a file drop area, use can dra
 
 Following variables you may use directly without being explicitly defined.
 
-- starter: the uid of the process starter,
-- starterCN: the Name of the process starter.
-- ou_SOU: the OU code of the process starter,
+Process level variables:
 
-- ou_user_XYZ, the OU code of a user_XYZ variable
+- **starter**: the uid of the process starter,
+- **starterCN**: the Name of the process starter.
+- **ou_SOU**: the OU code of the process starter,
+- **ou_user_XYZ**: the OU code of a user_XYZ variable
+
+System variables:
+
+- **$$isoWeek**: No. of week in year (number)
+- ** $$isoWeeksInISOWeekYear**: How many weeks in this year
+- ** $$isoWeekYear**: Year (based on full week)
+- ** $$isoWeekDesc**: Description of isoWeek such as W1, W13...
+- ** $$isoWeekDescFull**: Full description, like W1/52-2022
+- **$$date**: Full description, like W1/52-2022
 
 These internal varaibles are aslo available for:
 
 - Workflow Context variables display,
 - Handlebars in comments input, for example: "{{starterCN.value}}"
 - Activity title, for example: "Activity started by [starterCN]"
+- Template names
 
 ###### **Selection Option**
 
@@ -303,14 +313,16 @@ For a variable named like "select\_", "sel\_", "sl\_", or "ou\_",
 - options should be delimited by semicolon (;), for example "option1;option2;option3";
 - For "ou\_" variable, the first option will be used as the top OU id, the second is "yes" or "not", whether to include the top itself.
 - options can also get from a pre-defined list.
-  - A list is defined in a list group.
-  - A list has it's own key in a list group.
-  - "R:list_group_name" to get default items from a list group.
-  - "R:list_group_name:key" to get items from a list group by key.
+- A list is defined in a list group.
+- A list has it's own key in a list group.
+- "R:list_group_name" to get default items from a list group.
+- "R:list_group_name:key" to get items from a list group by key.
 - list can be cascaded To make cascaded list. you may:
-  - use T:cascade_list_name, for example, you may have province list "select_A" defined as "R:province_list;T:select_B", then, you may define select_B as "R:city_list", then, once use pick a province from select_A, select_B will get the selected value from select_A, and use it as list key to refresh options for select_B, say, get all cities of the selected city.
+- use T:cascade_list_name, for example, you may have province list "select_A" defined as "R:province_list;T:select_B", then, you may define select_B as "R:city_list", then, once use pick a province from select_A, select_B will get the selected value from select_A, and use it as list key to refresh options for select_B, say, get all cities of the selected city.
 
 ###### **Table**
+
+表格栏位支持使用表格设计器来创建，详见[表格设计器](#table-designer)
 
 A table allow users to input values with a table row by row, column by column.
 Table variable name starts with tbl\_
@@ -318,10 +330,10 @@ Table variable name starts with tbl\_
 Table columns are defined with a string delimited by |,
 
 - individual column can have prefix to define its type:
-  - "date\_" (for date input),
-  - "dt\_" (for date time input).
-  - "sel\_" (for selection)
-    - Options for this selection are given as (OPT1:OPT2:OPT3)
+- "date\_" (for date input),
+- "dt\_" (for date time input).
+- "sel\_" (for selection)
+  - Options for this selection are given as (OPT1:OPT2:OPT3)
 - column's title can be defined with [title=TITLE], or the variable name without prefix. for example, variable dt_THIS with have a title THIS automatically.
 - default value can be defined with [default=DEFAULT_VALUE],
 - if average value of the column is required, mark it with [avg]
@@ -338,37 +350,37 @@ date\_开始时间[title=开始日期]|date\_结束时间|从哪里[default=机�
 The table above has following columns:
 
 - 开始时间：
-  - 类型：日期
-  - Title: 开始日期
+- 类型：日期
+- Title: 开始日期
 - 结束时间
-  - 类型：日期
-  - Title: 结束时间
+- 类型：日期
+- Title: 结束时间
 - 从哪里
-  - 缺省值：机场
+- 缺省值：机场
 - 到哪里
-  - 缺省值：公司
+- 缺省值：公司
 - 出行方式
-  - 类型：选择列表
-  - 可选项：飞机，高铁，长途汽车，出租车
-  - 缺省值：高铁
+- 类型：选择列表
+- 可选项：飞机，高铁，长途汽车，出租车
+- 缺省值：高铁
 - 出差天数（天）
-  - 类型：公式
-  - 值：开始日期，与结束日期的天数差别+1，如为同一天，则值为 1.
-  - 缺省值：0
-  - 计算平均值
+- 类型：公式
+- 值：开始日期，与结束日期的天数差别+1，如为同一天，则值为 1.
+- 缺省值：0
+- 计算平均值
 - 开始时点
-  - 类型：datetime
+- 类型：datetime
 - 结束时点
-  - 类型：datetime
+- 类型：datetime
 - 请假天数
-  - 类型：公式
-  - 值：开始时点，与结束时点的差别，规整到 0.5 天
-  - 缺省值：0
-  - 计算总和
+- 类型：公式
+- 值：开始时点，与结束时点的差别，规整到 0.5 天
+- 缺省值：0
+- 计算总和
 - 报销金额
-  - 类型：数字
-  - 求总
-  - 求平均
+- 类型：数字
+- 求总
+- 求平均
 
 ##### **Value**
 
@@ -438,13 +450,16 @@ RV[=|==|===|>|>=|<|<=|!=]GV
 let's say we have:
 
 - A checkbox named "checkbox_req". We want inputbox of "reason" to appear only when "checkbox_req" is checked. then we could define "when expression" for "reason" as:
-  ```
-  checkbox_req=true
-  ```
+
+```
+checkbox_req=true
+```
+
 - A kvar named "number_amount", and we want another kvar named "upper_price" to appear only when "number_amount" has a value bigger than 100, then we could define "when expression" for "upper_price" as:
-  ```
-  number_amount>100
-  ```
+
+```
+number_amount>100
+```
 
 GV is automatically converted to the type of RV, at this momnent, only string, number, boolean is supported. it's unnecessary to quote with '"' if it's a string unless it's an empty value.
 
@@ -518,8 +533,8 @@ This API endpoint will receive payload:
 
 ```
 {
-  "cbpid": "A RANDOM Callback Point ID",
-  "foo": "bar"
+"cbpid": "A RANDOM Callback Point ID",
+"foo": "bar"
 }
 ```
 
@@ -539,9 +554,9 @@ You should callback with payload:
 
 ```
 {
-  cbpid: "the cbpid",
-  decision: "Your decision on this point",
-  kvars: {"foo","bar"}
+cbpid: "the cbpid",
+decision: "Your decision on this point",
+kvars: {"foo","bar"}
 }
 ```
 
@@ -552,13 +567,13 @@ You should callback with payload:
 **Note**, use MTC SDK is much easier with
 
 ```
- SDK.callback(
-  {
-    cbpid: "the cbpid",
-    decision: "Your decision on this point",
-    kvars: {"foo","bar"}
-  }
- );
+SDK.callback(
+{
+  cbpid: "the cbpid",
+  decision: "Your decision on this point",
+  kvars: {"foo","bar"}
+}
+);
 ```
 
 #### Code
@@ -663,6 +678,26 @@ For steps after this script, any task assigned to role 'SGT' will go to a person
 
 You may use normal javascript "console.log" to log debug messages in your script code. to view the log, click on 'Show log' on a process details page.
 
+#### Send process context data to your own system
+
+```
+MtcSendContext(url)
+```
+
+The context data will be packed into a JSON like below and sent to the url
+
+```
+{
+  "context":{
+    "wfid":"...",
+    "tplid":"...",
+    "starter": {...},
+    "data1":{...},
+    "data2": {...}
+  }
+}
+```
+
 ### Timer <img src="../img/svg/TIMER.svg" width="24px" height="24px"/>
 
 A TIMER node is used to control process running time, the process only run through this node when
@@ -692,8 +727,6 @@ An AND node will make process wait for completion of all it's precedent nodes.
 ### OR <img src="../img/svg/OR.svg" width="24px" height="24px"/>
 
 Any precedent node is completed, an OR node will be went through, process will navigate to the following nodes of OR.
-
-An AND node will make process wait for completion of all it's precedent nodes.
 
 ### Ground <img src="../img/svg/GROUND.svg" width="24px" height="24px"/>
 
@@ -753,3 +786,56 @@ You may let variables be set when process run through a connecton.
 let's say, we have a connnection between A and B, and we have variables defined on it. when user complete A, the Engine will embed those variables to process context before dispatch task B.
 
 ![connect set vars](https://cdn.jsdelivr.net/gh/cnshsliu/static.xhw.mtc/img/doc/connect_setvar.png "Set variables on connection")
+
+## 设置回调接口
+
+MTC 支持对每个流程设定回调接口，在流程的每个节点完成时，会通过调用接口将流程当前运行数据发送到回调接口
+![set callback](https://cdn.jsdelivr.net/gh/cnshsliu/static.xhw.mtc/img/doc/template_set_callback.png "Set callback")
+
+回调接口支持三种回调方式：
+
+1. 用户端
+   在用户完成一个工作项时，发送当前工作节点的数据到回调接口
+2. 服务器端
+   在任何一个工作流节点完成后，发送当前工作节点的数据到回调接口。
+   即包括用户工作项，也包括 AND，OR，Script 脚本等节点
+   发送整个工作流的上下文数据
+3. 用户端和服务端
+   包括前两项， 即从用户端发起，也从服务端发起
+
+回调接口必须使用 https 访问协议
+
+## Table Designer
+
+表格设计器用于方便的设置一个表格录入参数。
+
+表格设计器与表格栏位定义字符串双向保持同步，如下图所示
+
+![Table Designer](https://cdn.jsdelivr.net/gh/cnshsliu/static.xhw.mtc/img/doc/table_designer_zh-CN.png "Table Designer")
+
+表格栏区从左到右依次显示每个栏位的名称，点击一个栏位后，在栏位名称下会显示栏位排序操作按钮， 在下方会显示栏位内容定义区，如下图所示
+
+![Col Designer](https://cdn.jsdelivr.net/gh/cnshsliu/static.xhw.mtc/img/doc/table_designer_col_editor_zh-CN.png "Col Designer")
+
+点击四个栏位排序按钮，可分别将栏位移动到最前、前一个、后一个、最后一个
+
+如选择 IsSelect，则表示该栏位可下拉选择，即可在 options 输入框中输入多个可选项，输入时用空格，分号来分割
+
+一个栏位可以用于计算平均值和总值，在输入时，在表格的最后一行下方显示
+
+栏位可以定义为 Formula 公式，可以对表格内各栏位根据其名称进行结果计算，按照标准 Javascript 语句计算即可。
+
+![Formula Designer](https://cdn.jsdelivr.net/gh/cnshsliu/static.xhw.mtc/img/doc/table_designer_formula_editor_zh-CN.png "Formula Designer")
+
+另外，Formula 支持两个特别函数 datediff 和 lastingdays:
+
+datediff 用于计算两个日期之间的差别，如果两个日期为同一天
+如：
+=datediff(date*开始时间,date*结束时间)+1
+
+lastingdays 用于计算两个时间点（大特 time）的持续时间，第三个参数为精度控制
+如
+=lastingdays(dt*开始时点,dt*结束时点,0.5)
+返回至少半天，如 0.5， 1， 1.5， 2， 2.5 等
+
+缺省为 1， 至少返回整天

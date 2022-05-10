@@ -15,9 +15,3 @@ Password length should be between 6 to 12, beginning with a alphabetic, must con
 Organization staffs' accounts may be imported by administrators instead of being registered by staffs themselves.
 
 If an to-be-imported account already exists, the owner will receive an email to join your organization.
-
-## Administrator
-
-Contact MetatoCome to upgrade your account to organization level, then you will be the first administrator of the upgraded organization.
-
-Later, in the Org setting page, administrator could assign other members administrator role.

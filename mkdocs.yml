@@ -59,13 +59,21 @@ plugins:
           site_name: "MetatoCome文档"
       nav_translations:
         zh_CN:
-          Template: 模板规划
+          Home: 首页
+          Account: 用户账户
+          Register: 用户注册
+          AdminReg: 组织管理
+          Template: 流程规划
           Concept: 基本概念
           "Template Browser": 模板浏览
           "Design Template": 设计模板
           Designer: 设计器
           "Role Definition": 角色定义
-          Process: 进程
+          Process: 进程管理
+          Work: 任务管理
+          Setting: 设置
+          For Developers: 开发者
+          About: 关于我们
           "Start a process": "启动一个进程"
           "Process explorer": "进程浏览器"
           "Process overview": "进程总览"
@@ -75,12 +83,13 @@ nav:
   - Home: README.md
   - Account:
     - Register: 'account/register.md'
+    - AdminReg: 'account/adminreg.md'
   - Template: 
     - Concept: "template/concept.md"
     - Template Browser: "template/explorer.md"
     - Design Template: "template/design.md"
+    - Role Definition: "designer/pds.md"
   - Designer: "template/designer.md"
-  - Role Definition: "designer/pds.md"
   - Process: 
     - Start a process: "process/start.md"
     - Process explorer: "process/explorer.md"
@@ -98,7 +107,9 @@ nav:
     - Invitation: 'account/invitation.md'
     - Join Approval: 'account/join.md'
   - For Developers:
-    - API: 'about.md'
+    - API: 'api.md'
+    - SDK: 'sdk.md'
+    - Integration: 'integration.md'
+  - Q&A: "qa.md"
   - About: about.md
-  - How to: "howto.md"
 

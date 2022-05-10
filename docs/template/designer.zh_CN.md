@@ -1,118 +1,145 @@
-# Workflow Designer
+# 工作流设计器
 
-Workflow Designer provides graphical user interface to design a workflow by dragging and dropping.
+工作流设计器提供图形方式用户界面，用于设计一个流程
 
 ![desginer](../img/workflow_designer.png)
 
-On the left is the toolbox, click each tool to use it.
+左侧的工具箱里的工具，用于切换当前工具，每种工具对应一种节点类型
 
-## Pointer <img src="../img/svg/POINTER.svg" width="24px" height="24px"/>
+## 指针 <img src="../img/svg/POINTER.svg" width="24px" height="24px"/>
 
-_Press ESC anytime to select Pointer._
-Under Pointer mode, you are able to:
+_在编辑状态下任意时间按下 ESC 键即可回到指针._
+在指针模式下，你可以：
 
-1. select a node or connect by clicking it.
-2. open property window of node or connect by shift-clicking it
-3. move a node by dragging it.
-4. move a connection by clicking it while holding ALT key (Opt key on Mac OsX), release ALT key, then click on another node should be connected.
-5. pan canvas by clicking on blank area of canvas then dragging it.
+1. 通过点击一个节点或连接，以选中它
+2. 按住 SHIFT 的同时点击一个节点或连接，以打开它的属性窗口
+3. 按住鼠标拖动一个节点
+4. 在空白区域按下并拖动鼠标，以拖动画板
 
-## Activity <img src="../img/svg/ACTION.svg" width="24px" height="24px"/>
+除指针以外的其它工具对应一个流程节点类型
 
-_Press 1 anytime to select Activity_
+## 节点类型
 
-An activity is a task need to be done by human.
+设计器支持多种节点类型，包括活动、通知、脚本、定时器、子流程、与、或、接地及连接
 
-### Operations
+- 活动：指一个需要人来完成的动作
+- 通知：指发送邮件给特定人
+- 脚本：用于在流程中嵌入 Javascript 脚本，用于控制流程的运行逻辑，通过 WebAPI 调用运行在其它系统上的服务
+- 定时器：用于暂停流程一段时间，当需要在一个节点完成以后，暂停一段时间再继续下一个节点时，在两个节点之间插入一个定时器即可。定时器在间隔时间后循环运行一段流程时也非常有用。
+- 子流程：用于在一个流程中嵌入另一个流程；或者触发另一个流程的独立运行。
+- 与： 是一个用于判断前序节点是否已经全部完成的逻辑控制
+- 或： 是一个用于判断前序节点中任意一个已经完成的逻辑控制
+- 接地： 用于标识当前路径的结束，无须运行到 END 节点
+- 连接： 前后两个节点之间的连线。
 
-- Click on canvas to place an Activity node
-- Shift-Click on an Activity to open it's properties
-- Drag it to move to another location
+## 节点属性
 
-### Title
+大部分节点类型都有属性，Shift-点击一个节点即可打开它的属性窗口，在没有 Shift 键的移动设备上，可以通过点击选中节点右上侧的小箭头图示来打开它的属性窗口。
 
-Activity (Task) title can include process level variables value by placing variable name in square brackets, like [var_name], [var_name] will be replace with the value of var_name.
+连接也有属性，通过 Shift-点击来打开
 
-For example: If you have a variable name 'Interviewee_name", and the interviewee is "John", then the work title with a name of "Please approve offer letter of [Interviewee_name]" will be "Please approve offer letter of John", Simple.
+## 节点 ID
 
-### Participant
+每个节点都有一个自动生成的唯一 ID。
+当我们在脚本中需要参考一个节点时，可能发现自动生成的 ID 不能表达意图，此时，最好的方法是把自动生成的 ID 修改为一个有业务意义的名字。
 
-Define task participants with Role Definition String,
+在节点的属性窗口中，输入自定义 ID，然后其右侧的“设置”按钮。这个按钮必须刻意点，否则，即便你点了属性窗口的确定按钮，ID 也不会被改变。
 
-See [PDS page](/designer/pds) for details
+在设计器顶部菜单的最右侧，你可以通过切换 checkbox 来在设计器画布上显示和隐藏每个节点的 ID 信息
 
-### Vote
+## 活动 <img src="../img/svg/ACTION.svg" width="24px" height="24px"/>
 
-If there are more than one participants, you may choose how to decide the final decision among many decisions by selcting VOTE modal.
+_任意时间按下 1 即可选中活动_
+
+活动是指一个需要由人来完成的动作
+
+- 点击画布上任意位置即可放置一个活动
+- 按下鼠标可拖动节点到其它位置
+- Shift-点击一个节点打开它的属性
+
+** Title **
+
+活动的名称中可嵌入流程参数值，用方括号括起来的变量名，连同方括号一起，将被替换为变量的值，如果变量不存在，替换后方括号也会被去除。
+
+例如，如果流程中有一个变量名为"Interviewee_name", 它的值是"张三", 活动名称“请审批[Interviewee_name]的录用通知书”将被替换为“请审批张三的录用通知书”
+
+** 参与人 **
+
+可视使用“参与人定义字符串”（PDS）来定义活动有哪些人参与执行
+
+详细信息请参考 [PDS page](/designer/pds)
+
+** 投票 **
+
+如果一个活动有多个参与人，此时每个参与人的决策可能不同，而这个节点的最终决策值可以使用投票模型来计算所得
 
 <img src="https://cdn.jsdelivr.net/gh/cnshsliu/static.xhw.mtc/img/doc/vote_en.png" width="100px"/>
 <img src="https://cdn.jsdelivr.net/gh/cnshsliu/static.xhw.mtc/img/doc/vote_zh-CN.png" width="100px"/>
 
-Vote models includes:
+投票模型包括：
 
-依最后一人的选择:
+- 依最后一人的选择:
 
-> 总是使用最后一个人的选择为投票结果
+  > 总是使用最后一个人的选择为投票结果
 
-依最多人的选择
+- 依最多人的选择
 
-> 用最多人的选择作为投票结果
+  > 用最多人的选择作为投票结果
 
-依最少人的选择
+- 依最少人的选择
 
-> 用最少人的选择作为投票结果
+  > 用最少人的选择作为投票结果
 
-选择全部一样，否则
+- 选择全部一样，否则
 
-> 如果所有人选择都一样，则这个唯一选择作为投票结果
-> 否则，使用“否则”设置为投票结果
+  > 如果所有人选择都一样，则这个唯一选择作为投票结果
+  > 否则，使用“否则”设置为投票结果
 
-某一选择超过比例，否则
+- 某一选择超过比例，否则
 
-> 使用比例超过所设置数值的选项为投票结果
-> 否则，使用“否则”设置为投票结果
+  > 使用比例超过所设置数值的选项为投票结果
+  > 否则，使用“否则”设置为投票结果
 
-只要有选，否则依最后
+- 只要有选，否则依最后
 
-> 只要有人选择某个选项，则投票结束，投票结果为这个值
-> 否则，依最后一个人的选择为投票结果
+  > 只要有人选择某个选项，则投票结束，投票结果为这个值
+  > 否则，依最后一个人的选择为投票结果
 
-只要有选，否则依最多
+- 只要有选，否则依最多
 
-> 只要有人选择某个选项，则投票结束，投票结果为这个值
-> 否则，依最多人的选择为投票结果
+  > 只要有人选择某个选项，则投票结束，投票结果为这个值
+  > 否则，依最多人的选择为投票结果
 
-只要有选，否则依最少
+- 只要有选，否则依最少
 
-> 只要有人选择某个选项，则投票结束，投票结果为这个值
-> 否则，依最少人的选择为投票结果
+  > 只要有人选择某个选项，则投票结束，投票结果为这个值
+  > 否则，依最少人的选择为投票结果
 
-只要有选，否则依统一选择 或最多
+- 只要有选，否则依统一选择 或最多
 
-> 只要有人选择某个选项，则投票结束，投票结果为这个值
-> 否则，依全体人的选择为投票结果
-> 如果，全体人员选择不统一， 则使用最多人的选择为投票结果
+  > 只要有人选择某个选项，则投票结束，投票结果为这个值
+  > 否则，依全体人的选择为投票结果
+  > 如果，全体人员选择不统一， 则使用最多人的选择为投票结果
 
-只要有选，否则
+- 只要有选，否则
 
-> 只要有人选择某个选项，则投票结束，投票结果为这个值
-> 否则，使用“否则”设置为投票结果
+  > 只要有人选择某个选项，则投票结束，投票结果为这个值
+  > 否则，使用“否则”设置为投票结果
 
-### Instruction
+** 任务要求说明 **
 
-Give some instructions to people who take part in this task
+参与人接收到任务后，需要一些指引来对当前工作要求作出说明
 
-You may include HTML tags/Handlebars tempalate or varName in brackets in instruction test.
+说明中可以使用部分 HTML 标签，也可以使用 Handlebars 模版方式或者方括号中的变量名方式嵌入流程参数
 
-####Supported HTML Tags
+- HTML 标签
+  安全起见，只有部分 HTML 标签是可以使用的，包括：
 
-Only following HTML tags are supported:
+  > "b", "i", "em", "strong", "a", "blockquote", "li", "ol", "ul", "br", "code", "span", "sub", "sup", "table", "thead", "th", "tbody", "tr", "td", "div", "p", "h1", "h2", "h3", "h4"
 
-"b", "i", "em", "strong", "a", "blockquote", "li", "ol", "ul", "br", "code", "span", "sub", "sup", "table", "thead", "th", "tbody", "tr", "td", "div", "p", "h1", "h2", "h3", "h4"
+- Handlebars
 
-#### Handlebars
-
-Handlebars format is used to include process variables. If a previous node has a variable named "days", then, {{days.value}} can be included in instruction to embed it's value in instruction.
+  Handlebars format is used to include process variables. If a previous node has a variable named "days", then, {{days.value}} can be included in instruction to embed it's value in instruction.
 
 #### Var in square brackets
 
@@ -178,11 +205,20 @@ A variable starts with "file\_" will show the user a file drop area, use can dra
 
 Following variables you may use directly without being explicitly defined.
 
-- starter: the uid of the process starter,
-- starterCN: the Name of the process starter.
-- ou_SOU: the OU code of the process starter,
+Process level variables:
 
-- ou_user_XYZ, the OU code of a user_XYZ variable
+- **starter**: the uid of the process starter,
+- **starterCN**: the Name of the process starter.
+- **ou_SOU**: the OU code of the process starter,
+- **ou_user_XYZ**: the OU code of a user_XYZ variable
+
+System variables:
+
+- **$$isoWeek**: No. of week in year (number)
+- ** $$isoWeeksInISOWeekYear**: How many weeks in this year
+- ** $$isoWeekYear**: Year (based on full week)
+- ** $$isoWeekDesc**: Description of isoWeek such as W1, W13...
+- ** $$isoWeekDescFull**: Full description, like W1/52-2022
 
 These internal varaibles are aslo available for:
 
@@ -425,12 +461,22 @@ An sub-process can also run in standalone mode, therefore, the parent process wi
 ## AND <img src="../img/svg/AND.svg" width="24px" height="24px"/>
 
 An AND node will make process wait for completion of all it's precedent nodes.
+并节点需要等待其前序节点，全部完成，才会进行后续工作。
+如果流程中存在循环，AND 节点总是能做到使用最新一轮循环的结果。
+例如，A 节点指向 B 和 C 节点，B 和 C 聚合到 AND， AND 后是 D， D 指向 END，D 也有一个路径指向到 A。 那么，当 BC 完成，AND 通过，D 完成后流向 A，开始新一轮。 新一轮中，B 完成，此时，即便上一轮的 C 有完成记录，AND 也不会通过，它会等待在新一轮中的 C 完成。
+
+** 注意 **
+对于一些复杂的流程，AND 的运行可能与你预期不同，比如，其中一个分支中的某个节点，在特殊条件下，流向了另一个分支，这样，上一个分支就没有机会流向到 AND。流程就会停在 AND 节点上。
+
+** 注意 **
+对于复杂流程，建议使用脚本节点来实现复杂并行控制。 参见脚本一节
 
 ## OR <img src="../img/svg/OR.svg" width="24px" height="24px"/>
 
-Any precedent node is completed, an OR node will be went through, process will navigate to the following nodes of OR.
+只有前面有一条路径通过，OR 节点就会被通过。
+其它路径上的工作会被忽略。
 
-An AND node will make process wait for completion of all it's precedent nodes.
+这一点与“衔接”节点不同，“衔接”节点的作用只是用于衔接线路，对运行逻辑不作控制
 
 ## Ground <img src="../img/svg/GROUND.svg" width="24px" height="24px"/>
 

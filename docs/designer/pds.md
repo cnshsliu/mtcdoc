@@ -93,6 +93,16 @@ There are several internal variables are always available, they are:
 
 So, "Q:[ou_SOU]/director" will always point to "director" in starter's own department.
 
+## Exclude operator:
+
+"-" stands for "exclude operator", it will exlude matched users.
+
+```
+Q:*/all;-Q:G*/all
+```
+
+Will query all staffs first, then exlude those staffs in OU which ou_id starts with "G"
+
 ## Examples:
 
 ```
