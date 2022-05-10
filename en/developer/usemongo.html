@@ -960,6 +960,7 @@
 <li>操作文档对象，而不是操作记录</li>
 </ul>
 <h1 id="schema-definition-with-mongoose">Schema Definition with Mongoose</h1>
+<p>Example:</p>
 <pre><code>var Mongoose = require(&quot;mongoose&quot;),
   //The document structure definition
   Schema = Mongoose.Schema;
@@ -978,6 +979,7 @@ var BlockSchema = new Schema(
   },
   { timestamps: true }
 );
+//组合索引
 BlockSchema.index({ doc: 1, nodeid: 1 }, { unique: true });
 
 var block = Mongoose.model(&quot;Block&quot;, BlockSchema);
