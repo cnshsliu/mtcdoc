@@ -152,6 +152,11 @@ find:
 
 [Count Documents](https://mongoosejs.com/docs/api.html#query_Query-count)
 
+## Using Lean
+
+By default, Mongoose queries return an instance of the Mongoose Document class. Documents are much heavier than vanilla JavaScript objects, because they have a lot of internal state for change tracking. Enabling the lean option tells Mongoose to skip instantiating a full Mongoose document and just give you the POJO.
+[Lean](https://mongoosejs.com/docs/tutorials/lean.html#using-lean)
+
 ## Skip and limit
 
 let retObjs = await Workflow.find(filter, fields).sort(sortBy).skip(skip).limit(limit).lean();
@@ -160,11 +165,6 @@ let retObjs = await Workflow.find(filter, fields).sort(sortBy).skip(skip).limit(
 
 - 方法一： 查询得出文档，修改文档属性，调用 save()
 - 方法二： 使用 updated
-
-## Using Lean
-
-By default, Mongoose queries return an instance of the Mongoose Document class. Documents are much heavier than vanilla JavaScript objects, because they have a lot of internal state for change tracking. Enabling the lean option tells Mongoose to skip instantiating a full Mongoose document and just give you the POJO.
-[Lean](https://mongoosejs.com/docs/tutorials/lean.html#using-lean)
 
 ## Aggrgateion
 
