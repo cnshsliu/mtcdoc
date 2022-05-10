@@ -125,6 +125,7 @@ export default Mongoose.model("Comment", schema);
 findOne, findMany
 基本结构：
 findOne(文档条件, 返回哪些文档属性，其它参数）
+[Mongoose Query](https://mongoosejs.com/docs/queries.html)
 
 ## Aggrgateion
 
