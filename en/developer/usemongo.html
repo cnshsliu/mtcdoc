@@ -1077,11 +1077,12 @@ findOne(文档条件, 返回哪些文档属性，其它参数）
 <p><a href="https://mongoosejs.com/docs/api.html#model_Model.where">Use Where</a></p>
 <h2 id="count-and-count-the-number-of-documents">Count and count the number of documents</h2>
 <p><a href="https://mongoosejs.com/docs/api.html#query_Query-count">Count Documents</a></p>
+<h2 id="skip-and-limit">Skip and limit</h2>
+<p>let retObjs = await Workflow.find(filter, fields).sort(sortBy).skip(skip).limit(limit).lean();</p>
 <h2 id="update">Update</h2>
 <ul>
 <li>方法一： 查询得出文档，修改文档属性，调用 save()</li>
 <li>方法二： 使用 updated</li>
-<li>let retObjs = await Workflow.find(filter, fields).sort(sortBy).skip(skip).limit(limit).lean();</li>
 </ul>
 <h2 id="using-lean">Using Lean</h2>
 <p>By default, Mongoose queries return an instance of the Mongoose Document class. Documents are much heavier than vanilla JavaScript objects, because they have a lot of internal state for change tracking. Enabling the lean option tells Mongoose to skip instantiating a full Mongoose document and just give you the POJO.
