@@ -354,7 +354,7 @@ _id: ObjectId,
       $lookup: {
         from: "users",
         localField: "_id",
-        foreignField: "userid",
+        foreignField: "userid", //blockops.userid
         as: "fromItems",
       },
     },
@@ -374,7 +374,11 @@ _id: ObjectId,
   ]).allowDiskUse(true);
 ```
 
+select block.name, user.name from block, user where block.user_id = user.\_id;
+
 ## Populate
+
+Is not mongodb, but mongoose
 
 [Populate](https://mongoosejs.com/docs/populate.html)
 MongoDB has the join-like $lookup aggregation operator in versions >= 3.2. Mongoose has a more powerful alternative called populate(), which lets you reference documents in other collections.
@@ -388,6 +392,43 @@ Population is the process of automatically replacing the specified paths in the 
       pub: 1,
       desc: 1,
     });
+```
+
+GoodsBuy Scheam
+
+```
+{
+  "goods_name" String,
+  "doc" : { type: Mongoose.Schema.Types.ObjectId, ref: "MyDocument" },
+}
+```
+
+MyDocument Schema
+
+```
+{
+      name: String,
+      pub: String,
+      desc: String,
+      url:String
+      ....
+}
+```
+
+```
+{
+  goods_name: "goods_name_value",
+  doc: doc_id;
+}
+```
+
+```
+{
+  goods_name: "goods_name_value",
+  doc:{
+    _id: "..", anme: "...", pub:"", desc:''
+  }
+}
 ```
 
 ## Transaction
