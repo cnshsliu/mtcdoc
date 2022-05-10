@@ -991,6 +991,59 @@ var block = Mongoose.model(&quot;Block&quot;, BlockSchema);
 
 module.exports = block;
 </code></pre>
+<pre><code>import Mongoose from &quot;mongoose&quot;;
+const schema = new Mongoose.Schema(
+  {
+    tenant: { type: Mongoose.Schema.Types.ObjectId, ref: &quot;Tenant&quot; },
+    rehearsal: { type: Boolean, default: false },
+    who: { type: String, required: true },
+    towhom: { type: String, required: true },
+    //限定值的范围
+    objtype: {
+      type: String,
+      enum: [&quot;SITE&quot;, &quot;TENANT&quot;, &quot;TEMPLATE&quot;, &quot;WORKFLOW&quot;, &quot;WORK&quot;, &quot;TODO&quot;, &quot;COMMENT&quot;],
+      default: &quot;TENANT&quot;,
+    },
+    objid: { type: String },
+    threadid: { type: String },
+    //数组类型，及缺省值
+    people: { type: [String], default: [] },
+    content: { type: String, default: &quot;&quot; },
+    //子文档
+    context: {
+      wfid: String,
+      workid: String,
+      todoid: String,
+    },
+    // 定类型的 子文档数组
+    // 定类型的 子文档数组
+    //attachments: { type: [ fileId: string, fileName: string }], default: [] },
+    //attachments: { type: [ fileId: string, fileName: string }], default: [] },
+    // 不定类型的 子文档数组
+    //attachments: { type: [Mongoose.Schema.Types.Mixed], default: [] },
+  },
+  { timestamps: true }
+);
+
+export default Mongoose.model(&quot;Comment&quot;, schema);
+</code></pre>
+<h1 id="_2">数据操作</h1>
+<h2 id="insert">INSERT 添加</h2>
+<p>new 一个</p>
+<pre><code>    let comment = new Comment({
+      tenant: tenant,
+      rehearsal: rehearsal,
+      who: doer,
+      towhom: toWhom,
+      objtype: objtype,
+      objid: objid,
+      people: thePeople,
+      content: content,
+      context: context,
+      threadid: threadid ? threadid : &quot;&quot;,
+    });
+    comment = await comment.save();
+</code></pre>
 <pre><code>    let result = await GoodsBuy.find(filter).populate(&quot;doc&quot;, {
       _id: 1,
       name: 1,
