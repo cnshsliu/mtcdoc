@@ -280,6 +280,8 @@ Population is the process of automatically replacing the specified paths in the 
 ## All Quries
 
 [Quries](https://mongoosejs.com/docs/api.html#Query)
+exmaples: exists:
+[Exists](https://mongoosejs.com/docs/api.html#query_Query-exists)
 
 ## Update
 
