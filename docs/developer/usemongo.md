@@ -268,3 +268,18 @@ Population is the process of automatically replacing the specified paths in the 
       desc: 1,
     });
 ```
+
+## 使用 WHERE
+
+[Use Where](https://mongoosejs.com/docs/api.html#model_Model.where)
+
+## Update
+
+- 方法一： 查询得出文档，修改文档属性，调用 save()
+- 方法二： 使用 updated
+-
+
+## Transaction
+
+[Transaction](https://mongoosejs.com/docs/transactions.html#transactions-in-mongoose)
+Transactions are new in MongoDB 4.0 and Mongoose 5.2.0. Transactions let you execute multiple operations in isolation and potentially undo all the operations if one of them fails. This guide will get you started using transactions with Mongoose.
