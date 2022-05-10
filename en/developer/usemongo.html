@@ -1070,6 +1070,27 @@ findOne(文档条件, 返回哪些文档属性，其它参数）
 <p>By default, Mongoose queries return an instance of the Mongoose Document class. Documents are much heavier than vanilla JavaScript objects, because they have a lot of internal state for change tracking. Enabling the lean option tells Mongoose to skip instantiating a full Mongoose document and just give you the POJO.
 <a href="https://mongoosejs.com/docs/tutorials/lean.html#using-lean">Lean</a></p>
 <h2 id="aggrgateion">Aggrgateion</h2>
+<p>Aggregation can do many of the same things that queries can. For example, below is how you can use aggregate() to find docs where name.last = 'Ghost':</p>
+<pre><code>const docs = await Person.aggregate([{ $match: { 'name.last': 'Ghost' } }]);
+</code></pre>
+<p>However, just because you can use aggregate() doesn't mean you should. In general, you should use queries where possible, and only use aggregate() when you absolutely need to.</p>
+<p>Unlike query results, Mongoose does not hydrate() aggregation results. Aggregation results are always POJOs, not Mongoose documents.</p>
+<pre><code>const docs = await Person.aggregate([{ $match: { 'name.last': 'Ghost' } }]);
+
+docs[0] instanceof mongoose.Document; // false
+</code></pre>
+<p>Also, unlike query filters, Mongoose also doesn't cast aggregation pipelines. That means you're responsible for ensuring the values you pass in to an aggregation pipeline have the correct type.</p>
+<pre><code>const doc = await Person.findOne();
+
+const idString = doc._id.toString();
+
+// Finds the `Person`, because Mongoose casts `idString` to an ObjectId
+const queryRes = await Person.findOne({ _id: idString });
+
+// Does **not** find the `Person`, because Mongoose doesn't cast aggregation
+// pipelines.
+const aggRes = await Person.aggregate([{ $match: { _id: idString } }])
+</code></pre>
 <pre><code>      let todoGroup = await Todo.aggregate([
         { $match: todoFilter },
         { $group: { _id: &quot;$wfid&quot;, count: { $sum: 1 } } },
