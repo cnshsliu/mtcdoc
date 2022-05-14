@@ -1,0 +1,15 @@
+# MTC developers note
+
+## 版本更新
+版本更新时,需要浏览器能够提醒用户进行刷新
+在EMP中,编辑 
+```
+src/lib/Const.ts
+```
+以及 MTC中的
+```
+src/lib/Const.ts 
+```
+修改其中的
+VERSION
+保持一样即可
