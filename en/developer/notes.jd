@@ -13,3 +13,10 @@ src/lib/Const.ts
 修改其中的
 VERSION
 保持一样即可
+例如
+```
+const internals = {
+	VERSION: '5.1',
+};
+
+```
