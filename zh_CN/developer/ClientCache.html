@@ -997,7 +997,10 @@ ETag: &quot;deadbeef&quot;
 Cache-Control: max-age=3600
 </code></pre>
 <p>浏览器端后续请求：</p>
-<pre><code>GET /index.html HTTP/1.1 Host: example.com Accept: text/html If-None-Match: &quot;deadbeef&quot;
+<pre><code>GET /index.html HTTP/1.1
+Host: example.com
+Accept: text/html
+If-None-Match: &quot;deadbeef&quot;
 </code></pre>
 <p>MTC 实践中，使用的是 ETag/If-None-Match, 数据有变化时，只在 Redis 中生成一个新的 ETag，后续处理判断 ETag 是否一致</p>
 <ul>
