@@ -499,7 +499,7 @@ Below showing codes which always make it's activity result is "C"
 ret = "C";
 ```
 
-** Remember **: keep the activity script to blank unless MUST to have.
+**Remember**: keep the activity script to blank unless MUST to have.
 
 ## Inform <img src="../img/svg/INFORM.svg" width="24px" height="24px"/>
 
