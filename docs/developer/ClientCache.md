@@ -42,14 +42,15 @@ Cache-Control: max-age=3600
 
   ```
 
-  - 浏览器端后续请求：
-  - ```
-    					  GET /index.html HTTP/1.1
-    					  Host: example.com
-    					  Accept: text/html
-    					  If-Modified-Since: Tue, 22 Feb 2022 22:00:00 GMT
+  浏览器端后续请求：
 
-    ```
+  ```
+   					  GET /index.html HTTP/1.1
+   					  Host: example.com
+   					  Accept: text/html
+   					  If-Modified-Since: Tue, 22 Feb 2022 22:00:00 GMT
+
+  ```
 
 - 使用 If-None-Match 来判断 - 服务器端下发： -
   `HTTP/1.1 200 OK Content-Type: text/html Content-Length: 1024 Date: Tue, 22 Feb 2022 22:22:22 GMT ETag: "deadbeef" Cache-Control: max-age=3600` - 浏览器端后续请求： -
