@@ -10,19 +10,19 @@ Invalidate cache and naming is two most difficult things
 
 参考 [HTTP Caching](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching) 文档
 
-- 彻底不缓存
+#### 彻底不缓存
 
 ```
 Cache-Control: no-store
 ```
 
-- 缓存，但每次都去服务器检查是否有新数据
+#### 缓存，但每次都去服务器检查是否有新数据
 
 ```
 Cache-Control: no-cache
 ```
 
-- 缓存，但在一定时间内不去服务器检查是否有新数据
+#### 缓存，但在一定时间内不去服务器检查是否有新数据
 
 ```
 Cache-Control: max-age=3600
