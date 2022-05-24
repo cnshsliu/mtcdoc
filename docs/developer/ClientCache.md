@@ -58,7 +58,8 @@ Cache-Control: max-age=3600
 ````
 HTTP/1.1 200 OK Content-Type: text/html Content-Length: 1024 Date: Tue, 22 Feb 2022 22:22:22 GMT ETag: "deadbeef" Cache-Control: max-age=3600`
 
-浏览器端后续请求： -
+浏览器端后续请求：
+
 ```GET /index.html HTTP/1.1 Host: example.com Accept: text/html If-None-Match: "deadbeef"
 ````
 
