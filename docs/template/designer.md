@@ -487,6 +487,18 @@ The scenarios in which you may need to have activity level script been set inclu
 
 You don't have to return any value in an Activity's script codes, or else the retruned value will be used as this Activity's result, replacing any decision user may done in frontend, unless it's 'DEFAULT';
 
+Below showing codes which place a variable
+
+```
+MtcSet('week', 3);
+```
+
+Below showing codes which always make it's activity result is "C"
+
+```
+ret = "C";
+```
+
 ## Inform <img src="../img/svg/INFORM.svg" width="24px" height="24px"/>
 
 - Press 2 at anytime to use Inform
