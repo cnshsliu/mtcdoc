@@ -109,9 +109,7 @@ To assign user-defined ID to a node, input new ID in properties window and click
 
 At the end of designer menu, there is a checkbox to show/hide node IDs on the canvas.
 
-## Node specification
-
-### Activity <img src="../img/svg/ACTION.svg" width="24px" height="24px"/>
+## Activity <img src="../img/svg/ACTION.svg" width="24px" height="24px"/>
 
 _Press 1 anytime to select Activity_
 
@@ -190,18 +188,18 @@ If any, or fail to
 > If any one's decision match the specified option, take it as final decision and finish vote.
 > else, use the "faileto" option.
 
-#### Transferable
+### Transferable
 
 Check transferable to make this work to allow task owner to transfer the task to another user.
 
-#### Keep single task in loop
+### Keep single task in loop
 
 When you design a workflow running some loop, for example, we have 7 actions named A,B,C,D,E,F,G respectively, and the routing relationship among them are: A->B->(C,D->E->B), means: A goto B, B goto C and D, D goto E, E goto B.
 So, the workflow process may run like A->B->C and D, then, while C is running, user pick up D task, the process runs continually to D->E->B->C, you see, there are another C when the previous C is still running.
 If you check the checkbox of Keep single task in loop, the running previous C will be kept, no new C will be disptachted.
 IF you uncheck the checkbox, while the running previous C is kept, another new C task will be dispatched.
 
-#### Instruction
+### Instruction
 
 Give some instructions to people who take part in this task
 
@@ -213,31 +211,31 @@ Only following HTML tags are supported:
 
 "b", "i", "em", "strong", "a", "blockquote", "li", "ol", "ul", "br", "code", "span", "sub", "sup", "table", "thead", "th", "tbody", "tr", "td", "div", "p", "h1", "h2", "h3", "h4"
 
-##### Handlebars
+#### Handlebars
 
 Handlebars format is used to include process variables. If a previous node has a variable named "days", then, {{days.value}} can be included in instruction to embed it's value in instruction.
 
-##### Var in square brackets
+#### Var in square brackets
 
 [var_name] will be replaced with var value.
 
 You may also have {{days.title}} {{days.type}} etc. included if required.
 
-#### Variables
+### Variables
 
 define variable name, type etc.
 
-##### **Name**:
+#### **Name**:
 
 Variable name should be a valid javascript varialbe name,
 that means, a variable name should start with an alphabetic, or underscore, followed by one to many alphabetic or underscore or numbers.
 invalid name will make your workflow fails to run.
 
-##### **Type**:
+#### **Type**:
 
 Variable name with specific prefix also indicates variable types, determing how Metatocome SaaS show it to end-users.
 
-###### Prefix
+##### Prefix
 
 - "email\_" : an email type input.
 - "password\_" : an password type input.
@@ -265,21 +263,21 @@ Variable name with specific prefix also indicates variable types, determing how 
 - "tbl\_": an table type input.
 - any other name : a normal input.
 
-###### OU selector
+##### OU selector
 
 A variable starts with "ou\_" will provide user a selection box of the current orgchart. The orgchart is configurable by people who have the correspoinding access right, normally, the MTC admin of your organizaiton.
 
 An OU selector variable named as "ou_varname", it can have opitons like "top_ou_id;[yes|no]", the string before ';' is the ouid of the first organizaitonal unit, the string after ';' is used to indicate whether the selection list should include the top item or not.
 
-###### User selector
+##### User selector
 
 A variable starts with "usr\_" or "user\_" provides user with a input box for input and validate user id, MTC keep validating while you are inputting, and give you feedback of the result.
 
-###### File uploader
+##### File uploader
 
 A variable starts with "file\_" will show the user a file drop area, use can drag a file and drop it onto the drop area to upload a local file to MTC. Later, other users could view it, or download it.
 
-###### Internal Variables
+##### Internal Variables
 
 Following variables you may use directly without being explicitly defined.
 
@@ -306,7 +304,7 @@ These internal varaibles are aslo available for:
 - Activity title, for example: "Activity started by [starterCN]"
 - Template names
 
-###### **Selection Option**
+##### **Selection Option**
 
 For a variable named like "select\_", "sel\_", "sl\_", or "ou\_",
 
@@ -320,7 +318,7 @@ For a variable named like "select\_", "sel\_", "sl\_", or "ou\_",
 - list can be cascaded To make cascaded list. you may:
 - use T:cascade_list_name, for example, you may have province list "select_A" defined as "R:province_list;T:select_B", then, you may define select_B as "R:city_list", then, once use pick a province from select_A, select_B will get the selected value from select_A, and use it as list key to refresh options for select_B, say, get all cities of the selected city.
 
-###### **Table**
+##### **Table**
 
 表格栏位支持使用表格设计器来创建，详见[表格设计器](#table-designer)
 
@@ -341,7 +339,7 @@ Table columns are defined with a string delimited by |,
 - get how many days between two date type column, define it with =datediff function.
 - get how many days lasting between two datetime, define it with =lastingdays function.
 
-####### Example:
+###### Example:
 
 ```
 date\_开始时间[title=开始日期]|date\_结束时间|从哪里[default=机场]|到哪里[default=公司]|sel\_出行方式(飞机:高铁:长途汽车:出租车)[default=高铁]|=datediff(date\_开始时间,date\_结束时间)+1[title=出差天数(天)][default=0][avg]|dt\_开始时点|dt\_结束时点|=lastingdays(dt\_开始时点,dt\_结束时点,0.5)[title=请假天数][default=0][sum]|number\_报销金额[sum][avg]
@@ -382,14 +380,14 @@ The table above has following columns:
 - 求总
 - 求平均
 
-##### **Value**
+#### **Value**
 
 the default value of this input.
 
 - for normal input, the default value will be set in the input box.
 - for select/checkbox/radio, the default value will be selected.
 
-##### **Formula**
+#### **Formula**
 
 You may use formula for a variable which we have a value the same as the the result of its formula.
 
@@ -411,34 +409,34 @@ If first_name varialbe has a value of "John", last_name is "Smith", then the res
 
 If first_name is "John", the result will be "ohn";
 
-##### **Label**
+#### **Label**
 
 The label of this vairable.
 
-##### **Placeholder**
+#### **Placeholder**
 
 the placeholder for input or textarea
 
-##### **Break Row**
+#### **Break Row**
 
 add a new line after this variable
 
-##### **ID**
+#### **ID**
 
 give it an optional ID
 
-##### **Required**
+#### **Required**
 
 this variable's value must be provided.
 
-##### **Visible**
+#### **Visible**
 
 use PDS to define whom this var should be visiable to
 
 **Note:**
 Sometime, some sensitive data might should be kept secret from some participants even they have been involved in the process. For instance, in a interview process, the offered salary may not be able to seen by interviewer, only HR and manager could see it, thus, we may use PDS to make this happend.
 
-##### **When**
+#### **When**
 
 use "when expression" to control when a variable is availabe for inputting.
 When expression is a logical expression to compare values of a RV(reference variable) and a GV(given value), it's grammer is:
@@ -477,44 +475,44 @@ kvar!=''
 
 **Note:** On client side, "when expression" is only triggered after the focus leave the correspoinding input of RV.
 
-### Inform <img src="../img/svg/INFORM.svg" width="24px" height="24px"/>
+## Inform <img src="../img/svg/INFORM.svg" width="24px" height="24px"/>
 
 - Press 2 at anytime to use Inform
   An Inform node is used to send message to people.
 
-#### Operations
+### Operations
 
 - Click on canvas to place an Inform node
 - Shift-Click on an Inform to open it's properties
 - Drag it to move to another location
 
-#### Recipiants:
+### Recipiants:
 
 - Who will receive emails, define use [PDS](/designer/pds)
 
-#### Subject and Content:
+### Subject and Content:
 
 - may use simple html or Handlebars to embed process variables
 
-### Script <img src="../img/svg/SCRIPT.svg" width="24px" height="24px"/>
+## Script <img src="../img/svg/SCRIPT.svg" width="24px" height="24px"/>
 
 - Press 3 at anytime to use Script
 
-#### Operations
+### Operations
 
 - Click on canvas to place an Script node
 - Shift-Click on an Script to open it's properties
 - Drag it to move to another location
 
-#### Sync Mode
+### Sync Mode
 
 Run script in sync mode
 
-#### Async Mode
+### Async Mode
 
 Run script in async mode, external program callback to MetatoCome later to make it continue.
 
-##### Callback Point
+#### Callback Point
 
 in async mode, you need to let the CBPid (Callback Point ID) for later calling back. you may post this CBPid to your server like this:
 
@@ -542,7 +540,7 @@ Your program need to record the value of "cbpid" somewhere.
 
 The workflow process will standby from now on until someday/sometime you callback MetaoTocome.
 
-##### Callback to MTC
+#### Callback to MTC
 
 MetatoCome's callback poit is:
 
@@ -576,11 +574,11 @@ SDK.callback(
 );
 ```
 
-#### Code
+### Code
 
 Embed any javascript code in this node.
 
-##### Return value
+#### Return value
 
 ```
 
@@ -598,7 +596,7 @@ ret = ["Choice A", "Choice C"];
 
 then the respected two nodes out of three will be dispatched after the execution of this script node.
 
-##### Insert any variable
+#### Insert any variable
 
 ```
 
@@ -610,7 +608,7 @@ After that, thsi variable named 'var_name' is available for following process.
 
 \*\* If a varialbe named "var_name" exists, it's value will be overwrite with this one.
 
-##### Get value of variable.
+#### Get value of variable.
 
 ```
 
@@ -618,7 +616,7 @@ MtcGet(var_name)
 
 ```
 
-##### Get value of table.
+#### Get value of table.
 
 ```
 
@@ -635,7 +633,7 @@ v = rows[1][1];  // the 2nd column of the 2nd row
 
 ```
 
-##### Get node decision
+#### Get node decision
 
 ```
 MtcGetDecision("THE_NODE_ID");
@@ -648,7 +646,7 @@ or
 MtcDecision("THE_NODE_ID");
 ```
 
-##### Set node decision
+#### Set node decision
 
 ```
 MtcSetDecision("THE_NODE_ID", DECISION);
@@ -674,11 +672,11 @@ DIRECTOR: "cd@email.com",
 
 For steps after this script, any task assigned to role 'SGT' will go to a person whose email is "ab@email.com", any task assigned to role "DIRECTOR" will go to a person whose email is "cd@email.com"
 
-#### Script logging
+### Script logging
 
 You may use normal javascript "console.log" to log debug messages in your script code. to view the log, click on 'Show log' on a process details page.
 
-#### Send process context data to your own system
+### Send process context data to your own system
 
 ```
 MtcSendContext(url)
@@ -698,7 +696,7 @@ The context data will be packed into a JSON like below and sent to the url
 }
 ```
 
-### Timer <img src="../img/svg/TIMER.svg" width="24px" height="24px"/>
+## Timer <img src="../img/svg/TIMER.svg" width="24px" height="24px"/>
 
 A TIMER node is used to control process running time, the process only run through this node when
 
@@ -706,7 +704,7 @@ A TIMER node is used to control process running time, the process only run throu
 - From Now: how long after the invoking of this Timer node(end of previous node).
 - Fix: Specific date and time
 
-### Sub Process <img src="../img/svg/SUB.svg" width="24px" height="24px"/>
+## Sub Process <img src="../img/svg/SUB.svg" width="24px" height="24px"/>
 
 An sub-processs will be invoked to run, and the parent process will continue only when the sub-process has been completed.
 
@@ -720,19 +718,19 @@ Here is an exmaple,
 ![process-stall-after-sub-without-default-route.png](https://cdn.jsdelivr.net/gh/cnshsliu/static.xhw.mtc/img/doc/process-stall-after-sub-without-default-route.png)
 take a look at the following process monitoring capture, you could notice the process did not continue after "Sub". the reason is that "Sub" had been set to "standalone" mode and would return "Default" always and immediately but there is no "Default" route after it.
 
-### AND <img src="../img/svg/AND.svg" width="24px" height="24px"/>
+## AND <img src="../img/svg/AND.svg" width="24px" height="24px"/>
 
 An AND node will make process wait for completion of all it's precedent nodes.
 
-### OR <img src="../img/svg/OR.svg" width="24px" height="24px"/>
+## OR <img src="../img/svg/OR.svg" width="24px" height="24px"/>
 
 Any precedent node is completed, an OR node will be went through, process will navigate to the following nodes of OR.
 
-### Ground <img src="../img/svg/GROUND.svg" width="24px" height="24px"/>
+## Ground <img src="../img/svg/GROUND.svg" width="24px" height="24px"/>
 
 A Ground node could have no folloing nodes, means the routing is grounded or sink.
 
-### Connect <img src="../img/svg/CONNECT.svg" width="24px" height="24px"/>
+## Connect <img src="../img/svg/CONNECT.svg" width="24px" height="24px"/>
 
 Connect two nodes to define a route between them.
 Click one node, then click another node, a curved line will be drawn between them.
@@ -743,7 +741,7 @@ A connection between two nodes has direction, it always point from one node (A) 
 
 A connection can have option, option define the route. for example, there is one connection between A to B, there is another connection between A to C, if we give A to B an option value 1, and give A to C an option value 2, then, if A return 2, the workflow will run to C, B will not be routed to. if A is an activity, the user who do that activity will be presented with option 1 and 2 to decide. if A is a script, you may use "ret=2" to return 2 from node A.
 
-#### Build a connection
+### Build a connection
 
 - Select CONNECT tool , or simple press 9, the CONNECT tool will be highlighted
 - Click on the first node A,
@@ -751,7 +749,7 @@ A connection can have option, option define the route. for example, there is one
 
 To connect multiple nodes in chain, click on them while holding Alt key.
 
-#### Move a connection
+### Move a connection
 
 - Hold Alt key (MAC: Opt), click on the first half of a connection then pick another node to re-select its' staring node
 - Hold Alt key (MAC: Opt), click on the second half of a connection then pick another node to re-select it's ending node
@@ -761,15 +759,15 @@ or:
 - Mouse over a connection, press "cb" to move it's starting point;
 - Mouse over a connection, press "ce" to move it's ending point;
 
-#### Cancel connecting
+### Cancel connecting
 
 If you would like to cancel while connecting, double click on blank area of canvas, or press ESC
 
-#### Delete a connection
+### Delete a connection
 
 - Mouse over a connection, then press Backspace or Delete
 
-#### Give connection a value
+### Give connection a value
 
 - Hold Shift key, click on a connection, input is option value in the pop-up.
 - While pointing at a connection, press 'ct' to clear it's value
@@ -780,7 +778,7 @@ User click the button to make his/her decision, the workflow engine use user's d
 
 These buttons are displayed sorted by their labels' alphabetic order, Thus, "A Choice" is always displayed before "B Choice", and "1. A Choice" is always displayed before "2. A Choice".
 
-#### Set processs contextual variable on connection
+### Set processs contextual variable on connection
 
 You may let variables be set when process run through a connecton.
 let's say, we have a connnection between A and B, and we have variables defined on it. when user complete A, the Engine will embed those variables to process context before dispatch task B.
