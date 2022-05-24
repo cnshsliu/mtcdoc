@@ -1,0 +1,1234 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="MetatoCome, Workflow, Hyper Automation">
+      
+      
+        <meta name="author" content="Lucas Kehong Liu">
+      
+      
+        <link rel="canonical" href="https://cnshsliu.github.io/mtcdocs/en/developer/MTC%20Client%20Cache%20Best%20Practice.html">
+      
+      <link rel="icon" href="../../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.4">
+    
+    
+      
+        <title>MTC Client Cache Best Practice - MetatoCome Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bb3983ee.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="MetatoCome Documentation" class="md-header__button md-logo" aria-label="MetatoCome Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            MetatoCome Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              MTC Client Cache Best Practice
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <div class="md-header__option">
+        <div class="md-select">
+          
+          <button class="md-header__button md-icon" aria-label="Select language">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24z"/></svg>
+          </button>
+          <div class="md-select__inner">
+            <ul class="md-select__list">
+              
+                <li class="md-select__item">
+                  <a href="../../developer/MTC%20Client%20Cache%20Best%20Practice.html" hreflang="en" class="md-select__link">
+                    Default (en)
+                  </a>
+                </li>
+                
+                <li class="md-select__item">
+                  <a href="MTC%20Client%20Cache%20Best%20Practice.html" hreflang="en" class="md-select__link">
+                    English
+                  </a>
+                </li>
+                
+                <li class="md-select__item">
+                  <a href="../../zh_CN/developer/MTC%20Client%20Cache%20Best%20Practice.html" hreflang="zh_CN" class="md-select__link">
+                    中文
+                  </a>
+                </li>
+                
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../index.html" class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../account/register.html" class="md-tabs__link">
+        Account
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../template/concept.html" class="md-tabs__link">
+        Template
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../template/designer.html" class="md-tabs__link">
+      Designer
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../process/start.html" class="md-tabs__link">
+        Process
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../work/worklist.html" class="md-tabs__link">
+        Work
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../about.html" class="md-tabs__link">
+        Setting
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../api.html" class="md-tabs__link">
+        For Developers
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../qa.html" class="md-tabs__link">
+      Q&A
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../about.html" class="md-tabs__link">
+      About
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="MetatoCome Documentation" class="md-nav__button md-logo" aria-label="MetatoCome Documentation" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    MetatoCome Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Account
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Account" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Account
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../account/register.html" class="md-nav__link">
+        Register
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../account/adminreg.html" class="md-nav__link">
+        AdminReg
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Template
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Template" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Template
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../template/concept.html" class="md-nav__link">
+        Concept
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../template/explorer.html" class="md-nav__link">
+        Template Browser
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../template/design.html" class="md-nav__link">
+        Design Template
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../designer/pds.html" class="md-nav__link">
+        Role Definition
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../template/designer.html" class="md-nav__link">
+        Designer
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Process
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Process" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Process
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../process/start.html" class="md-nav__link">
+        Start a process
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../process/explorer.html" class="md-nav__link">
+        Process explorer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../process/overview.html" class="md-nav__link">
+        Process overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../process/worklog.html" class="md-nav__link">
+        Work log
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../process/monitor.html" class="md-nav__link">
+        Process Monitor
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Work
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Work" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Work
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../work/worklist.html" class="md-nav__link">
+        Worklist
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../work/workpage.html" class="md-nav__link">
+        Work Page
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Setting
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Setting" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Setting
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about.html" class="md-nav__link">
+        Personal
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about.html" class="md-nav__link">
+        Org
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about.html" class="md-nav__link">
+        Orgchart
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about.html" class="md-nav__link">
+        List
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../account/invitation.md" class="md-nav__link">
+        Invitation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../account/join.md" class="md-nav__link">
+        Join Approval
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          For Developers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="For Developers" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          For Developers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api.html" class="md-nav__link">
+        API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sdk.html" class="md-nav__link">
+        SDK
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../integration.html" class="md-nav__link">
+        Integration
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../qa.html" class="md-nav__link">
+        Q&A
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about.html" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+  <h1>MTC Client Cache Best Practice</h1>
+
+<ul>
+<li>[[MTC Client Cache Best Practice]]
+    - Invalidate cache and naming is two most difficult things
+    - 两种场景：浏览器请求与应用请求
+        - 浏览器控制
+            - 如<img src="...."/>
+            - 参考HTTP Caching文档
+            - https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching
+            - 彻底不缓存
+                -
+                  <code>Cache-Control: no-store</code>
+            - 缓存，但每次都去服务器检查是否有新数据
+                -
+                  <code>Cache-Control: no-cache</code>
+            - 缓存，但在一定时间内不去服务器检查是否有新数据
+                - 使用If-Modified-Since来判断
+                    - 服务器端下发：
+                    -
+                      ```
+                                          HTTP/1.1 200 OK
+                                          Content-Type: text/html
+                                          Content-Length: 1024
+                                          Date: Tue, 22 Feb 2022 22:22:22 GMT
+                                          Last-Modified: Tue, 22 Feb 2022 22:00:00 GMT
+                                          Cache-Control: max-age=3600<pre><code>                ```
+              - 浏览器端后续请求：
+              -
+                ```
+                                    GET /index.html HTTP/1.1
+                                    Host: example.com
+                                    Accept: text/html
+                                    If-Modified-Since: Tue, 22 Feb 2022 22:00:00 GMT
+
+                ```
+          - 使用 If-None-Match来判断
+              - 服务器端下发：
+              -
+                ```
+                                    HTTP/1.1 200 OK
+                                    Content-Type: text/html
+                                    Content-Length: 1024
+                                    Date: Tue, 22 Feb 2022 22:22:22 GMT
+                                    ETag: "deadbeef"
+                                    Cache-Control: max-age=3600
+                ```
+              - 浏览器端后续请求：
+              -
+                ```
+                                    GET /index.html HTTP/1.1
+                                    Host: example.com
+                                    Accept: text/html
+                                    If-None-Match: "deadbeef"
+                ```
+      - MTC实践中，使用的是 ETag/If-None-Match, 数据有变化时，只在Redis中生成一个新的ETag，后续处理判断ETag是否一致
+          -
+      - 例一：MTC  Avatar
+          - 服务器端：
+              -
+                ```
+                                      return (
+                                          h
+                                              .response(fs.createReadStream(avatarinfo.path))
+                                              .header("Content-Type", avatarinfo.media)
+                                              .header("X-Content-Type-Options", "nosniff")
+                                              .header("Cache-Control", "max-age=600, private")
+                                              //.header("Cache-Control", "no-cache, private")
+                                              .header("ETag", avatarinfo.etag)
+                                      );
+
+                ```
+          - 客户端：
+          - ![image.png](../assets/image_1653372390390_0.png)
+          - 结果：
+              - 1. 浏览器在10分钟内，不再重新请求，而是使用缓存中的图片
+                  2. 请求时，只有在图片变化时，服务器返回新图片，否则返回304头，浏览器使用已有缓存
+
+      - 例二：MTC Template Cover
+          - 服务器端：
+              -
+          - 客户端：
+              - ![image.png](../assets/image_1653372490395_0.png){:height 160, :width 662}
+          - 结果：
+              - 1. 浏览器每次都请求新数据
+                  2. 请求时，只有在图片变化时，服务器返回新图片，否则返回304头，浏览器使用已有换
+
+  - 应用控制
+      - 如使用Fetch, Axios, HttpClient等请求数据，包括移动APP客户端从服务器获取数据
+      - 需要自行设计实现
+      - 两个问题：
+          - 是否有更合理的方案？
+          - APP中如何实现？
+</code></pre>
+<p>- 业务层刷新机制：
+      - 操作后，需要刷新
+          - 当前用户操作，及时刷新
+          - 其它用户，可定时刷新
+          - 如完成一件工作后的工作列表刷新
+      - 页面切换，使用本地缓存数据，无须重新拉取
+      - 自动刷新
+          - 设置合理的间隔
+          - 设置总刷新次数，防止用户不活动
+              - 或检测用户鼠标动作，上次鼠标移动在多长时间内，断定为用户活跃，继续自动刷新，否则停止。
+      - 提供手动刷新按钮（APP移动端为下拉）
+  - 技术层刷新机制：
+      - 服务端对每种业务对象设置ETag Key， 每次返回数据，带上一个ETag
+          - 这个ETag，用于表示某种数据是否刷新，仅在有变化时，修改这个ETag
+      - 客户端对每次请求的结果，进行缓存，同时记录ETag；
+      - 客户端每次请求，通过 If-None-Match带入 ETag
+      - 服务端相应请求时，判断服务端带来的ETag是否与服务端的ETag一致
+          - 如一致，返回304
+          - 如不一致，返回200，及最新数据
+      - 客户端根据Header是否是304，决定使用已缓存数据，还是更新缓存为服务端返回数据。
+  - 具体实现方式：
+      - 服务端CORS设置中，允许ETag
+          -
+            <code>``</code>
+                              routes: {
+                                  //Allow CORS for all
+                                  cors: {
+                                      origin: ["*"],
+                                      credentials: true,
+                                      additionalExposedHeaders: ["ETag", "X-Content-Type-Options"],
+                                  },
+                                  validate: {
+                                      failAction: (request: Request, h: ResponseToolkit, err) =&gt; {
+                                          console.error(err);
+                                          if (request.method === "post") {
+                                              console.error(request.path, JSON.stringify(request.payload));
+                                          }
+                                          throw err;
+                                      },
+                                  },
+                              },</p>
+<pre><code>        ```
+  - 客户端请求，将请求内容组装为cacheKey，并MD5位cacheID
+      -
+        ```
+                      const cacheKey = { method: method, path: path, body: {}, token: '' };
+
+                      if (data) {
+                          opts.headers['Content-Type'] = 'application/json';
+                          opts.body = JSON.stringify(data);
+                          cacheKey.body = opts.body;
+                      }
+
+                      if (token) {
+                      opts.headers['authorization'] = token;
+                          cacheKey.token = token;
+                      }
+
+                      let returnCode304 = false;
+                      let foundCache = false;
+                      const cacheID = MD5(JSON.stringify(cacheKey));
+
+        ```
+  - 请求可以带cache控制cacheFlag，用户控制：
+      - preDelete： 在请求前，删除已有缓存
+      - useIfExists： 如存在缓存，直接返回缓存，不执行服务器请求
+      - 否则，在请求头中添加 If-None-Match
+      -
+        ```
+                      if (cacheFlag === CACHE_FLAG.preDelete) {
+                          console.log(path, 'Preclear cache');
+                          delete theCache[cacheID];
+                      }
+                      if (theCache[cacheID]) {
+                          foundCache = true;
+                          //console.log(path, 'Found cacheID in cache, should add If-None-Match header');
+                          opts.headers['If-None-Match'] = theCache[cacheID].etag;
+                          // } else {
+                          //   console.log(path, 'no local cache');
+                          if (cacheFlag === CACHE_FLAG.useIfExists) {
+                              console.log(path, 'Return cached');
+                              return JSON.parse(theCache[cacheID].data);
+                          }
+                      }
+
+        ```
+  - 服务器端检查到If-None-Match后，判断是否有改变，如没有改变，直接返回304，不用做数据库查询等操作
+      -
+        ```
+                          let ifNoneMatch = req.headers["if-none-match"];
+                          let latestETag = await Cache.getETag(`ETAG:TODOS:${doer}`);
+                          if (ifNoneMatch &amp;&amp; latestETag &amp;&amp; ifNoneMatch === latestETag) {
+                              return h
+                                  .response({})
+                                  .code(304)
+                                  .header("Content-Type", "application/json; charset=utf-8;")
+                                  .header("Cache-Control", "no-cache, private")
+                                  .header("X-Content-Type-Options", "nosniff")
+                                  .header("ETag", latestETag);
+                          }
+
+        ```
+      - 以上代码中，服务器端只需要按照业务逻辑，刷新相应的的ETag Redis记录，数据有变化，就修改Redis中相应eTag key的值。 如没有修改，则直接返回304
+  - 客户端请求后接收到304， 则直接使用缓存中的数据
+      -
+        ```
+                              if (response.status === 304) {
+                                  //console.log(path, 'Got 304');
+                                  returnCode304 = true;
+                                  responseETag = response.headers.get('etag');
+                                  return theCache[cacheID].data;
+                              }
+        ```
+  - 客户端从服务器端接收到的不是304，则说明，有新数据，则写入客户端缓存（包括收到的etag， 用于下次请求时，通过 If-None-Match带到服务器上对比）
+      -
+        ```
+                                          if (responseETag) {
+                                              theCache[cacheID] = {
+                                                  path: path,
+                                                  data: jsonText,
+                                                  etag: responseETag ? responseETag : '',
+                                              };
+                                              fetchCache.set(theCache);
+
+        ```
+  - 缓存数据的记录方法
+      - 浏览器自身： 不用管它
+      - Cookie： 数据量非常小
+      - localStorage： 跨浏览器Session，但是使用K-V
+      - indexedDB:  数据库，SQL差不多，比LS复杂， 也是跨浏览器Session
+      - localStorage 跟配置相关用LS，
+      - session： 浏览器关掉，就消失。只要在session内部，没有问题
+          - Svelte 自己的session， 内存
+</code></pre>
+<p>- Benefits
+      - 用户体验提升， 快速展示，不存在刷新
+          - 直接使用缓存，不请求
+          - 请求，但得到的是304， 数据量非常小。直接是缓存
+      - 网络和服务器的压力
+          - 直接使用缓存，不请求时， 请求变少
+          - 返回304时， 304的判断是在Redis里做，直接304时， 后续的所有数据库操作都没有必要。大部分的请求，是可以直接304的。
+      - 整体平台的相应能力提升
+      - 整体的费用得以下降
+      -
+-</p>
+</li>
+</ul>
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright Lucas-Kehong-Liu, 2003-2022
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate", "navigation.top", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.361d90f1.min.js"}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.289a2a4b.min.js"></script>
+      
+    
+  </body>
+</html>

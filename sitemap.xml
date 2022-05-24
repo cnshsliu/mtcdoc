@@ -73,6 +73,14 @@
          
     </url>
     <url>
+         <loc>https://cnshsliu.github.io/mtcdocs/developer/MTC%20Client%20Cache%20Best%20Practice.html</loc>
+         <lastmod>2022-05-24</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://cnshsliu.github.io/mtcdocs/en/developer/MTC%20Client%20Cache%20Best%20Practice.html"/>
+         <xhtml:link rel="alternate" hreflang="zh_CN" href="https://cnshsliu.github.io/mtcdocs/zh_CN/developer/MTC%20Client%20Cache%20Best%20Practice.html"/>
+         
+    </url>
+    <url>
          <loc>https://cnshsliu.github.io/mtcdocs/developer/customize_theme.html</loc>
          <lastmod>2022-05-24</lastmod>
          <changefreq>daily</changefreq>
