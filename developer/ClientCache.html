@@ -989,7 +989,12 @@
 <li>使用 If-None-Match 来判断
   服务器端下发：</li>
 </ul>
-<pre><code>HTTP/1.1 200 OK Content-Type: text/html Content-Length: 1024 Date: Tue, 22 Feb 2022 22:22:22 GMT ETag: &quot;deadbeef&quot; Cache-Control: max-age=3600
+<pre><code>HTTP/1.1 200 OK
+Content-Type: text/html
+Content-Length: 1024
+Date: Tue, 22 Feb 2022 22:22:22 GMT
+ETag: &quot;deadbeef&quot;
+Cache-Control: max-age=3600
 </code></pre>
 <p>浏览器端后续请求：</p>
 <pre><code>GET /index.html HTTP/1.1 Host: example.com Accept: text/html If-None-Match: &quot;deadbeef&quot;
