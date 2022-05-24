@@ -1,6 +1,6 @@
 # MTC Client Cache Best Practice
 
-    - Invalidate cache and naming is two most difficult things
+    Invalidate cache and naming is two most difficult things
 
 ## 两种场景：浏览器请求与应用请求
 
