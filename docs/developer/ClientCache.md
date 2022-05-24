@@ -6,91 +6,75 @@ Invalidate cache and naming is two most difficult things
 
 ### 浏览器控制
 
-    		- 如<img src="...."/>
-    		- 参考HTTP Caching文档
-    		- https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching
-    		- 彻底不缓存
-    			-
-    			  ```
-    			  				  Cache-Control: no-store
-    			  ```
-    		- 缓存，但每次都去服务器检查是否有新数据
-    			-
-    			  ```
-    			  				  Cache-Control: no-cache
-    			  ```
-    		- 缓存，但在一定时间内不去服务器检查是否有新数据
-    			- 使用If-Modified-Since来判断
-    				- 服务器端下发：
-    				-
-    				  ```
-    				  					  HTTP/1.1 200 OK
-    				  					  Content-Type: text/html
-    				  					  Content-Length: 1024
-    				  					  Date: Tue, 22 Feb 2022 22:22:22 GMT
-    				  					  Last-Modified: Tue, 22 Feb 2022 22:00:00 GMT
-    				  					  Cache-Control: max-age=3600
+如<img src="...."/>
+参考 HTTP Caching 文档
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching
+彻底不缓存
 
-    				  ```
-    				- 浏览器端后续请求：
-    				-
-    				  ```
-    				  					  GET /index.html HTTP/1.1
-    				  					  Host: example.com
-    				  					  Accept: text/html
-    				  					  If-Modified-Since: Tue, 22 Feb 2022 22:00:00 GMT
+- ```
+  				  Cache-Control: no-store
+  ```
+  缓存，但每次都去服务器检查是否有新数据
+- ```
+  				  Cache-Control: no-cache
+  ```
+  缓存，但在一定时间内不去服务器检查是否有新数据
+- 使用 If-Modified-Since 来判断
 
-    				  ```
-    			- 使用 If-None-Match来判断
-    				- 服务器端下发：
-    				-
-    				  ```
-    				  					  HTTP/1.1 200 OK
-    				  					  Content-Type: text/html
-    				  					  Content-Length: 1024
-    				  					  Date: Tue, 22 Feb 2022 22:22:22 GMT
-    				  					  ETag: "deadbeef"
-    				  					  Cache-Control: max-age=3600
-    				  ```
-    				- 浏览器端后续请求：
-    				-
-    				  ```
-    				  					  GET /index.html HTTP/1.1
-    				  					  Host: example.com
-    				  					  Accept: text/html
-    				  					  If-None-Match: "deadbeef"
-    				  ```
-    		- MTC实践中，使用的是 ETag/If-None-Match, 数据有变化时，只在Redis中生成一个新的ETag，后续处理判断ETag是否一致
-    			-
-    		- 例一：MTC  Avatar
-    			- 服务器端：
-    				-
-    				  ```
-    				  					  	return (
-    				  					  		h
-    				  					  			.response(fs.createReadStream(avatarinfo.path))
-    				  					  			.header("Content-Type", avatarinfo.media)
-    				  					  			.header("X-Content-Type-Options", "nosniff")
-    				  					  			.header("Cache-Control", "max-age=600, private")
-    				  					  			//.header("Cache-Control", "no-cache, private")
-    				  					  			.header("ETag", avatarinfo.etag)
-    				  					  	);
+  - 服务器端下发：
+  - ```
+    					  HTTP/1.1 200 OK
+    					  Content-Type: text/html
+    					  Content-Length: 1024
+    					  Date: Tue, 22 Feb 2022 22:22:22 GMT
+    					  Last-Modified: Tue, 22 Feb 2022 22:00:00 GMT
+    					  Cache-Control: max-age=3600
 
-    				  ```
-    			- 客户端：
-    			- ![image.png](../assets/image_1653372390390_0.png)
-    			- 结果：
-    				- 1. 浏览器在10分钟内，不再重新请求，而是使用缓存中的图片
-    					2. 请求时，只有在图片变化时，服务器返回新图片，否则返回304头，浏览器使用已有缓存
+    ```
 
-    		- 例二：MTC Template Cover
-    			- 服务器端：
-    				-
-    			- 客户端：
-    				- ![image.png](../assets/image_1653372490395_0.png){:height 160, :width 662}
-    			- 结果：
-    				- 1. 浏览器每次都请求新数据
-    					2. 请求时，只有在图片变化时，服务器返回新图片，否则返回304头，浏览器使用已有换
+  - 浏览器端后续请求：
+  - ```
+    					  GET /index.html HTTP/1.1
+    					  Host: example.com
+    					  Accept: text/html
+    					  If-Modified-Since: Tue, 22 Feb 2022 22:00:00 GMT
+
+    ```
+
+- 使用 If-None-Match 来判断 - 服务器端下发： -
+  ` HTTP/1.1 200 OK Content-Type: text/html Content-Length: 1024 Date: Tue, 22 Feb 2022 22:22:22 GMT ETag: "deadbeef" Cache-Control: max-age=3600 ` - 浏览器端后续请求： -
+  ` GET /index.html HTTP/1.1 Host: example.com Accept: text/html If-None-Match: "deadbeef" `
+  MTC 实践中，使用的是 ETag/If-None-Match, 数据有变化时，只在 Redis 中生成一个新的 ETag，后续处理判断 ETag 是否一致
+- 例一：MTC Avatar
+- ## 服务器端：
+
+  ```
+  					  	return (
+  					  		h
+  					  			.response(fs.createReadStream(avatarinfo.path))
+  					  			.header("Content-Type", avatarinfo.media)
+  					  			.header("X-Content-Type-Options", "nosniff")
+  					  			.header("Cache-Control", "max-age=600, private")
+  					  			//.header("Cache-Control", "no-cache, private")
+  					  			.header("ETag", avatarinfo.etag)
+  					  	);
+
+  ```
+
+- 客户端：
+- ![image.png](../assets/image_1653372390390_0.png)
+- 结果：
+  - 1. 浏览器在 10 分钟内，不再重新请求，而是使用缓存中的图片
+    2. 请求时，只有在图片变化时，服务器返回新图片，否则返回 304 头，浏览器使用已有缓存
+
+例二：MTC Template Cover
+
+- ## 服务器端：
+- 客户端：
+  - ![image.png](../assets/image_1653372490395_0.png){:height 160, :width 662}
+- 结果：
+  - 1. 浏览器每次都请求新数据
+    2. 请求时，只有在图片变化时，服务器返回新图片，否则返回 304 头，浏览器使用已有换
 
 ### 应用控制
 
