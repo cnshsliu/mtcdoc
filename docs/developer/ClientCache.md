@@ -6,49 +6,49 @@ Invalidate cache and naming is two most difficult things
 
 ### 浏览器控制
 
-    如 `<img src="...."/>`
+如 `<img src="...."/>`
 
-    参考 [HTTP Caching](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching) 文档
+参考 [HTTP Caching](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching) 文档
 
-    #### 彻底不缓存
+#### 彻底不缓存
+
+```
+Cache-Control: no-store
+```
+
+#### 缓存，但每次都去服务器检查是否有新数据
+
+```
+Cache-Control: no-cache
+```
+
+#### 缓存，但在一定时间内不去服务器检查是否有新数据
+
+```
+Cache-Control: max-age=3600
+```
+
+- 使用 If-Modified-Since 来判断
+
+  - 服务器端下发：
+  - ```
+    					  HTTP/1.1 200 OK
+    					  Content-Type: text/html
+    					  Content-Length: 1024
+    					  Date: Tue, 22 Feb 2022 22:22:22 GMT
+    					  Last-Modified: Tue, 22 Feb 2022 22:00:00 GMT
+    					  Cache-Control: max-age=3600
 
     ```
-    Cache-Control: no-store
-    ```
 
-    #### 缓存，但每次都去服务器检查是否有新数据
-
-    ```
-    Cache-Control: no-cache
-    ```
-
-    #### 缓存，但在一定时间内不去服务器检查是否有新数据
+  - 浏览器端后续请求：
+  - ```
+    					  GET /index.html HTTP/1.1
+    					  Host: example.com
+    					  Accept: text/html
+    					  If-Modified-Since: Tue, 22 Feb 2022 22:00:00 GMT
 
     ```
-    Cache-Control: max-age=3600
-    ```
-
-    - 使用 If-Modified-Since 来判断
-
-- 服务器端下发：
-- ```
-  					  HTTP/1.1 200 OK
-  					  Content-Type: text/html
-  					  Content-Length: 1024
-  					  Date: Tue, 22 Feb 2022 22:22:22 GMT
-  					  Last-Modified: Tue, 22 Feb 2022 22:00:00 GMT
-  					  Cache-Control: max-age=3600
-
-  ```
-
-- 浏览器端后续请求：
-- ```
-  					  GET /index.html HTTP/1.1
-  					  Host: example.com
-  					  Accept: text/html
-  					  If-Modified-Since: Tue, 22 Feb 2022 22:00:00 GMT
-
-  ```
 
 - 使用 If-None-Match 来判断 - 服务器端下发： -
   `HTTP/1.1 200 OK Content-Type: text/html Content-Length: 1024 Date: Tue, 22 Feb 2022 22:22:22 GMT ETag: "deadbeef" Cache-Control: max-age=3600` - 浏览器端后续请求： -
