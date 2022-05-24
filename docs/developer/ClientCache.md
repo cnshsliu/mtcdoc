@@ -12,9 +12,9 @@ Invalidate cache and naming is two most difficult things
 
 - 彻底不缓存
 
-* ```
-  				  Cache-Control: no-store
-  ```
+```
+ 				  Cache-Control: no-store
+```
 
 - 缓存，但每次都去服务器检查是否有新数据
 
