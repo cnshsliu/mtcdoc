@@ -94,9 +94,9 @@ MTC 实践中，使用的是 ETag/If-None-Match, 数据有变化时，只在 Red
 
 ```
 
-- 客户端：
+- 客户端浏览器网络效果：
 
-      ![image.png](../assets/image_1653372390390_0.png)
+  ![avtar_image](https://cdn.jsdelivr.net/gh/cnshsliu/static.xhw.mtc/img/doc/avatar_image_cache.png)
 
 - 结果：
   1.  浏览器在 10 分钟内，不再重新请求，而是使用缓存中的图片
@@ -120,7 +120,7 @@ MTC 实践中，使用的是 ETag/If-None-Match, 数据有变化时，只在 Red
 
 ```
 
-- 客户端：
+- 客户端浏览器网络效果：
 
 ![TPL Cover Image](https://cdn.jsdelivr.net/gh/cnshsliu/static.xhw.mtc/img/doc/tplcover_image_cache.png)
 
