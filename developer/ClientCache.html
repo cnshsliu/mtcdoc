@@ -958,16 +958,18 @@
 <ul>
 <li>彻底不缓存</li>
 </ul>
-<pre><code>                  Cache-Control: no-store
+<pre><code>Cache-Control: no-store
 </code></pre>
 <ul>
 <li>缓存，但每次都去服务器检查是否有新数据</li>
 </ul>
-<pre><code>                  Cache-Control: no-cache
+<pre><code>Cache-Control: no-cache
 </code></pre>
 <ul>
 <li>缓存，但在一定时间内不去服务器检查是否有新数据</li>
 </ul>
+<pre><code>Cache-Control: max-age=3600
+</code></pre>
 <ul>
 <li>
 <p>使用 If-Modified-Since 来判断</p>
