@@ -953,100 +953,104 @@
 <p>Invalidate cache and naming is two most difficult things</p>
 <h2 id="_1">两种场景：浏览器请求与应用请求</h2>
 <h3 id="_2">浏览器控制</h3>
-<pre><code>        - 如&lt;img src="...."/&gt;
-        - 参考HTTP Caching文档
-        - https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching
-        - 彻底不缓存
-            -
-              ```
-                              Cache-Control: no-store
-              ```
-        - 缓存，但每次都去服务器检查是否有新数据
-            -
-              ```
-                              Cache-Control: no-cache
-              ```
-        - 缓存，但在一定时间内不去服务器检查是否有新数据
-            - 使用If-Modified-Since来判断
-                - 服务器端下发：
-                -
-                  ```
-                                      HTTP/1.1 200 OK
-                                      Content-Type: text/html
-                                      Content-Length: 1024
-                                      Date: Tue, 22 Feb 2022 22:22:22 GMT
-                                      Last-Modified: Tue, 22 Feb 2022 22:00:00 GMT
-                                      Cache-Control: max-age=3600
-
-                  ```
-                - 浏览器端后续请求：
-                -
-                  ```
-                                      GET /index.html HTTP/1.1
-                                      Host: example.com
-                                      Accept: text/html
-                                      If-Modified-Since: Tue, 22 Feb 2022 22:00:00 GMT
-
-                  ```
-            - 使用 If-None-Match来判断
-                - 服务器端下发：
-                -
-                  ```
-                                      HTTP/1.1 200 OK
-                                      Content-Type: text/html
-                                      Content-Length: 1024
-                                      Date: Tue, 22 Feb 2022 22:22:22 GMT
-                                      ETag: "deadbeef"
-                                      Cache-Control: max-age=3600
-                  ```
-                - 浏览器端后续请求：
-                -
-                  ```
-                                      GET /index.html HTTP/1.1
-                                      Host: example.com
-                                      Accept: text/html
-                                      If-None-Match: "deadbeef"
-                  ```
-        - MTC实践中，使用的是 ETag/If-None-Match, 数据有变化时，只在Redis中生成一个新的ETag，后续处理判断ETag是否一致
-            -
-        - 例一：MTC  Avatar
-            - 服务器端：
-                -
-                  ```
-                                        return (
-                                            h
-                                                .response(fs.createReadStream(avatarinfo.path))
-                                                .header("Content-Type", avatarinfo.media)
-                                                .header("X-Content-Type-Options", "nosniff")
-                                                .header("Cache-Control", "max-age=600, private")
-                                                //.header("Cache-Control", "no-cache, private")
-                                                .header("ETag", avatarinfo.etag)
-                                        );
-
-                  ```
-            - 客户端：
-            - ![image.png](../assets/image_1653372390390_0.png)
-            - 结果：
-                - 1. 浏览器在10分钟内，不再重新请求，而是使用缓存中的图片
-                    2. 请求时，只有在图片变化时，服务器返回新图片，否则返回304头，浏览器使用已有缓存
-
-        - 例二：MTC Template Cover
-            - 服务器端：
-                -
-            - 客户端：
-                - ![image.png](../assets/image_1653372490395_0.png){:height 160, :width 662}
-            - 结果：
-                - 1. 浏览器每次都请求新数据
-                    2. 请求时，只有在图片变化时，服务器返回新图片，否则返回304头，浏览器使用已有换
-</code></pre>
-<h3 id="_3">应用控制</h3>
+<p>如<img src="...."/>
+参考 HTTP Caching 文档
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching
+彻底不缓存</p>
+<ul>
+<li><code>Cache-Control: no-store</code>
+  缓存，但每次都去服务器检查是否有新数据</li>
+<li><code>Cache-Control: no-cache</code>
+  缓存，但在一定时间内不去服务器检查是否有新数据</li>
+<li>
+<p>使用 If-Modified-Since 来判断</p>
+<ul>
+<li>服务器端下发：</li>
+<li>
+<p>```
+                        HTTP/1.1 200 OK
+                        Content-Type: text/html
+                        Content-Length: 1024
+                        Date: Tue, 22 Feb 2022 22:22:22 GMT
+                        Last-Modified: Tue, 22 Feb 2022 22:00:00 GMT
+                        Cache-Control: max-age=3600</p>
+<p>```</p>
+</li>
+</ul>
+<ul>
+<li>浏览器端后续请求：</li>
+<li>
+<p>```
+                        GET /index.html HTTP/1.1
+                        Host: example.com
+                        Accept: text/html
+                        If-Modified-Since: Tue, 22 Feb 2022 22:00:00 GMT</p>
+<p>```</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>使用 If-None-Match 来判断 - 服务器端下发： -
+  <code>HTTP/1.1 200 OK Content-Type: text/html Content-Length: 1024 Date: Tue, 22 Feb 2022 22:22:22 GMT ETag: "deadbeef" Cache-Control: max-age=3600</code> - 浏览器端后续请求： -
+  <code>GET /index.html HTTP/1.1 Host: example.com Accept: text/html If-None-Match: "deadbeef"</code>
+  MTC 实践中，使用的是 ETag/If-None-Match, 数据有变化时，只在 Redis 中生成一个新的 ETag，后续处理判断 ETag 是否一致</li>
+<li>例一：MTC Avatar</li>
+<li>
+<h2 id="_3">服务器端：</h2>
+<p>```
+                      return (
+                          h
+                              .response(fs.createReadStream(avatarinfo.path))
+                              .header("Content-Type", avatarinfo.media)
+                              .header("X-Content-Type-Options", "nosniff")
+                              .header("Cache-Control", "max-age=600, private")
+                              //.header("Cache-Control", "no-cache, private")
+                              .header("ETag", avatarinfo.etag)
+                      );</p>
+<p>```</p>
+</li>
+</ul>
+<ul>
+<li>客户端：</li>
+<li><img alt="image.png" src="../assets/image_1653372390390_0.png" /></li>
+<li>结果：<ul>
+<li>
+<ol>
+<li>浏览器在 10 分钟内，不再重新请求，而是使用缓存中的图片</li>
+<li>请求时，只有在图片变化时，服务器返回新图片，否则返回 304 头，浏览器使用已有缓存</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<p>例二：MTC Template Cover</p>
+<ul>
+<li>
+<h2 id="_4">服务器端：</h2>
+</li>
+<li>客户端：<ul>
+<li><img 160_="160," 662="662" :width=":width" alt="image.png" height="height" src="../assets/image_1653372490395_0.png" /></li>
+</ul>
+</li>
+<li>结果：<ul>
+<li>
+<ol>
+<li>浏览器每次都请求新数据</li>
+<li>请求时，只有在图片变化时，服务器返回新图片，否则返回 304 头，浏览器使用已有换</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="_5">应用控制</h3>
 <pre><code>        - 如使用Fetch, Axios, HttpClient等请求数据，包括移动APP客户端从服务器获取数据
         - 需要自行设计实现
         - 两个问题：
             - 是否有更合理的方案？
             - APP中如何实现？
 </code></pre>
-<h2 id="_4">业务层刷新机制：</h2>
+<h2 id="_6">业务层刷新机制：</h2>
 <pre><code>    - 操作后，需要刷新
         - 当前用户操作，及时刷新
         - 其它用户，可定时刷新
@@ -1058,7 +1062,7 @@
             - 或检测用户鼠标动作，上次鼠标移动在多长时间内，断定为用户活跃，继续自动刷新，否则停止。
     - 提供手动刷新按钮（APP移动端为下拉）
 </code></pre>
-<h2 id="_5">技术层刷新机制：</h2>
+<h2 id="_7">技术层刷新机制：</h2>
 <pre><code>    - 服务端对每种业务对象设置ETag Key， 每次返回数据，带上一个ETag
         - 这个ETag，用于表示某种数据是否刷新，仅在有变化时，修改这个ETag
     - 客户端对每次请求的结果，进行缓存，同时记录ETag；
@@ -1068,7 +1072,7 @@
         - 如不一致，返回200，及最新数据
     - 客户端根据Header是否是304，决定使用已缓存数据，还是更新缓存为服务端返回数据。
 </code></pre>
-<h2 id="_6">具体实现方式：</h2>
+<h2 id="_8">具体实现方式：</h2>
 <pre><code>    - 服务端CORS设置中，允许ETag
         -
           ``` `
