@@ -954,13 +954,23 @@
 <h2 id="_1">两种场景：浏览器请求与应用请求</h2>
 <h3 id="_2">浏览器控制</h3>
 <p>如 <code>&lt;img src="...."/&gt;</code></p>
-<p>参考 <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching">HTTP Caching</a> 文档
-彻底不缓存</p>
+<p>参考 <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching">HTTP Caching</a> 文档</p>
 <ul>
-<li><code>Cache-Control: no-store</code>
-  缓存，但每次都去服务器检查是否有新数据</li>
-<li><code>Cache-Control: no-cache</code>
-  缓存，但在一定时间内不去服务器检查是否有新数据</li>
+<li>彻底不缓存</li>
+</ul>
+<ul>
+<li><code>Cache-Control: no-store</code></li>
+</ul>
+<ul>
+<li>缓存，但每次都去服务器检查是否有新数据</li>
+</ul>
+<ul>
+<li><code>Cache-Control: no-cache</code></li>
+</ul>
+<ul>
+<li>缓存，但在一定时间内不去服务器检查是否有新数据</li>
+</ul>
+<ul>
 <li>
 <p>使用 If-Modified-Since 来判断</p>
 <ul>
