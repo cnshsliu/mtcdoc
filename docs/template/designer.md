@@ -500,6 +500,7 @@ ret = "C";
 ```
 
 **Remember**: keep the activity script to blank unless MUST to have.
+**Info**: see Script section for [how to script](#script)
 
 ## Inform <img src="../img/svg/INFORM.svg" width="24px" height="24px"/>
 
