@@ -122,7 +122,7 @@ MTC 实践中，使用的是 ETag/If-None-Match, 数据有变化时，只在 Red
 
 - 客户端：
 
-![image.png](../assets/image_1653372490395_0.png){:height 160, :width 662}
+![TPL Cover Image](https://cdn.jsdelivr.net/gh/cnshsliu/static.xhw.mtc/img/doc/tplcover_image_cache.png)
 
 - 结果：
   1. 浏览器每次都请求新数据
