@@ -237,7 +237,7 @@ invalid name will make your workflow fails to run.
 
 Variable name with specific prefix also indicates variable types, determing how Metatocome SaaS show it to end-users.
 
-- Prefix
+Prefix
 
 - "email\_" : an email type input.
 - "password\_" : an password type input.
