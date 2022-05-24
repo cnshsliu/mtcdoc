@@ -8,8 +8,7 @@ Invalidate cache and naming is two most difficult things
 
 如 `<img src="...."/>`
 
-参考 HTTP Caching 文档
-https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching
+参考 [HTTP Caching](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching) 文档
 彻底不缓存
 
 - ```
