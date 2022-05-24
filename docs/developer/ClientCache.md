@@ -75,7 +75,8 @@ If-None-Match: "deadbeef"
 
 MTC 实践中，使用的是 ETag/If-None-Match, 数据有变化时，只在 Redis 中生成一个新的 ETag，后续处理判断 ETag 是否一致
 
-- 例一：MTC Avatar
+例一：MTC Avatar
+
 - ## 服务器端：
 
   ```
