@@ -953,40 +953,30 @@
 <p>Invalidate cache and naming is two most difficult things</p>
 <h2 id="_1">两种场景：浏览器请求与应用请求</h2>
 <h3 id="_2">浏览器控制</h3>
-<pre><code>如 `&lt;img src="...."/&gt;`
-
-参考 [HTTP Caching](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching) 文档
-
-#### 彻底不缓存
-
-```
-Cache-Control: no-store
-```
-
-#### 缓存，但每次都去服务器检查是否有新数据
-
-```
-Cache-Control: no-cache
-```
-
-#### 缓存，但在一定时间内不去服务器检查是否有新数据
-
-```
-Cache-Control: max-age=3600
-```
-
-- 使用 If-Modified-Since 来判断
+<p>如 <code>&lt;img src="...."/&gt;</code></p>
+<p>参考 <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching">HTTP Caching</a> 文档</p>
+<h4 id="_3">彻底不缓存</h4>
+<pre><code>Cache-Control: no-store
 </code></pre>
+<h4 id="_4">缓存，但每次都去服务器检查是否有新数据</h4>
+<pre><code>Cache-Control: no-cache
+</code></pre>
+<h4 id="_5">缓存，但在一定时间内不去服务器检查是否有新数据</h4>
+<pre><code>Cache-Control: max-age=3600
+</code></pre>
+<ul>
+<li>
+<p>使用 If-Modified-Since 来判断</p>
 <ul>
 <li>服务器端下发：</li>
 <li>
 <p>```
-                      HTTP/1.1 200 OK
-                      Content-Type: text/html
-                      Content-Length: 1024
-                      Date: Tue, 22 Feb 2022 22:22:22 GMT
-                      Last-Modified: Tue, 22 Feb 2022 22:00:00 GMT
-                      Cache-Control: max-age=3600</p>
+                        HTTP/1.1 200 OK
+                        Content-Type: text/html
+                        Content-Length: 1024
+                        Date: Tue, 22 Feb 2022 22:22:22 GMT
+                        Last-Modified: Tue, 22 Feb 2022 22:00:00 GMT
+                        Cache-Control: max-age=3600</p>
 <p>```</p>
 </li>
 </ul>
@@ -994,11 +984,13 @@ Cache-Control: max-age=3600
 <li>浏览器端后续请求：</li>
 <li>
 <p>```
-                      GET /index.html HTTP/1.1
-                      Host: example.com
-                      Accept: text/html
-                      If-Modified-Since: Tue, 22 Feb 2022 22:00:00 GMT</p>
+                        GET /index.html HTTP/1.1
+                        Host: example.com
+                        Accept: text/html
+                        If-Modified-Since: Tue, 22 Feb 2022 22:00:00 GMT</p>
 <p>```</p>
+</li>
+</ul>
 </li>
 </ul>
 <ul>
@@ -1008,7 +1000,7 @@ Cache-Control: max-age=3600
   MTC 实践中，使用的是 ETag/If-None-Match, 数据有变化时，只在 Redis 中生成一个新的 ETag，后续处理判断 ETag 是否一致</li>
 <li>例一：MTC Avatar</li>
 <li>
-<h2 id="_3">服务器端：</h2>
+<h2 id="_6">服务器端：</h2>
 <p>```
                       return (
                           h
@@ -1038,7 +1030,7 @@ Cache-Control: max-age=3600
 <p>例二：MTC Template Cover</p>
 <ul>
 <li>
-<h2 id="_4">服务器端：</h2>
+<h2 id="_7">服务器端：</h2>
 </li>
 <li>客户端：<ul>
 <li><img 160_="160," 662="662" :width=":width" alt="image.png" height="height" src="../assets/image_1653372490395_0.png" /></li>
@@ -1054,14 +1046,14 @@ Cache-Control: max-age=3600
 </ul>
 </li>
 </ul>
-<h3 id="_5">应用控制</h3>
+<h3 id="_8">应用控制</h3>
 <pre><code>        - 如使用Fetch, Axios, HttpClient等请求数据，包括移动APP客户端从服务器获取数据
         - 需要自行设计实现
         - 两个问题：
             - 是否有更合理的方案？
             - APP中如何实现？
 </code></pre>
-<h2 id="_6">业务层刷新机制：</h2>
+<h2 id="_9">业务层刷新机制：</h2>
 <pre><code>    - 操作后，需要刷新
         - 当前用户操作，及时刷新
         - 其它用户，可定时刷新
@@ -1073,7 +1065,7 @@ Cache-Control: max-age=3600
             - 或检测用户鼠标动作，上次鼠标移动在多长时间内，断定为用户活跃，继续自动刷新，否则停止。
     - 提供手动刷新按钮（APP移动端为下拉）
 </code></pre>
-<h2 id="_7">技术层刷新机制：</h2>
+<h2 id="_10">技术层刷新机制：</h2>
 <pre><code>    - 服务端对每种业务对象设置ETag Key， 每次返回数据，带上一个ETag
         - 这个ETag，用于表示某种数据是否刷新，仅在有变化时，修改这个ETag
     - 客户端对每次请求的结果，进行缓存，同时记录ETag；
@@ -1083,7 +1075,7 @@ Cache-Control: max-age=3600
         - 如不一致，返回200，及最新数据
     - 客户端根据Header是否是304，决定使用已缓存数据，还是更新缓存为服务端返回数据。
 </code></pre>
-<h2 id="_8">具体实现方式：</h2>
+<h2 id="_11">具体实现方式：</h2>
 <pre><code>    - 服务端CORS设置中，允许ETag
         -
           ``` `
