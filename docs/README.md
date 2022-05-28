@@ -15,7 +15,7 @@ Metatocome disptachs tasks to human and computer systems, you may use it in a tr
 
 MetatoCome is a PaaS service, developers write their own applications, no matter they are iOS App, Android APP, a H5 application with MatatoCome APIs to start a workflow, check worklist, provide UI for endusers to do their own work, or bridge MetatoCome to their own enterprise applications.
 
-MetatoCome is also a SaaS sedrvice, if you don't want to develop your own UI, MetatoCome already has full-fledged user interface for enterprise users use it as a SaaS application.
+MetatoCome is also a SaaS service, if you don't want to develop your own UI, MetatoCome already has full-fledged user interface for enterprise users use it as a SaaS application.
 
 Administrators or authorized workflow designer will design workflow template first, then, everyone in the organizaiton can initiate a workflow process, MetatoCome will dispatch task to either human or any IT system via Restful APIs, then MetatoCome receive and check feedback from human or system, decide how to route the process to next step based on the decision of human or system. These steps will continue until it run to the END node of the workflow template.
 
