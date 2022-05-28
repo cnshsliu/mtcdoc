@@ -769,6 +769,8 @@ A connection between two nodes has direction, it always point from one node (A) 
 
 A connection can have option, option define the route. for example, there is one connection between A to B, there is another connection between A to C, if we give A to B an option value 1, and give A to C an option value 2, then, if A return 2, the workflow will run to C, B will not be routed to. if A is an activity, the user who do that activity will be presented with option 1 and 2 to decide. if A is a script, you may use "ret=2" to return 2 from node A.
 
+Connection option name starts with "h-", "h*", "h:" will not display to user. (h means hide). That means, user have no chance to select this opiton, however, in your action level script, you may return a option which name starts with h-/h*/h:
+
 ### Build a connection
 
 - Select CONNECT tool , or simple press 9, the CONNECT tool will be highlighted
