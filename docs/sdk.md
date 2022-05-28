@@ -11,16 +11,16 @@ Server 模式，在流程流转的每个节点，包括后台逻辑节点，从 
 
 ![设置流程模版属性](https://cdn.jsdelivr.net/gh/cnshsliu/static.xhw.mtc/img/doc/tplprop.png)
 
-# 与企业微信 WeCom 继承
+# 与企业微信 WeCom 集成
 
-# 通过 MTC PaaS API 继成 MTC 功能
+# 通过 MTC PaaS API 集成 MTC 功能
 
 开发者可以使用任意现代计算机语言，来调用 MetatoCome 的所有功能。
 MetaToCome 提供 WebAPI， 理论上，无论开发 Web 应用，Android/IOS APP，还是桌面应用，都可以通过调用 MetaToCome WebAPI，在应用中集成完整的 HyperAutomation 能力
 
 详见 MetaToCome API
 
-# 通过 MTC PaaS SDK 继成 MTC 功能
+# 通过 MTC PaaS SDK 集成 MTC 功能
 
 MetatoCome 以 NPM 包形式提供 Node.js 开发调用，NPM SDK 包功能与 PaaS API 相同。
 后续会持续推出其它语言的 SDK
