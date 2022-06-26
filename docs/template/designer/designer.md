@@ -2,72 +2,41 @@
 
 Workflow Designer provides graphical user interface to design a workflow by dragging and dropping.
 
-![desginer](../img/workflow_designer.png)
+![desginer](../../img/workflow_designer.png)
 
-## Editing
+# Design a Workflow
 
-Desginer support copy,paste, cut etc., as well as shortcut keys to ease your opertions..
+Designing a workflow is actually design it's template.
 
-### Nodes Copy and Paste
+The best practice to design a workflow template includes:
 
-While mouse is hovering a node , press Ctrl-C (Win) / Cmd-C (Mac) to copy it, move mouse to any position on the canvas, proess Ctrl-V (Win) / Cmd-C (Mac) to paste it.
+##Define topolocy
 
-While mouse is hovering a node, press Ctrl-X (Win) /Cmd-X (Mac) to cut it, later, you may paste the cutted node at another location wil Ctrol-V (Win) /Cmd-V (Mac)
+Layout works simply without pointing it to user, nor defining variables.
 
-### Connext Routing Text
+- Rehearsal it, all tasks will be send to youself;
+- notice the process logic or the process topology run as expected;
 
-While mouse is hovering a connection , press Ctrl-C (Win) / Cmd-C (Mac) to copy it's routing label, move mouse to hover another connection, proess Ctrl-V (Win) / Cmd-C (Mac) to paste it.
+##Define variables
 
-### Keyboard shortcut
+Add workflow variables
 
-- d: Mouse over a node or a connection, press d to delete it.
-- cb: Mouse over a connection, press "cb" to move it's starting point
-- ce: Mouse over a connection, press "ce" to move it's ending point
-- gt: Mouse over a node, press "gt" to link it to another node
-- ct: Mouse over a connection, press "ct" to clear its text
+##Add script as required
 
-### Copy / Cut / Paste
+See Workflow scripting for details
 
-- Ctrl-C / Cmd-C to copy mouse overing node or connect
-- Ctrl-X / Cmd-X to cut node or connect
-- Ctrl-V / Cmd-V to paste nord or connect text
+##Add participants
 
-- To make a new copy of an exiting node
-  - Move mouse to source node
-  - press Ctrl-C on Windows or Cmd-C on Mac
-  - Move mouse to blank area of the canvas
-  - Press Ctrl-V on Windows or Cmd-V on Mac
-- To make a node (destination node) the same as another (source node)
-  - Move mouse to source node
-  - press Ctrl-C on Windows or Cmd-C on Mac
-  - Move mouse to the destination node
-  - Press Ctrl-V on Windows or Cmd-V on Mac
-- To make a connection (destionation) text the same as another (source connection)
-  - Move mouse to source connection
-  - press Ctrl-C on Windows or Cmd-C on Mac
-  - Move mouse to the destination connection
-  - Press Ctrl-V on Windows or Cmd-V on Mac
+Participant can be a people, a team role, a position in your org chart.
 
-## Select
+See Role Definition String for details
 
-Select one: click the node to selecte it.
+##Rehearsal
 
-Select many: click the nodes while holding Win key or Command key
-
-Select all: Ctrl-A or Command-A.
-
-Select with mouse: hold down Shift-key, click and move mouse to select one to many nodes. Shift-Meta to add more to selected.
-
-## Move
-
-To move one signle node, click on it, move mouse while holding.
-
-To move many nodes, click on them while holding Win key on Windows or Command key on Mac, while those nodes are in "selected" status, drop any of them to antoher location, other selected will move simultaneously.
-To move all nodes, press Ctrl-A or Command-A to select all nodes, then click on one selected node to move them all together.
-
+Remember, always rehearsal instead of a real starting before you are sure of that everthing run as expected.
 On the left is the toolbox, click each tool to use it.
 
-## Pointer <img src="../img/svg/POINTER.svg" width="24px" height="24px"/>
+## Pointer <img src="../../img/svg/POINTER.svg" width="24px" height="24px"/>
 
 Pointer is used to select a node or a connection.
 _Press ESC anytime to select Pointer._
@@ -109,7 +78,7 @@ To assign user-defined ID to a node, input new ID in properties window and click
 
 At the end of designer menu, there is a checkbox to show/hide node IDs on the canvas.
 
-## Activity <img src="../img/svg/ACTION.svg" width="24px" height="24px"/>
+## Activity <img src="../../img/svg/ACTION.svg" width="24px" height="24px"/>
 
 _Press 1 anytime to select Activity_
 
@@ -348,37 +317,37 @@ date\_开始时间[title=开始日期]|date\_结束时间|从哪里[default=机�
 The table above has following columns:
 
 - 开始时间：
-- 类型：日期
-- Title: 开始日期
+  - 类型：日期
+  - Title: 开始日期
 - 结束时间
-- 类型：日期
-- Title: 结束时间
+  - 类型：日期
+  - Title: 结束时间
 - 从哪里
-- 缺省值：机场
+  - 缺省值：机场
 - 到哪里
-- 缺省值：公司
+  - 缺省值：公司
 - 出行方式
-- 类型：选择列表
-- 可选项：飞机，高铁，长途汽车，出租车
-- 缺省值：高铁
+  - 类型：选择列表
+  - 可选项：飞机，高铁，长途汽车，出租车
+  - 缺省值：高铁
 - 出差天数（天）
-- 类型：公式
-- 值：开始日期，与结束日期的天数差别+1，如为同一天，则值为 1.
-- 缺省值：0
-- 计算平均值
+  - 类型：公式
+  - 值：开始日期，与结束日期的天数差别+1，如为同一天，则值为 1.
+  - 缺省值：0
+  - 计算平均值
 - 开始时点
-- 类型：datetime
+  - 类型：datetime
 - 结束时点
-- 类型：datetime
+  - 类型：datetime
 - 请假天数
-- 类型：公式
-- 值：开始时点，与结束时点的差别，规整到 0.5 天
-- 缺省值：0
-- 计算总和
+  - 类型：公式
+  - 值：开始时点，与结束时点的差别，规整到 0.5 天
+  - 缺省值：0
+  - 计算总和
 - 报销金额
-- 类型：数字
-- 求总
-- 求平均
+  - 类型：数字
+  - 求总
+  - 求平均
 
 #### **Value**
 
@@ -503,7 +472,7 @@ ret = "C";
 
 **Info**: see Script section for [how to script](#script)
 
-## Inform <img src="../img/svg/INFORM.svg" width="24px" height="24px"/>
+## Inform <img src="../../img/svg/INFORM.svg" width="24px" height="24px"/>
 
 - Press 2 at anytime to use Inform
   An Inform node is used to send message to people.
@@ -522,7 +491,7 @@ ret = "C";
 
 - may use simple html or Handlebars to embed process variables
 
-## Script <img src="../img/svg/SCRIPT.svg" width="24px" height="24px"/>
+## Script <img src="../../img/svg/SCRIPT.svg" width="24px" height="24px"/>
 
 - Press 3 at anytime to use Script
 
@@ -724,7 +693,7 @@ The context data will be packed into a JSON like below and sent to the url
 }
 ```
 
-## Timer <img src="../img/svg/TIMER.svg" width="24px" height="24px"/>
+## Timer <img src="../../img/svg/TIMER.svg" width="24px" height="24px"/>
 
 A TIMER node is used to control process running time, the process only run through this node when
 
@@ -732,7 +701,7 @@ A TIMER node is used to control process running time, the process only run throu
 - From Now: how long after the invoking of this Timer node(end of previous node).
 - Fix: Specific date and time
 
-## Sub Process <img src="../img/svg/SUB.svg" width="24px" height="24px"/>
+## Sub Process <img src="../../img/svg/SUB.svg" width="24px" height="24px"/>
 
 An sub-processs will be invoked to run, and the parent process will continue only when the sub-process has been completed.
 
@@ -746,19 +715,19 @@ Here is an exmaple,
 ![process-stall-after-sub-without-default-route.png](https://cdn.jsdelivr.net/gh/cnshsliu/static.xhw.mtc/img/doc/process-stall-after-sub-without-default-route.png)
 take a look at the following process monitoring capture, you could notice the process did not continue after "Sub". the reason is that "Sub" had been set to "standalone" mode and would return "Default" always and immediately but there is no "Default" route after it.
 
-## AND <img src="../img/svg/AND.svg" width="24px" height="24px"/>
+## AND <img src="../../img/svg/AND.svg" width="24px" height="24px"/>
 
 An AND node will make process wait for completion of all it's precedent nodes.
 
-## OR <img src="../img/svg/OR.svg" width="24px" height="24px"/>
+## OR <img src="../../img/svg/OR.svg" width="24px" height="24px"/>
 
 Any precedent node is completed, an OR node will be went through, process will navigate to the following nodes of OR.
 
-## Ground <img src="../img/svg/GROUND.svg" width="24px" height="24px"/>
+## Ground <img src="../../img/svg/GROUND.svg" width="24px" height="24px"/>
 
 A Ground node could have no folloing nodes, means the routing is grounded or sink.
 
-## Connect <img src="../img/svg/CONNECT.svg" width="24px" height="24px"/>
+## Connect <img src="../../img/svg/CONNECT.svg" width="24px" height="24px"/>
 
 Connect two nodes to define a route between them.
 Click one node, then click another node, a curved line will be drawn between them.
@@ -807,6 +776,8 @@ The connection values will be prompted as Buttons to users who are doing the wor
 User click the button to make his/her decision, the workflow engine use user's decision to determine what's the next step.
 
 These buttons are displayed sorted by their labels' alphabetic order, Thus, "A Choice" is always displayed before "B Choice", and "1. A Choice" is always displayed before "2. A Choice".
+
+If the connection value starts with "h:", "h-" or "h\_", this value will not be shown to users. however, you may use action script code to return a string of this value to control the process to flow this way.
 
 ### Set processs contextual variable on connection
 
@@ -867,3 +838,64 @@ lastingdays 用于计算两个时间点（大特 time）的持续时间，第三
 返回至少半天，如 0.5， 1， 1.5， 2， 2.5 等
 
 缺省为 1， 至少返回整天
+
+## Editing
+
+Desginer support copy,paste, cut etc., as well as shortcut keys to ease your opertions..
+
+### Nodes Copy and Paste
+
+While mouse is hovering a node , press Ctrl-C (Win) / Cmd-C (Mac) to copy it, move mouse to any position on the canvas, proess Ctrl-V (Win) / Cmd-C (Mac) to paste it.
+
+While mouse is hovering a node, press Ctrl-X (Win) /Cmd-X (Mac) to cut it, later, you may paste the cutted node at another location wil Ctrol-V (Win) /Cmd-V (Mac)
+
+### Connext Routing Text
+
+While mouse is hovering a connection , press Ctrl-C (Win) / Cmd-C (Mac) to copy it's routing label, move mouse to hover another connection, proess Ctrl-V (Win) / Cmd-C (Mac) to paste it.
+
+### Keyboard shortcut
+
+- d: Mouse over a node or a connection, press d to delete it.
+- cb: Mouse over a connection, press "cb" to move it's starting point
+- ce: Mouse over a connection, press "ce" to move it's ending point
+- gt: Mouse over a node, press "gt" to link it to another node
+- ct: Mouse over a connection, press "ct" to clear its text
+
+### Copy / Cut / Paste
+
+- Ctrl-C / Cmd-C to copy mouse overing node or connect
+- Ctrl-X / Cmd-X to cut node or connect
+- Ctrl-V / Cmd-V to paste nord or connect text
+
+- To make a new copy of an exiting node
+  - Move mouse to source node
+  - press Ctrl-C on Windows or Cmd-C on Mac
+  - Move mouse to blank area of the canvas
+  - Press Ctrl-V on Windows or Cmd-V on Mac
+- To make a node (destination node) the same as another (source node)
+  - Move mouse to source node
+  - press Ctrl-C on Windows or Cmd-C on Mac
+  - Move mouse to the destination node
+  - Press Ctrl-V on Windows or Cmd-V on Mac
+- To make a connection (destionation) text the same as another (source connection)
+  - Move mouse to source connection
+  - press Ctrl-C on Windows or Cmd-C on Mac
+  - Move mouse to the destination connection
+  - Press Ctrl-V on Windows or Cmd-V on Mac
+
+## Select
+
+Select one: click the node to selecte it.
+
+Select many: click the nodes while holding Win key or Command key
+
+Select all: Ctrl-A or Command-A.
+
+Select with mouse: hold down Shift-key, click and move mouse to select one to many nodes. Shift-Meta to add more to selected.
+
+## Move
+
+To move one signle node, click on it, move mouse while holding.
+
+To move many nodes, click on them while holding Win key on Windows or Command key on Mac, while those nodes are in "selected" status, drop any of them to antoher location, other selected will move simultaneously.
+To move all nodes, press Ctrl-A or Command-A to select all nodes, then click on one selected node to move them all together.

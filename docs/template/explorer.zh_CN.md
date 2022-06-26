@@ -1,119 +1,98 @@
-# Template Explorer
+# 流程浏览
 
-MetatoCome Workflow Template explorer shows all templates your template library, as well as allowing management of workflow templates.
+流程浏览器用于对组织的工作流模版进行管理
 
-## User Interface
+## 顶部按钮
 
-![Template Explorer](../img/template_explorer.png)
+- 新建: 显示新建流程模版的表单
+- 导入 : 从本地电脑导入一个模版文件
+- 重置查询: 清除查询条件，回归到缺省查询条件
 
-### Top buttons
-
-There are three buttons on the top-right corner of template explorer.
-
-- Create: show create template form
-- Import : import a template from your local disk
-- Reset Query: clear out any specified query criteria
-
-#### Create a template
+### 新建模版
 
 ![Create template form](../img/template_create_form.png)
 
 _Above: Create template form_
 
-Give your new template an unique name, one more more tags separated by spaces, semicolons, or commas.
+模版名称必须唯一， 模版的多个标签需要用英文空格，逗号或分号分隔开
 
-#### Import a template
+### 导入一个模版
 
-If you have ever exported a template to your local disk, or received a exported template file from others, you may import it to your template library
+如果你曾导出一个模版到本地硬盘，或者从其它人那里收到一个模版的导出文件，你可以在这里将其导入
 
-#### Reset Query
+### 重置查询
 
-Template explorer provides detailed criteria for searching, Reset Query is used to reset query critera by one-click
+回归缺省查询条件
 
-### Tags Area
+![advance-query](https://cdn.jsdelivr.net/gh/cnshsliu/static.xhw.mtc/img/doc/template_advance_query.zh_CN.png)
 
-Tags are used to categorize templates, organizaiton level tags are defined by administrators and available for everyone in your organizaiton, while personal tags are available individually.
+## 标签区域
 
-- organizaitonal tags are displayed in a round corner rectangle, like ![orgtags](../img/template_tag_orglevel.png)
-- personal tags are displayed in a pill, like ![personaltags](../img/template_tag_personal.png)
+标签用于对模版进行分类，MTC 的标签有组织级和个人级两级，组织级的标签由管理员在管理界面中配置， 个人标签由个人针对单个模版进行配置。
 
-Click a tag, explorer will search those templates with the tag and display them in the result table at the lower part of explorer.
+- 组织级标签显示为圆角矩形 ![orgtags](../img/template_tag_orglevel.png)
+- 个人级标签显示为药丸形状 ![personaltags](../img/template_tag_personal.png)
 
-A template can have more than one tags, hold shift key while clicking a tag will make tag multi-selection. thus, MetatoCome will search for those templates which has all the highlighted tags.
+点击一个标签，浏览器将过滤出那些打了该标签的模版
 
-### Recent Templates Area
+按住 Shift 键，可以多选标签，MTC 将过滤出那些同时具有被选中标签的模版
 
-List out recent viewed/started templates for quick accessing.
-![recentstemplate](../img/template_recents.png)
+## 最近使用模版
 
-### Extra Filter Area
+把最近使用过的模版列出来，方便快速选择经常使用的模板
 
-Filter results with template name or author, use "Me" and "Any" to quickly toggle author of yourself and others
+## 过滤
 
-![extrafilter](../img/template_extra_filter.png)
+根据模版名称、设计者来过滤模版
 
-### Result Table
+## 列表显示
 
-List out any templates meet above requirements: tag, name filter, author etc.
+列出符合查询条件的模版
 
-![resulttable](../img/template_result_table.png)
+![resulttable](https://cdn.jsdelivr.net/gh/cnshsliu/static.xhw.mtc/img/doc/tempplate_result_table.zh_CN.png)
+在结果显示中，用户可以切换排序、选择每页显示个数，每行显示个数。
+如果是管理员，还可以选择多个，并同时对多个模版进行删除等操作
 
-- The first column is the link to template designer
-- The second column is the author
-- The third column is shortcut to start it
-- The fourth column is a popup menu contains more actions available for the current template
+## 流程操作
 
-![actions](../img/template_explorer_actions.png)
+![actions](https://cdn.jsdelivr.net/gh/cnshsliu/static.xhw.mtc/img/doc/template_explorer_actions.zh_CN.png)
 
-Those actions are:
+这些操作动作包括：
 
-    - Start it: start this workflow
-    - See Workflows: list out workflow processes of this template
-    - See Worklist: list out work items belong to this template
-    - Set Visibility: Set the visibility of this template, see details below.
-    - Add Description: show description form to add or modify template description.
-    - Set TAGS: show tag editting form to add, modify or delete tags of this template
-    - Delete This Template: as it says
+    - 查看该模版所启动的相关进程
+    - 查看改模版相关的工作任务
+    - 设置：对该模版进行设置
+    - 编辑历史： 查看谁编辑、修改了这个模板
+    - 执行计划： 定时重复启动这个流程
+    - 删除这个模板
+    - 流程挖掘：对流程的完成情况，执行效率等进行分析
+    - 流程数据：导出该模版的所有进程的用户数据
 
-### 流程设置
+## 流程设置
 
 流程设置如下图所示
 
-[Template Setting](https://cdn.jsdelivr.net/gh/cnshsliu/static.xhw.mtc/img/doc/template_setting.zh-CN.png)
+![Template Setting](https://cdn.jsdelivr.net/gh/cnshsliu/static.xhw.mtc/img/doc/template_setting.zh-CN.png)
 其中，
 
-#### 描述信息
+### 描述信息
 
 给流程添加描述说明，以便他人了解这个流程的设计目的，适用场景等
 
-#### 标签设置
+### 标签设置
 
 给流程添加标签，用于归类查询，用户点击流程浏览器上部的标签时，按照标签对流程进行过滤
 
 添加标签后，所有个人标签会显示在组织标签下方
 
-#### 指定作者
+### 指定作者
 
 将流程作者指定为另一个人，直接输入该人的邮箱地址前缀即可
 
-#### 对谁可见
+### 对谁可见
 
 设定流程对哪些人可见。
 
 如果不设置，则自动对组织内全体用户可见
 
 新建流程时，流程自动只对作者本人可见，以防止在流程模版定稿之前他人直接适用。
-
-abcd
-
-### Set Visibility
-
-Only the author and the people who are the member of the resolved group of visibility setting will be able to see this template and use it.
-
-If a user previous was in the visibility group and was removed from this group later, he/she will immediately dismiss the right to use this template, he/she will not see tasks related to this template as well immediately as well.
-
-### Pagination
-
-![pagination](../img/pagination.png)
-
-Use pagination to browser more results

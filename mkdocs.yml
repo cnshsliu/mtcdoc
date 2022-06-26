@@ -30,7 +30,7 @@ markdown_extensions:
 plugins:
   - search
   - i18n:
-      default_language: en
+      default_language: zh_CN
       languages:
         en:
           name: English
@@ -62,11 +62,13 @@ plugins:
           Home: 首页
           Account: 用户账户
           Register: 用户注册
-          AdminReg: 组织管理
+          AdminReg: 组织账号
+          Tenant: 企业账号管理
           Template: 流程规划
           Concept: 基本概念
-          "Template Browser": 模板浏览
-          "Design Template": 设计模板
+          "Template Browser": 流程浏览
+          "Template Designer": 流程设计
+          "Design Template": 设计流程模版
           Designer: 设计器
           "Role Definition": 角色定义
           Process: 进程管理
@@ -81,15 +83,11 @@ plugins:
           "Process Monitor": "进程监控器"
 nav:
   - Home: README.md
-  - Account:
-    - Register: 'account/register.md'
-    - AdminReg: 'account/adminreg.md'
   - Template: 
     - Concept: "template/concept.md"
     - Template Browser: "template/explorer.md"
-    - Design Template: "template/design.md"
-    - Role Definition: "designer/pds.md"
-  - Designer: "template/designer.md"
+    - Template Designer: "template/designer/designer.md"
+    - Role Definition: "template/designer/pds.md"
   - Process: 
     - Start a process: "process/start.md"
     - Process explorer: "process/explorer.md"
@@ -100,12 +98,8 @@ nav:
     - Worklist : "work/worklist.md"
     - Work Page : "work/workpage.md"
   - Setting:
-    - Personal: 'about.md'
-    - Org: 'about.md'
-    - Orgchart: 'about.md'
-    - List: 'about.md'
-    - Invitation: 'account/invitation.md'
-    - Join Approval: 'account/join.md'
+    - AdminReg: 'account/adminreg.md'
+    - Tenant: 'admin/tenant.md'
   - For Developers:
     - API: 'api.md'
     - SDK: 'sdk.md'
