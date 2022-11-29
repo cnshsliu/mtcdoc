@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
          <loc>https://cnshsliu.github.io/mtcdocs/index.html</loc>
-         <lastmod>2022-06-22</lastmod>
+         <lastmod>2022-11-29</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://cnshsliu.github.io/mtcdocs/en/index.html"/>
          <xhtml:link rel="alternate" hreflang="zh_CN" href="https://cnshsliu.github.io/mtcdocs/zh_CN/index.html"/>
@@ -10,7 +10,7 @@
     </url>
     <url>
          <loc>https://cnshsliu.github.io/mtcdocs/about.html</loc>
-         <lastmod>2022-06-22</lastmod>
+         <lastmod>2022-11-29</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://cnshsliu.github.io/mtcdocs/en/about.html"/>
          <xhtml:link rel="alternate" hreflang="zh_CN" href="https://cnshsliu.github.io/mtcdocs/zh_CN/about.html"/>
@@ -18,7 +18,7 @@
     </url>
     <url>
          <loc>https://cnshsliu.github.io/mtcdocs/api.html</loc>
-         <lastmod>2022-06-22</lastmod>
+         <lastmod>2022-11-29</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://cnshsliu.github.io/mtcdocs/en/api.html"/>
          <xhtml:link rel="alternate" hreflang="zh_CN" href="https://cnshsliu.github.io/mtcdocs/zh_CN/api.html"/>
@@ -26,7 +26,7 @@
     </url>
     <url>
          <loc>https://cnshsliu.github.io/mtcdocs/integration.html</loc>
-         <lastmod>2022-06-22</lastmod>
+         <lastmod>2022-11-29</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://cnshsliu.github.io/mtcdocs/en/integration.html"/>
          <xhtml:link rel="alternate" hreflang="zh_CN" href="https://cnshsliu.github.io/mtcdocs/zh_CN/integration.html"/>
@@ -34,7 +34,7 @@
     </url>
     <url>
          <loc>https://cnshsliu.github.io/mtcdocs/qa.html</loc>
-         <lastmod>2022-06-22</lastmod>
+         <lastmod>2022-11-29</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://cnshsliu.github.io/mtcdocs/en/qa.html"/>
          <xhtml:link rel="alternate" hreflang="zh_CN" href="https://cnshsliu.github.io/mtcdocs/zh_CN/qa.html"/>
@@ -42,7 +42,7 @@
     </url>
     <url>
          <loc>https://cnshsliu.github.io/mtcdocs/sdk.html</loc>
-         <lastmod>2022-06-22</lastmod>
+         <lastmod>2022-11-29</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://cnshsliu.github.io/mtcdocs/en/sdk.html"/>
          <xhtml:link rel="alternate" hreflang="zh_CN" href="https://cnshsliu.github.io/mtcdocs/zh_CN/sdk.html"/>
@@ -50,7 +50,7 @@
     </url>
     <url>
          <loc>https://cnshsliu.github.io/mtcdocs/account/adminreg.html</loc>
-         <lastmod>2022-06-22</lastmod>
+         <lastmod>2022-11-29</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://cnshsliu.github.io/mtcdocs/en/account/adminreg.html"/>
          <xhtml:link rel="alternate" hreflang="zh_CN" href="https://cnshsliu.github.io/mtcdocs/zh_CN/account/adminreg.html"/>
@@ -58,15 +58,71 @@
     </url>
     <url>
          <loc>https://cnshsliu.github.io/mtcdocs/account/register.html</loc>
-         <lastmod>2022-06-22</lastmod>
+         <lastmod>2022-11-29</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://cnshsliu.github.io/mtcdocs/en/account/register.html"/>
          <xhtml:link rel="alternate" hreflang="zh_CN" href="https://cnshsliu.github.io/mtcdocs/zh_CN/account/register.html"/>
          
     </url>
     <url>
+         <loc>https://cnshsliu.github.io/mtcdocs/admin/delegation.zh_CN.html</loc>
+         <lastmod>2022-11-29</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://cnshsliu.github.io/mtcdocs/en/admin/delegation.zh_CN.html"/>
+         
+         
+    </url>
+    <url>
+         <loc>https://cnshsliu.github.io/mtcdocs/admin/members.zh_CN.html</loc>
+         <lastmod>2022-11-29</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://cnshsliu.github.io/mtcdocs/en/admin/members.zh_CN.html"/>
+         
+         
+    </url>
+    <url>
+         <loc>https://cnshsliu.github.io/mtcdocs/admin/myfiles.zh_CN.html</loc>
+         <lastmod>2022-11-29</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://cnshsliu.github.io/mtcdocs/en/admin/myfiles.zh_CN.html"/>
+         
+         
+    </url>
+    <url>
+         <loc>https://cnshsliu.github.io/mtcdocs/admin/orgchart.zh_CN.html</loc>
+         <lastmod>2022-11-29</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://cnshsliu.github.io/mtcdocs/en/admin/orgchart.zh_CN.html"/>
+         
+         
+    </url>
+    <url>
+         <loc>https://cnshsliu.github.io/mtcdocs/admin/resign.zh_CN.html</loc>
+         <lastmod>2022-11-29</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://cnshsliu.github.io/mtcdocs/en/admin/resign.zh_CN.html"/>
+         
+         
+    </url>
+    <url>
+         <loc>https://cnshsliu.github.io/mtcdocs/admin/smtp.zh_CN.html</loc>
+         <lastmod>2022-11-29</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://cnshsliu.github.io/mtcdocs/en/admin/smtp.zh_CN.html"/>
+         
+         
+    </url>
+    <url>
+         <loc>https://cnshsliu.github.io/mtcdocs/admin/tenant.zh_CN.html</loc>
+         <lastmod>2022-11-29</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://cnshsliu.github.io/mtcdocs/en/admin/tenant.zh_CN.html"/>
+         
+         
+    </url>
+    <url>
          <loc>https://cnshsliu.github.io/mtcdocs/developer/ClientCache.html</loc>
-         <lastmod>2022-06-22</lastmod>
+         <lastmod>2022-11-29</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://cnshsliu.github.io/mtcdocs/en/developer/ClientCache.html"/>
          <xhtml:link rel="alternate" hreflang="zh_CN" href="https://cnshsliu.github.io/mtcdocs/zh_CN/developer/ClientCache.html"/>
@@ -74,7 +130,7 @@
     </url>
     <url>
          <loc>https://cnshsliu.github.io/mtcdocs/developer/customize_theme.html</loc>
-         <lastmod>2022-06-22</lastmod>
+         <lastmod>2022-11-29</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://cnshsliu.github.io/mtcdocs/en/developer/customize_theme.html"/>
          <xhtml:link rel="alternate" hreflang="zh_CN" href="https://cnshsliu.github.io/mtcdocs/zh_CN/developer/customize_theme.html"/>
@@ -82,7 +138,7 @@
     </url>
     <url>
          <loc>https://cnshsliu.github.io/mtcdocs/developer/usemongo.html</loc>
-         <lastmod>2022-06-22</lastmod>
+         <lastmod>2022-11-29</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://cnshsliu.github.io/mtcdocs/en/developer/usemongo.html"/>
          <xhtml:link rel="alternate" hreflang="zh_CN" href="https://cnshsliu.github.io/mtcdocs/zh_CN/developer/usemongo.html"/>
@@ -90,7 +146,7 @@
     </url>
     <url>
          <loc>https://cnshsliu.github.io/mtcdocs/process/explorer.html</loc>
-         <lastmod>2022-06-22</lastmod>
+         <lastmod>2022-11-29</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://cnshsliu.github.io/mtcdocs/en/process/explorer.html"/>
          <xhtml:link rel="alternate" hreflang="zh_CN" href="https://cnshsliu.github.io/mtcdocs/zh_CN/process/explorer.html"/>
@@ -98,7 +154,7 @@
     </url>
     <url>
          <loc>https://cnshsliu.github.io/mtcdocs/process/monitor.html</loc>
-         <lastmod>2022-06-22</lastmod>
+         <lastmod>2022-11-29</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://cnshsliu.github.io/mtcdocs/en/process/monitor.html"/>
          <xhtml:link rel="alternate" hreflang="zh_CN" href="https://cnshsliu.github.io/mtcdocs/zh_CN/process/monitor.html"/>
@@ -106,7 +162,7 @@
     </url>
     <url>
          <loc>https://cnshsliu.github.io/mtcdocs/process/overview.html</loc>
-         <lastmod>2022-06-22</lastmod>
+         <lastmod>2022-11-29</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://cnshsliu.github.io/mtcdocs/en/process/overview.html"/>
          <xhtml:link rel="alternate" hreflang="zh_CN" href="https://cnshsliu.github.io/mtcdocs/zh_CN/process/overview.html"/>
@@ -114,7 +170,7 @@
     </url>
     <url>
          <loc>https://cnshsliu.github.io/mtcdocs/process/start.html</loc>
-         <lastmod>2022-06-22</lastmod>
+         <lastmod>2022-11-29</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://cnshsliu.github.io/mtcdocs/en/process/start.html"/>
          <xhtml:link rel="alternate" hreflang="zh_CN" href="https://cnshsliu.github.io/mtcdocs/zh_CN/process/start.html"/>
@@ -122,7 +178,7 @@
     </url>
     <url>
          <loc>https://cnshsliu.github.io/mtcdocs/process/worklog.html</loc>
-         <lastmod>2022-06-22</lastmod>
+         <lastmod>2022-11-29</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://cnshsliu.github.io/mtcdocs/en/process/worklog.html"/>
          <xhtml:link rel="alternate" hreflang="zh_CN" href="https://cnshsliu.github.io/mtcdocs/zh_CN/process/worklog.html"/>
@@ -130,7 +186,7 @@
     </url>
     <url>
          <loc>https://cnshsliu.github.io/mtcdocs/setting/personal.html</loc>
-         <lastmod>2022-06-22</lastmod>
+         <lastmod>2022-11-29</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://cnshsliu.github.io/mtcdocs/en/setting/personal.html"/>
          <xhtml:link rel="alternate" hreflang="zh_CN" href="https://cnshsliu.github.io/mtcdocs/zh_CN/setting/personal.html"/>
@@ -138,7 +194,7 @@
     </url>
     <url>
          <loc>https://cnshsliu.github.io/mtcdocs/template/concept.html</loc>
-         <lastmod>2022-06-22</lastmod>
+         <lastmod>2022-11-29</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://cnshsliu.github.io/mtcdocs/en/template/concept.html"/>
          <xhtml:link rel="alternate" hreflang="zh_CN" href="https://cnshsliu.github.io/mtcdocs/zh_CN/template/concept.html"/>
@@ -146,7 +202,7 @@
     </url>
     <url>
          <loc>https://cnshsliu.github.io/mtcdocs/template/explorer.html</loc>
-         <lastmod>2022-06-22</lastmod>
+         <lastmod>2022-11-29</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://cnshsliu.github.io/mtcdocs/en/template/explorer.html"/>
          <xhtml:link rel="alternate" hreflang="zh_CN" href="https://cnshsliu.github.io/mtcdocs/zh_CN/template/explorer.html"/>
@@ -154,7 +210,7 @@
     </url>
     <url>
          <loc>https://cnshsliu.github.io/mtcdocs/template/designer/designer.html</loc>
-         <lastmod>2022-06-22</lastmod>
+         <lastmod>2022-11-29</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://cnshsliu.github.io/mtcdocs/en/template/designer/designer.html"/>
          <xhtml:link rel="alternate" hreflang="zh_CN" href="https://cnshsliu.github.io/mtcdocs/zh_CN/template/designer/designer.html"/>
@@ -162,7 +218,7 @@
     </url>
     <url>
          <loc>https://cnshsliu.github.io/mtcdocs/template/designer/pds.html</loc>
-         <lastmod>2022-06-22</lastmod>
+         <lastmod>2022-11-29</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://cnshsliu.github.io/mtcdocs/en/template/designer/pds.html"/>
          <xhtml:link rel="alternate" hreflang="zh_CN" href="https://cnshsliu.github.io/mtcdocs/zh_CN/template/designer/pds.html"/>
@@ -170,7 +226,7 @@
     </url>
     <url>
          <loc>https://cnshsliu.github.io/mtcdocs/work/worklist.html</loc>
-         <lastmod>2022-06-22</lastmod>
+         <lastmod>2022-11-29</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://cnshsliu.github.io/mtcdocs/en/work/worklist.html"/>
          <xhtml:link rel="alternate" hreflang="zh_CN" href="https://cnshsliu.github.io/mtcdocs/zh_CN/work/worklist.html"/>
@@ -178,7 +234,7 @@
     </url>
     <url>
          <loc>https://cnshsliu.github.io/mtcdocs/work/workpage.html</loc>
-         <lastmod>2022-06-22</lastmod>
+         <lastmod>2022-11-29</lastmod>
          <changefreq>daily</changefreq>
          <xhtml:link rel="alternate" hreflang="en" href="https://cnshsliu.github.io/mtcdocs/en/work/workpage.html"/>
          <xhtml:link rel="alternate" hreflang="zh_CN" href="https://cnshsliu.github.io/mtcdocs/zh_CN/work/workpage.html"/>
