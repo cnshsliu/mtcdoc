@@ -592,6 +592,58 @@ MtcSendContext(endpoint)
 
 ```
 
+### 同步方式，调用一个远程服务 API
+
+SCRIPT 节点运行方式设置为 同步
+使用 MtcApiAgent.post(API_endpoint, payload, Axios_options);
+MtcAPIAgent 就是 axios，请参考 Axios 文档. 例如：
+
+      ```
+      let retFromRemoteAPI  = await MtcAPIAgent.post("http://Remote_API_SERVER:8008/demo/api",
+      {}, {headers:{"Authorization": TOKEN_STRING}});
+      ```
+
+如果需要将远程 API 返回的数据写入流程上下文，可以使用前述的 MtcSet， 如
+
+```
+MtcSet("Key1", retFromRemoteAPI.keys);
+```
+
+也可以直接将数据一次性写入到 retkvars， 如:
+
+```
+retkvars = retFromRemoteAPI; //retFromRemtoeAPI 需要是一个JSON
+
+retkvars = {...retkvars, ...retFromRemtoeAPI};  //保留retkvars之前的值，将retFromRemtoeAPI的值添加到retkvars
+```
+
+retkvars 的所有 key，value 将被写入流程上下文
+
+一来，可以在前端显示， 二来，在后续的节点脚本中可以通过 MtcGet 获得其最新值
+
+脚本中的 ret 的值将被用于判断流程后续流向。
+
+### 异步方式，调用一个远程服务 API
+
+SCRIPT 节点运行方式设置为 同步
+然后，
+
+1. 在脚本中同样使用 MtcAPIAgent 调用远程 API。
+2. 向远程服务，发送回调节点代码， 远程服务需要自行保存这个节点代码
+
+```
+MtcSendCBPid(remote_service_uri, extraPayloadJSON);
+//remote_service_uri 服务将能拿到一个名为 cbpid 的参数， 以及 extraPayloadJSON 的内容
+```
+
+3. 远程服务在完成工作后（可以持续任意时间），发起向 MTC 的回调
+
+```
+POST("https://MTC_SERVER/workflow/docallback", {cbpid, decision, kvars});
+```
+
+cbpid 为之前所获得的 cbpid, decision 将决定流程下一步的走向， kvars 中的 KV 数据将被记录进流程的上下文
+
 ## 延时节点 <img src="../../img/svg/TIMER.svg" width="24px" height="24px"/>
 
 延时节点，用于控制进程暂停时间，有三种方式：
