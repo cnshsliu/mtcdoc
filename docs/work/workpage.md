@@ -55,6 +55,8 @@ While you are on the work page, you may realize that you need to ask someone els
 
 You could specify Adhoc task's participants with [PDS](/designer/pds.md). However, you may send to wrong people accidentally or imprudentyly, to prevent it's happening, we have a Check button to show who are the right people, and give you two buttons to select.
 
+Adhoc task will not be ignored on workflow end.
+
 ## Transfer Work
 
 You may transfer your work to another colleague, if the task is tranferable.

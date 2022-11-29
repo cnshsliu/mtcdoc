@@ -63,7 +63,10 @@ plugins:
           Account: 用户账户
           Register: 用户注册
           AdminReg: 组织账号
-          Tenant: 企业账号管理
+          Tenant: 企业账户管理
+          OrgChart: 组织结构
+          Members: 成员管理
+          Resign: 用户替换及离职处理
           Template: 流程规划
           Concept: 基本概念
           "Template Browser": 流程浏览
@@ -81,6 +84,8 @@ plugins:
           "Process overview": "进程总览"
           "Work log": "工作记录"
           "Process Monitor": "进程监控器"
+          "Worklist": "工作列表"
+          "Work Page": "工作项操作"
 nav:
   - Home: README.md
   - Template: 
@@ -100,6 +105,12 @@ nav:
   - Setting:
     - AdminReg: 'account/adminreg.md'
     - Tenant: 'admin/tenant.md'
+    - OrgChart: 'admin/orgchart.md'
+    - Members: 'admin/members.md'
+    - Resign: 'admin/resign.md'
+    - Delegation: 'admin/delegation.md'
+    - MyFiles: 'admin/myfiles.md'
+    - SMTP: 'admin/smtp.md'
   - For Developers:
     - API: 'api.md'
     - SDK: 'sdk.md'
