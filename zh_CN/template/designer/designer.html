@@ -1605,9 +1605,26 @@
 <p>说明中可以使用部分 HTML 标签，也可以使用 <a href="#handlebars">Handlebars</a> 模版方式或者方括号中的变量名方式嵌入流程参数</p>
 <h4 id="html">HTML 标签</h4>
 <p>安全起见，只有部分 HTML 标签是可以使用的，包括：</p>
-<blockquote>
-<p>"b", "i", "em", "strong", "a", "blockquote", "li", "ol", "ul", "br", "code", "span", "sub", "sup", "table", "thead", "th", "tbody", "tr", "td", "div", "p", "h1", "h2", "h3", "h4"</p>
-</blockquote>
+<p>"b", "i", "em", "strong", "a", "blockquote", "li", "ol", "ul", "br", "code", "span", "sub", "sup", "table", "thead", "th", "tbody", "tr", "td", "div", "p", "h1", "h2", "h3", "h4", "img", "video"</p>
+<p>这些标签的属性会完全会保留，务必写正确的 HTML，否则，你的用户会看到乱套的页面</p>
+<p>例子: 你可以在工作项的页面上显示图片和视频</p>
+<p>图片:</p>
+<pre><code class="language-html">&lt;img
+    src=&quot;/images/demo_image_1.jpg&quot;
+    width=&quot;100%&quot; /&gt;
+&lt;br /&gt;
+</code></pre>
+<p>视频:</p>
+<pre><code class="language-text">&lt;video
+    width=&quot;100%&quot;
+    controls
+    autoPlay&gt;
+    &lt;source
+        src=&quot;/videos/demo_video_1.mp4&quot;
+        type=&quot;video/mp4&quot; /&gt;
+    Your browser does not support the video tag.
+&lt;/video&gt;
+</code></pre>
 <h4 id="handlebars">Handlebars</h4>
 <p>关于 Handlebars 格式的详细说明，请自动搜索</p>
 <p>Handlebars 格式中可潜入流程参数，例如，如果一个流程中有参数 "days", 那么， handlebars 中的 {{days.value}} 将被替换为 days 这个参数的值。
@@ -2022,7 +2039,10 @@ retkvars = {...retkvars, ...retFromRemtoeAPI};  //保留retkvars之前的值，�
 点击一个节点 A 后，再点击另一个节点 B，将在 A 到 B 之间建立一个连接线。</p>
 <p>Shift-点击一个连接线，将显示这个连接线的属性窗
 在属性窗口中，给这个连接定义一个路径值，这个路径值将显示给用户，供用户选择，用户做出选择后，流程将根据其选择决定后续运行到哪里。</p>
-<p>如果 A 节点是一个脚本节点，则根据脚本的返回值来决定走哪条路径。</p>
+<p>在 SaaS 服务中，路径值 以按钮方式显示给用户，用户点选做出选择
+在 PaaS 服务中，开发者可以取得节点之后的所有路径值</p>
+<p>如果 A 节点是一个脚本节点，则根据脚本的返回值来决定走哪条路径。
+如果一个路径值不希望显示给用户，可以将其值以 h: h- 或 h_ 开头</p>
 <h3 id="_48">改变连接的起止节点</h3>
 <ul>
 <li>按下 Alt（Windows） (MAC: Opt), 点连接的前半段，然后点一个节点，即可改换连接的起始节点。</li>

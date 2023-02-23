@@ -1024,7 +1024,26 @@ IF you uncheck the checkbox, while the running previous C is kept, another new C
 <p>You may include HTML tags/Handlebars tempalate or varName in brackets in instruction test.</p>
 <h5 id="supported-html-tags">Supported HTML Tags</h5>
 <p>Only following HTML tags are supported:</p>
-<p>"b", "i", "em", "strong", "a", "blockquote", "li", "ol", "ul", "br", "code", "span", "sub", "sup", "table", "thead", "th", "tbody", "tr", "td", "div", "p", "h1", "h2", "h3", "h4"</p>
+<p>"b", "i", "em", "strong", "a", "blockquote", "li", "ol", "ul", "br", "code", "span", "sub", "sup", "table", "thead", "th", "tbody", "tr", "td", "div", "p", "h1", "h2", "h3", "h4", "img", "video"</p>
+<p>The attributes of these tags will be kept, please make sure to write correct html.</p>
+<p>Examples: to display an image or a video to your user, you may use</p>
+<p>Image:</p>
+<pre><code class="language-html">&lt;img
+    src=&quot;/images/demo_image_1.jpg&quot;
+    width=&quot;100%&quot; /&gt;
+&lt;br /&gt;
+</code></pre>
+<p>Video:</p>
+<pre><code class="language-text">&lt;video
+    width=&quot;100%&quot;
+    controls
+    autoPlay&gt;
+    &lt;source
+        src=&quot;/videos/demo_video_1.mp4&quot;
+        type=&quot;video/mp4&quot; /&gt;
+    Your browser does not support the video tag.
+&lt;/video&gt;
+</code></pre>
 <h4 id="handlebars">Handlebars</h4>
 <p>Handlebars format is used to include process variables. If a previous node has a variable named "days", then, {{days.value}} can be included in instruction to embed it's value in instruction.</p>
 <h4 id="var-in-square-brackets">Var in square brackets</h4>
