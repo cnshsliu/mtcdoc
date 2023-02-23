@@ -33,6 +33,14 @@
          
     </url>
     <url>
+         <loc>https://cnshsliu.github.io/mtcdocs/menu.html</loc>
+         <lastmod>2023-02-23</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://cnshsliu.github.io/mtcdocs/en/menu.html"/>
+         <xhtml:link rel="alternate" hreflang="zh_CN" href="https://cnshsliu.github.io/mtcdocs/zh_CN/menu.html"/>
+         
+    </url>
+    <url>
          <loc>https://cnshsliu.github.io/mtcdocs/qa.html</loc>
          <lastmod>2023-02-23</lastmod>
          <changefreq>daily</changefreq>
